@@ -30,5 +30,7 @@ namespace MultiplexTrack.Views
             InitializeComponent();
             this.frame = frame;
         }
+
+
     }
 }

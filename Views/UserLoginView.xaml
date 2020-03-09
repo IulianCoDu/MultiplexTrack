@@ -102,7 +102,7 @@
             Grid.Column="3"
             Width="76"
             HorizontalAlignment="Right"
-            Command="{Binding}">
+            Command="{Binding Cancel_Click}">
             Cancel
         </Button>
     </Grid>

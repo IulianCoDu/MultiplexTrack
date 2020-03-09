@@ -1,12 +1,28 @@
-﻿using System;
+﻿using DatabaseAccess.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DatabaseAccess.Repository
 {
-    class UserRepository
+    public class UserRepository : IRepository<UserModel>
     {
+        public void Create(UserModel item)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Delete(UserModel id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IEnumerable<UserModel> GetAll()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Update(UserModel itemOld, UserModel itemNew)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
