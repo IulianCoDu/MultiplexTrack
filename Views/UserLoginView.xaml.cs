@@ -17,7 +17,7 @@ namespace MultiplexTrack.Views
     /// <summary>
     /// Interaction logic for UserLoginView.xaml
     /// </summary>
-    public partial class UserLoginView : Window
+    public partial class UserLoginView : Page
     {
         private Frame frame;
         public UserLoginView()
@@ -30,7 +30,5 @@ namespace MultiplexTrack.Views
             InitializeComponent();
             this.frame = frame;
         }
-
-
     }
 }

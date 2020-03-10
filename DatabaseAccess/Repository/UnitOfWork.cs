@@ -9,7 +9,7 @@ namespace DatabaseAccess.Repository
     public class UnitOfWork
     {
         private EFDBEntities context = new EFDBEntities();
-        public void SaveContext()
+        public void SaveChangesContext()
         {
             context.SaveChanges();
         }
