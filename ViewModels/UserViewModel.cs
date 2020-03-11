@@ -6,32 +6,28 @@ using System;
 
 namespace MultiplexTrack
 {
-    class UserViewModel : ViewModelBase
+    public class UserViewModel : ViewModelBase
     {
         private UnitOfWork unitOfWork;
-        private RelayCommand<Window> Cancel_Click { get; set; }
+        private RelayCommand<Window> _cancelCommand;
 
-        private int cancel_Click_property;
-
-        public int Cancel_Click_property
-        {
-            get { return cancel_Click_property; }
-            set { cancel_Click_property = value; RaisePropertyChanged(() => Cancel_Click_property); }
-        }
 
         public UserViewModel()
         {
             unitOfWork = new UnitOfWork();
 
-            Cancel_Click = new RelayCommand<Window>(CloseWindow);
+            CancelCommand = new RelayCommand<Window>(CloseWindow);
+        }
+
+        public RelayCommand<Window> CancelCommand
+        {
+            get => _cancelCommand;
+            set => Set(ref _cancelCommand,value);
         }
 
         private void CloseWindow(Window window)
         {
-            if (window != null)
-            {
-                window.Close();
-            }
+            window?.Close();
         }
 
         //public ICommand Cancel_Click 
@@ -40,7 +36,7 @@ namespace MultiplexTrack
         //    {
         //        return new RelayCommand(() =>
         //            {
-                        
+
         //            });
         //    } 
         //}
