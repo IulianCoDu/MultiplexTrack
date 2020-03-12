@@ -9,6 +9,9 @@
     Width="800"
     Height="450"
     mc:Ignorable="d">
+    <!--<Page.DataContext>
+        <local:UserLoginView></local:UserLoginView>
+    </Page.DataContext>-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5" />

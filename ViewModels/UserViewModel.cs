@@ -3,32 +3,42 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System.Windows;
 using System;
+using System.Windows.Input;
 
 namespace MultiplexTrack
 {
     public class UserViewModel : ViewModelBase
     {
-        private UnitOfWork unitOfWork;
-        private RelayCommand<Window> _cancelCommand;
-
-
         public UserViewModel()
         {
-            unitOfWork = new UnitOfWork();
-
-            CancelCommand = new RelayCommand<Window>(CloseWindow);
+            //unitOfWork = new UnitOfWork();
+            //CancelCommand = new RelayCommand<Window>(CloseWindow);
+            CancelCommand = new RelayCommand(() => CloseWindow(new Window()));
         }
 
-        public RelayCommand<Window> CancelCommand
+        private UnitOfWork unitOfWork;
+        //private RelayCommand<Window> _cancelCommand;
+        private ICommand _cancelCommand;
+
+        public ICommand CancelCommand
         {
-            get => _cancelCommand;
-            set => Set(ref _cancelCommand,value);
+            get { return _cancelCommand; }
+            set { _cancelCommand = value; }
         }
 
         private void CloseWindow(Window window)
         {
             window?.Close();
         }
+
+
+        //public RelayCommand<Window> CancelCommand
+        //{
+        //    get => _cancelCommand;
+        //    set => Set(ref _cancelCommand,value);
+        //}
+
+
 
         //public ICommand Cancel_Click 
         //{

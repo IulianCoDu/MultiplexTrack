@@ -30,5 +30,18 @@ namespace MultiplexTrack.Views
             InitializeComponent();
             this.frame = frame;
         }
+
+        protected override void OnInitialized(EventArgs e)
+        {
+            base.OnInitialized(e);
+            try
+            {
+                DataContext = new UserViewModel();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+        }
     }
 }
