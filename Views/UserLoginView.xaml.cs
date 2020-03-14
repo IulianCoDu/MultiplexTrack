@@ -43,5 +43,10 @@ namespace MultiplexTrack.Views
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
         }
+
+    //    private void userNameBox_TextChanged(object sender, TextChangedEventArgs e)
+    //    {
+    //        userNameBox.Text = "";
+    //    }
     }
 }

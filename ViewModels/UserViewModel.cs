@@ -11,15 +11,14 @@ namespace MultiplexTrack
     {
         public UserViewModel()
         {
-            //unitOfWork = new UnitOfWork();
-            //CancelCommand = new RelayCommand<Window>(CloseWindow);
+            unitOfWork = new UnitOfWork();
             CancelCommand = new RelayCommand(() => CloseWindow(new Window()));
+            ClearTextBoxCommand = new RelayCommand(() => ClearTextBox());
         }
 
         private UnitOfWork unitOfWork;
-        //private RelayCommand<Window> _cancelCommand;
-        private ICommand _cancelCommand;
 
+        private ICommand _cancelCommand;
         public ICommand CancelCommand
         {
             get { return _cancelCommand; }
@@ -31,24 +30,16 @@ namespace MultiplexTrack
             window?.Close();
         }
 
+        private ICommand _clearTextBoxCommand;
+        public ICommand ClearTextBoxCommand
+        {
+            get { return _clearTextBoxCommand; }
+            set { _clearTextBoxCommand = value; }
+        }
 
-        //public RelayCommand<Window> CancelCommand
-        //{
-        //    get => _cancelCommand;
-        //    set => Set(ref _cancelCommand,value);
-        //}
-
-
-
-        //public ICommand Cancel_Click 
-        //{
-        //    get
-        //    {
-        //        return new RelayCommand(() =>
-        //            {
-
-        //            });
-        //    } 
-        //}
+        private void ClearTextBox()
+        {
+            
+        }
     }
 }

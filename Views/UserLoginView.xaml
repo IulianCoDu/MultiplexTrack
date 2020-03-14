@@ -9,9 +9,6 @@
     Width="800"
     Height="450"
     mc:Ignorable="d">
-    <!--<Page.DataContext>
-        <local:UserLoginView></local:UserLoginView>
-    </Page.DataContext>-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5" />
@@ -48,13 +45,12 @@
             Username:
         </TextBlock>
         <TextBox
-            x:Name="userName"
+            x:Name="userNameBox"
             Grid.Row="1"
             Grid.Column="3"
             MinWidth="100"
-            Margin="10">
-            Insert UserName
-        </TextBox>
+            Margin="10"
+            Text="{Binding ClearTextBoxCommand}" />
 
         <!--  Password row  -->
         <TextBlock
@@ -64,7 +60,7 @@
             Password:
         </TextBlock>
         <TextBox
-            x:Name="password"
+            x:Name="passwordBox"
             Grid.Row="2"
             Grid.Column="3"
             MinWidth="100"
@@ -86,7 +82,8 @@
             Grid.Row="3"
             Grid.Column="2"
             Width="76"
-            HorizontalAlignment="Right">
+            HorizontalAlignment="Right"
+            Command="{Binding ClearTextBoxCommand}">
             Clear
         </Button>
         <!--  Register button row  -->
