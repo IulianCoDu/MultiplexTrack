@@ -9,37 +9,39 @@ namespace MultiplexTrack
 {
     public class UserViewModel : ViewModelBase
     {
+        private UnitOfWork unitOfWork;
+        private ICommand _cancelCommand;
+        private string _text;
+
         public UserViewModel()
         {
             unitOfWork = new UnitOfWork();
-            CancelCommand = new RelayCommand(() => CloseWindow(new Window()));
-            ClearTextBoxCommand = new RelayCommand(() => ClearTextBox());
+            //CancelCommand = new RelayCommand(() => CloseWindow(new Window()));
         }
 
-        private UnitOfWork unitOfWork;
+        //public ICommand CancelCommand
+        //{
+        //    get { return _cancelCommand; }
+        //    set { _cancelCommand = value; }
+        //}
 
-        private ICommand _cancelCommand;
-        public ICommand CancelCommand
+        //private void CloseWindow(Window window)
+        //{
+        //    window?.Close();
+        //}
+
+        public string FocusTextBox
         {
-            get { return _cancelCommand; }
-            set { _cancelCommand = value; }
+            get { return _text; }
+            set {
+                if (_text != null)
+                {
+                    _text = null;
+                    RaisePropertyChanged("ClearTextBoxCommand");
+                }
+            }
         }
 
-        private void CloseWindow(Window window)
-        {
-            window?.Close();
-        }
 
-        private ICommand _clearTextBoxCommand;
-        public ICommand ClearTextBoxCommand
-        {
-            get { return _clearTextBoxCommand; }
-            set { _clearTextBoxCommand = value; }
-        }
-
-        private void ClearTextBox()
-        {
-            
-        }
     }
 }

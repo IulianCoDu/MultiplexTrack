@@ -36,7 +36,6 @@
             TextWrapping="Wrap">
             Login Form
         </TextBlock>
-
         <!--  Username row  -->
         <TextBlock
             Grid.Row="1"
@@ -50,7 +49,7 @@
             Grid.Column="3"
             MinWidth="100"
             Margin="10"
-            Text="{Binding ClearTextBoxCommand}" />
+            Text="Insert Username" />
 
         <!--  Password row  -->
         <TextBlock
@@ -64,9 +63,9 @@
             Grid.Row="2"
             Grid.Column="3"
             MinWidth="100"
-            Margin="10">
-            Insert Password
-        </TextBox>
+            Margin="10"
+            GotFocus="{Binding FocusTextBox}"
+            Text="Insert Password" />
         <!--  Login button row  -->
         <Button
             x:Name="loginButton"
@@ -82,8 +81,7 @@
             Grid.Row="3"
             Grid.Column="2"
             Width="76"
-            HorizontalAlignment="Right"
-            Command="{Binding ClearTextBoxCommand}">
+            HorizontalAlignment="Right">
             Clear
         </Button>
         <!--  Register button row  -->
@@ -101,8 +99,7 @@
             Grid.Row="3"
             Grid.Column="3"
             Width="76"
-            HorizontalAlignment="Right"
-            Command="{Binding CancelCommand}">
+            HorizontalAlignment="Right">
             Cancel
         </Button>
     </Grid>
