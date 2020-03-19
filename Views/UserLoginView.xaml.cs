@@ -43,15 +43,5 @@ namespace MultiplexTrack.Views
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
         }
-
-        private void passwordBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        //private void userNameBox_TextChanged(object sender, TextChangedEventArgs e)
-        //{
-        //    userNameBox.Text = "";
-        //}
     }
 }

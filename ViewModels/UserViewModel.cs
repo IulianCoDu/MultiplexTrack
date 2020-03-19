@@ -2,46 +2,45 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System.Windows;
-using System;
 using System.Windows.Input;
+using System.Windows.Controls;
 
 namespace MultiplexTrack
 {
     public class UserViewModel : ViewModelBase
     {
         private UnitOfWork unitOfWork;
+        private ICommand _loginCommand;
         private ICommand _cancelCommand;
-        private string _text;
 
         public UserViewModel()
         {
             unitOfWork = new UnitOfWork();
-            //CancelCommand = new RelayCommand(() => CloseWindow(new Window()));
+            LoginCommand = new RelayCommand(() => Login());
+            CancelCommand = new RelayCommand(() => Close());
         }
 
-        //public ICommand CancelCommand
-        //{
-        //    get { return _cancelCommand; }
-        //    set { _cancelCommand = value; }
-        //}
-
-        //private void CloseWindow(Window window)
-        //{
-        //    window?.Close();
-        //}
-
-        public string FocusTextBox
+        public ICommand LoginCommand
         {
-            get { return _text; }
-            set {
-                if (_text != null)
-                {
-                    _text = null;
-                    RaisePropertyChanged("ClearTextBoxCommand");
-                }
-            }
+            get { return _loginCommand; }
+            set { _loginCommand = value; }
         }
 
+        public ICommand CancelCommand
+        {
+            get { return _cancelCommand; }
+            set { _cancelCommand = value; }
+        }
 
+        public string UserName { get; set; }
+
+        private void Close()
+        {
+            Application.Current.Shutdown();
+        }
+        private void Login()
+        {
+
+        }
     }
 }
