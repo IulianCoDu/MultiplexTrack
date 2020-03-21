@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight.Command;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Controls;
+using DatabaseAccess.Models;
 
 namespace MultiplexTrack
 {
@@ -12,6 +13,17 @@ namespace MultiplexTrack
         private UnitOfWork unitOfWork;
         private ICommand _loginCommand;
         private ICommand _cancelCommand;
+
+        private string _userNameText;
+        public string UserNameText
+        {
+            get { return _userNameText; }
+            set { _userNameText = value;
+                RaisePropertyChanged(UserNameText);
+                RaisePropertyChanged("UserNameText");
+
+            }
+        }
 
         public UserViewModel()
         {
@@ -23,7 +35,7 @@ namespace MultiplexTrack
         public ICommand LoginCommand
         {
             get { return _loginCommand; }
-            set { _loginCommand = value; }
+            set { _loginCommand = value;}
         }
 
         public ICommand CancelCommand
@@ -32,15 +44,13 @@ namespace MultiplexTrack
             set { _cancelCommand = value; }
         }
 
-        public string UserName { get; set; }
-
         private void Close()
         {
             Application.Current.Shutdown();
         }
         private void Login()
         {
-
+            string userName = _userNameText;
         }
     }
 }
