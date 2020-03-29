@@ -66,6 +66,7 @@
             Grid.Row="2"
             Grid.Column="3"
             VerticalAlignment="Center"
+            Text="{Binding PasswordText}"
             Watermark="Insert Password" />
 
         <Button
@@ -74,12 +75,7 @@
             Grid.Column="2"
             Width="76"
             HorizontalAlignment="Left"
-            Command="{Binding LoginCommand}"
-            Content="Login">
-            <Button.DataContext>
-                <MultiplexTrack:UserViewModel />
-            </Button.DataContext>
-        </Button>
+            Content="Login" />
         <!--  Clear button row  -->
         <Button
             x:Name="clearButton"
@@ -87,6 +83,7 @@
             Grid.Column="2"
             Width="76"
             HorizontalAlignment="Right"
+            Command="{Binding ClearCommand}"
             Content="Clear" />
         <!--  Register button row  -->
         <Button

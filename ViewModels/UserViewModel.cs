@@ -11,19 +11,18 @@ namespace MultiplexTrack
     public class UserViewModel : ViewModelBase
     {
         private UnitOfWork unitOfWork;
+        private string _userNameText;
         private ICommand _loginCommand;
         private ICommand _cancelCommand;
+        private ICommand _clearCommand;
+        private string _passwordText;
 
-        private string _userNameText;
-        public string UserNameText
+        public string PasswordText
         {
-            get { return _userNameText; }
-            set { _userNameText = value;
-                RaisePropertyChanged(UserNameText);
-                RaisePropertyChanged("UserNameText");
-
-            }
+            get { return _passwordText; }
+            set { Set (ref _passwordText, value); }
         }
+
 
         public UserViewModel()
         {
@@ -32,25 +31,37 @@ namespace MultiplexTrack
             CancelCommand = new RelayCommand(() => Close());
         }
 
+        public string UserNameText
+        {
+            get { return _userNameText; }
+            set { Set (ref _userNameText, value);}
+        }
+
         public ICommand LoginCommand
         {
             get { return _loginCommand; }
-            set { _loginCommand = value;}
+            set { Set (ref _loginCommand, value);}
         }
-
+        public ICommand ClearCommand
+        {
+            get { return _clearCommand; }
+            set { Set(ref _clearCommand, value); }
+        }
         public ICommand CancelCommand
         {
             get { return _cancelCommand; }
-            set { _cancelCommand = value; }
+            set { Set(ref _cancelCommand, value); }
+        }
+
+
+        private void Login()
+        {
+            string userName = _userNameText;
         }
 
         private void Close()
         {
             Application.Current.Shutdown();
-        }
-        private void Login()
-        {
-            string userName = _userNameText;
         }
     }
 }
