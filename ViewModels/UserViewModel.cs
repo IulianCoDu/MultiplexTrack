@@ -12,10 +12,10 @@ namespace MultiplexTrack
     {
         private UnitOfWork unitOfWork;
         private string _userNameText;
+        private string _passwordText;
         private ICommand _loginCommand;
         private ICommand _cancelCommand;
         private ICommand _clearCommand;
-        private string _passwordText;
 
         public string PasswordText
         {
@@ -28,6 +28,7 @@ namespace MultiplexTrack
         {
             unitOfWork = new UnitOfWork();
             LoginCommand = new RelayCommand(() => Login());
+            ClearCommand = new RelayCommand(() => Clear());
             CancelCommand = new RelayCommand(() => Close());
         }
 
@@ -53,10 +54,15 @@ namespace MultiplexTrack
             set { Set(ref _cancelCommand, value); }
         }
 
-
         private void Login()
         {
             string userName = _userNameText;
+        }
+
+        private void Clear()
+        {
+            UserNameText = "";
+            PasswordText = "";
         }
 
         private void Close()
