@@ -17,13 +17,6 @@ namespace MultiplexTrack
         private ICommand _cancelCommand;
         private ICommand _clearCommand;
 
-        public string PasswordText
-        {
-            get { return _passwordText; }
-            set { Set (ref _passwordText, value); }
-        }
-
-
         public UserViewModel()
         {
             unitOfWork = new UnitOfWork();
@@ -37,12 +30,29 @@ namespace MultiplexTrack
             get { return _userNameText; }
             set { Set (ref _userNameText, value);}
         }
+        public string PasswordText
+        {
+            get { return _passwordText; }
+            set { Set(ref _passwordText, value); }
+        }
+
+        //public ICommand LoginCommand
+        //{
+        //    get { return _loginCommand; }
+        //    set { Set (ref _loginCommand, value);}
+        //}
 
         public ICommand LoginCommand
         {
-            get { return _loginCommand; }
-            set { Set (ref _loginCommand, value);}
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    var test = unitOfWork.SaveChangesContext();
+                });
+            }
         }
+
         public ICommand ClearCommand
         {
             get { return _clearCommand; }

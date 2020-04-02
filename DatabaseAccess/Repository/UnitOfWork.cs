@@ -9,13 +9,20 @@ namespace DatabaseAccess.Repository
     public class UnitOfWork
     {
         private EFDBEntities context = new EFDBEntities();
-        public void SaveChangesContext()
+        private UserRepository userRepository;
+        public void SaveChangesCustom()
         {
             context.SaveChanges();
         }
-        public void DisposeContext()
+        public void DisposeCustom()
         {
             context.Dispose();
         }
+
+        public UserRepository User
+        { get
+            {
+                return userRepository;                
+            } }
     }
 }
