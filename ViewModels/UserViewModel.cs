@@ -3,8 +3,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Controls;
-using DatabaseAccess.Models;
+using System.Linq;
 
 namespace MultiplexTrack
 {
@@ -20,6 +19,8 @@ namespace MultiplexTrack
         public UserViewModel()
         {
             unitOfWork = new UnitOfWork();
+            //var users = unitOfWork.GetUser.GetAll().ToList();
+
             LoginCommand = new RelayCommand(() => Login());
             ClearCommand = new RelayCommand(() => Clear());
             CancelCommand = new RelayCommand(() => Close());
@@ -48,9 +49,10 @@ namespace MultiplexTrack
             {
                 return new RelayCommand(() =>
                 {
-                    var test = unitOfWork.SaveChangesContext();
+                    var users = unitOfWork.GetUser.GetAll().ToList();
                 });
             }
+            set { Set(ref _userNameText, value); }
         }
 
         public ICommand ClearCommand

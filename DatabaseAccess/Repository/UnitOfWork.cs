@@ -6,15 +6,28 @@ using System.Threading.Tasks;
 
 namespace DatabaseAccess.Repository
 {
-    public class UnitOfWork
+    public class UnitOfWork : IDisposable
     {
-        private EFDBEntities context = new EFDBEntities();
-        private UserRepository userRepository;
+        private EFDBEntitiesContext context = new EFDBEntitiesContext();
+        private UserRepository _userRepository;
+
+        public UserRepository GetUser
+        {
+            get 
+            {
+                if (_userRepository == null)
+                {
+                    _userRepository = new UserRepository(context);
+                }
+                return _userRepository; 
+            }
+        }
+
         public void SaveChangesCustom()
         {
             context.SaveChanges();
         }
-        public void DisposeCustom()
+        public void Dispose()
         {
             context.Dispose();
         }
@@ -22,7 +35,7 @@ namespace DatabaseAccess.Repository
         public UserRepository User
         { get
             {
-                return userRepository;                
+                return _userRepository;                
             } }
     }
 }

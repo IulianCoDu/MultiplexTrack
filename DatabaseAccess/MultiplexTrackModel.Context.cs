@@ -13,9 +13,9 @@ namespace DatabaseAccess
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EFDBEntities : DbContext
+    public partial class EFDBEntitiesContext : DbContext
     {
-        public EFDBEntities()
+        public EFDBEntitiesContext()
             : base("name=EFDBEntities")
         {
         }

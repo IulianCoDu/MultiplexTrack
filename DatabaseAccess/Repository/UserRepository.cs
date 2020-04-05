@@ -5,6 +5,12 @@ namespace DatabaseAccess.Repository
 {
     public class UserRepository : IRepository<UserModel>
     {
+        private EFDBEntitiesContext context;
+        public UserRepository(EFDBEntitiesContext context)
+        {
+            this.context = context;
+        }
+
         public void Create(UserModel item)
         {
             throw new System.NotImplementedException();
