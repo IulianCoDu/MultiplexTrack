@@ -8,7 +8,7 @@ namespace DatabaseAccess.Repository
 {
     public class UnitOfWork : IDisposable
     {
-        private EFDBEntitiesContext context = new EFDBEntitiesContext();
+        private MultiplexTrackDbContext context = new MultiplexTrackDbContext();
         private UserRepository _userRepository;
 
         public UserRepository GetUser

@@ -3,30 +3,30 @@ using System.Collections.Generic;
 
 namespace DatabaseAccess.Repository
 {
-    public class UserRepository : IRepository<UserModel>
+    public class UserRepository : IRepository<User>
     {
-        private EFDBEntitiesContext context;
-        public UserRepository(EFDBEntitiesContext context)
+        private MultiplexTrackDbContext context;
+        public UserRepository(MultiplexTrackDbContext context)
         {
             this.context = context;
         }
 
-        public void Create(UserModel item)
+        public void Create(User item)
         {
             throw new System.NotImplementedException();
         }
 
-        public void Delete(UserModel id)
+        public void Delete(User id)
         {
             throw new System.NotImplementedException();
         }
 
-        public IEnumerable<UserModel> GetAll()
+        public IEnumerable<User> GetAll()
         {
-            throw new System.NotImplementedException();
+            return context.Users;
         }
 
-        public void Update(UserModel itemOld, UserModel itemNew)
+        public void Update(User itemOld, User itemNew)
         {
             throw new System.NotImplementedException();
         }

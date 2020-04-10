@@ -13,10 +13,10 @@ namespace DatabaseAccess
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EFDBEntitiesContext : DbContext
+    public partial class MultiplexTrackDbContext : DbContext
     {
-        public EFDBEntitiesContext()
-            : base("name=EFDBEntities")
+        public MultiplexTrackDbContext()
+            : base("name=MultiplexTrackDbContext")
         {
         }
     
@@ -25,6 +25,6 @@ namespace DatabaseAccess
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

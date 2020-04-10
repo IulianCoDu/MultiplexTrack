@@ -58,38 +58,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer.cs">
-      <DependentUpon>MultiplexTrackModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserModel.cs" />
-    <Compile Include="MultiplexTrackModel.Context.cs">
+    <Compile Include="Models\OBSOLETEUserModel.cs" />
+    <Compile Include="MultiplexTrackDbContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MultiplexTrackModel.Context.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDbContext.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="MultiplexTrackModel.cs">
+    <Compile Include="MultiplexTrackDbContext.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MultiplexTrackModel.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="MultiplexTrackModel.Designer.cs">
+    <Compile Include="MultiplexTrackDbContext.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MultiplexTrackModel.edmx</DependentUpon>
+      <DependentUpon>MultiplexTrackDbContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\UnitOfWork.cs" />
     <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="User.cs">
+      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="MultiplexTrackModel.edmx">
+    <EntityDeploy Include="MultiplexTrackDbContext.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MultiplexTrackModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>MultiplexTrackDbContext.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="MultiplexTrackModel.edmx.diagram">
-      <DependentUpon>MultiplexTrackModel.edmx</DependentUpon>
+    <None Include="MultiplexTrackDbContext.edmx.diagram">
+      <DependentUpon>MultiplexTrackDbContext.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -97,15 +97,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MultiplexTrackModel.Context.tt">
+    <Content Include="MultiplexTrackDbContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MultiplexTrackModel.edmx</DependentUpon>
-      <LastGenOutput>MultiplexTrackModel.Context.cs</LastGenOutput>
+      <DependentUpon>MultiplexTrackDbContext.edmx</DependentUpon>
+      <LastGenOutput>MultiplexTrackDbContext.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="MultiplexTrackModel.tt">
+    <Content Include="MultiplexTrackDbContext.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MultiplexTrackModel.edmx</DependentUpon>
-      <LastGenOutput>MultiplexTrackModel.cs</LastGenOutput>
+      <DependentUpon>MultiplexTrackDbContext.edmx</DependentUpon>
+      <LastGenOutput>MultiplexTrackDbContext.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

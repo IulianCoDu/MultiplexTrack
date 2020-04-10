@@ -52,7 +52,7 @@ namespace MultiplexTrack
                     var users = unitOfWork.GetUser.GetAll().ToList();
                 });
             }
-            set { Set(ref _userNameText, value); }
+            set { Set(ref _loginCommand, value); }
         }
 
         public ICommand ClearCommand
