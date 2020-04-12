@@ -4,6 +4,8 @@ using GalaSoft.MvvmLight.Command;
 using System.Windows;
 using System.Windows.Input;
 using System.Linq;
+using DatabaseAccess;
+using System.Collections.Generic;
 
 namespace MultiplexTrack
 {
@@ -19,7 +21,6 @@ namespace MultiplexTrack
         public UserViewModel()
         {
             unitOfWork = new UnitOfWork();
-            //var users = unitOfWork.GetUser.GetAll().ToList();
 
             LoginCommand = new RelayCommand(() => Login());
             ClearCommand = new RelayCommand(() => Clear());
@@ -49,7 +50,30 @@ namespace MultiplexTrack
             {
                 return new RelayCommand(() =>
                 {
-                    var users = unitOfWork.GetUser.GetAll().ToList();
+                    bool loginSuccesfull = false;
+                    if (UserNameText == null || PasswordText == null)
+                    {
+                        MessageBox.Show("The User and/or Password can't be empty");
+                        return;
+                    }
+
+                    List<Users> users = unitOfWork.GetUser.GetAll().ToList();
+
+                    foreach (Users user in users)
+                    {
+                        if (UserNameText == user.User && PasswordText == user.Password)
+                        {
+                            loginSuccesfull = true;
+                            MessageBox.Show("Login Successfull!");
+                            return;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Login Failed! Try again!");
+                            return;
+                        }
+                    }
+                    
                 });
             }
             set { Set(ref _loginCommand, value); }
