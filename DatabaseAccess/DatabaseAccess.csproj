@@ -108,6 +108,9 @@
       <LastGenOutput>MultiplexTrackDbContext.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DatabaseDump\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

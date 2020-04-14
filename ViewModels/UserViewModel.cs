@@ -6,14 +6,15 @@ using System.Windows.Input;
 using System.Linq;
 using DatabaseAccess;
 using System.Collections.Generic;
+using System.Security;
 
 namespace MultiplexTrack
 {
     public class UserViewModel : ViewModelBase
     {
         private UnitOfWork unitOfWork;
-        private string _userNameText;
-        private string _passwordText;
+        private string _userName;
+        private string _password;
         private ICommand _loginCommand;
         private ICommand _cancelCommand;
         private ICommand _clearCommand;
@@ -29,13 +30,13 @@ namespace MultiplexTrack
 
         public string UserNameText
         {
-            get { return _userNameText; }
-            set { Set (ref _userNameText, value);}
+            get { return _userName; }
+            set { Set (ref _userName, value);}
         }
         public string PasswordText
         {
-            get { return _passwordText; }
-            set { Set(ref _passwordText, value); }
+            get { return _password; }
+            set { Set(ref _password, value); }
         }
 
         //public ICommand LoginCommand
@@ -58,18 +59,19 @@ namespace MultiplexTrack
                     }
 
                     List<Users> users = unitOfWork.GetUser.GetAll().ToList();
-
                     foreach (Users user in users)
                     {
                         if (UserNameText == user.User && PasswordText == user.Password)
                         {
                             loginSuccesfull = true;
                             MessageBox.Show("Login Successfull!");
+                            Clear();
                             return;
                         }
                         else
                         {
                             MessageBox.Show("Login Failed! Try again!");
+                            Clear();
                             return;
                         }
                     }
@@ -92,7 +94,7 @@ namespace MultiplexTrack
 
         private void Login()
         {
-            string userName = _userNameText;
+            string userName = _userName;
         }
 
         private void Clear()
