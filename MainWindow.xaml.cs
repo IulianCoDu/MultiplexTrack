@@ -24,7 +24,7 @@ namespace MultiplexTrack
         public MainWindow()
         {
             InitializeComponent();
-            Frame.Navigate(new UserLoginView(Frame));
+            Frame.Navigate(new UserView(Frame));
         }
     }
 }

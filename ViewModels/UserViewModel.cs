@@ -7,23 +7,28 @@ using System.Linq;
 using DatabaseAccess;
 using System.Collections.Generic;
 using System.Security;
+using System;
 
 namespace MultiplexTrack
 {
     public class UserViewModel : ViewModelBase
     {
-        private UnitOfWork unitOfWork;
+        //private UnitOfWork unitOfWork;
+        private MultiplexTrackDbContext databaseContext;
+
         private string _userName;
         private string _password;
         private ICommand _loginCommand;
+        private ICommand _registerCommand;
         private ICommand _cancelCommand;
         private ICommand _clearCommand;
 
         public UserViewModel()
         {
-            unitOfWork = new UnitOfWork();
+            databaseContext = new MultiplexTrackDbContext();
 
             LoginCommand = new RelayCommand(() => Login());
+            RegisterCommand = new RelayCommand(() => Register());
             ClearCommand = new RelayCommand(() => Clear());
             CancelCommand = new RelayCommand(() => Close());
         }
@@ -39,12 +44,6 @@ namespace MultiplexTrack
             set { Set(ref _password, value); }
         }
 
-        //public ICommand LoginCommand
-        //{
-        //    get { return _loginCommand; }
-        //    set { Set (ref _loginCommand, value);}
-        //}
-
         public ICommand LoginCommand
         {
             get
@@ -58,10 +57,11 @@ namespace MultiplexTrack
                         return;
                     }
 
-                    List<Users> users = unitOfWork.GetUser.GetAll().ToList();
+                    var users = databaseContext.Users;
+
                     foreach (Users user in users)
                     {
-                        if (UserNameText == user.User && PasswordText == user.Password)
+                        if (UserNameText == user.User)// && PasswordText == user.Password)
                         {
                             loginSuccesfull = true;
                             MessageBox.Show("Login Successfull!");
@@ -78,8 +78,26 @@ namespace MultiplexTrack
                     
                 });
             }
-            set { Set(ref _loginCommand, value); }
+            set { Set(ref _loginCommand, value); } // TODO: Read about this custom Set
         }
+
+        public ICommand Register()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICommand RegisterCommand
+        {
+            get
+            {
+                return new RelayCommand(() => // TODO: Read about Relay command and this way of writing it
+                {
+
+                });
+            }
+            set { Set(ref _registerCommand, value); } // TODO: Read about this custom Set
+        }
+
 
         public ICommand ClearCommand
         {
