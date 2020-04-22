@@ -8,6 +8,8 @@ using DatabaseAccess;
 using System.Collections.Generic;
 using System.Security;
 using System;
+using System.Windows.Controls;
+using MultiplexTrack.Views;
 
 namespace MultiplexTrack
 {
@@ -28,7 +30,7 @@ namespace MultiplexTrack
             databaseContext = new MultiplexTrackDbContext();
 
             LoginCommand = new RelayCommand(() => Login());
-            RegisterCommand = new RelayCommand(() => Register());
+            //RegisterCommand = new RelayCommand(() => Register());
             ClearCommand = new RelayCommand(() => Clear());
             CancelCommand = new RelayCommand(() => Close());
         }
@@ -79,11 +81,6 @@ namespace MultiplexTrack
                 });
             }
             set { Set(ref _loginCommand, value); } // TODO: Read about this custom Set
-        }
-
-        public ICommand Register()
-        {
-            throw new NotImplementedException();
         }
 
         public ICommand RegisterCommand

@@ -36,7 +36,8 @@
             VerticalAlignment="Top"
             FontFamily="Segoe UI Light"
             FontSize="30"
-            TextWrapping="Wrap"><Run Text="Login Form" /></TextBlock>
+            Text="Login Form"
+            TextWrapping="Wrap" />
 
         <!--  Username Text  -->
         <TextBlock
