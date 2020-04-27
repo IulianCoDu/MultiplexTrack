@@ -1,13 +1,8 @@
-﻿using DatabaseAccess.Repository;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System.Windows;
 using System.Windows.Input;
-using System.Linq;
 using DatabaseAccess;
-using System.Collections.Generic;
-using System.Security;
-using System;
 using System.Windows.Controls;
 using MultiplexTrack.Views;
 
@@ -15,7 +10,6 @@ namespace MultiplexTrack
 {
     public class UserViewModel : ViewModelBase
     {
-        //private UnitOfWork unitOfWork;
         private MultiplexTrackDbContext databaseContext;
 
         private string _userName;
@@ -30,7 +24,7 @@ namespace MultiplexTrack
             databaseContext = new MultiplexTrackDbContext();
 
             LoginCommand = new RelayCommand(() => Login());
-            //RegisterCommand = new RelayCommand(() => Register());
+            RegisterCommand = new RelayCommand(() => Register());
             ClearCommand = new RelayCommand(() => Clear());
             CancelCommand = new RelayCommand(() => Close());
         }
@@ -83,13 +77,14 @@ namespace MultiplexTrack
             set { Set(ref _loginCommand, value); } // TODO: Read about this custom Set
         }
 
+        private Frame Frame;
         public ICommand RegisterCommand
         {
             get
             {
                 return new RelayCommand(() => // TODO: Read about Relay command and this way of writing it
                 {
-
+                    this.Frame.Navigate(new UserRegister(this.Frame));
                 });
             }
             set { Set(ref _registerCommand, value); } // TODO: Read about this custom Set
@@ -101,15 +96,26 @@ namespace MultiplexTrack
             get { return _clearCommand; }
             set { Set(ref _clearCommand, value); }
         }
+
         public ICommand CancelCommand
         {
             get { return _cancelCommand; }
             set { Set(ref _cancelCommand, value); }
         }
+        private void Close()
+        {
+            Application.Current.Shutdown();
+        }
 
+        // This is not used
         private void Login()
         {
             string userName = _userName;
+        }
+
+        private void Register()
+        {
+            //Frame.Navigate(new UserRegister(Frame));
         }
 
         private void Clear()
@@ -118,9 +124,5 @@ namespace MultiplexTrack
             PasswordText = "";
         }
 
-        private void Close()
-        {
-            Application.Current.Shutdown();
-        }
     }
 }

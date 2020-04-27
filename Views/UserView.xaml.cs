@@ -27,9 +27,9 @@ namespace MultiplexTrack.Views
 
         public UserView(Frame frame)
         {
-            InitializeComponent();
-            this.frame = frame;
-        }
+                InitializeComponent();
+                this.frame = frame;
+            }
 
         protected override void OnInitialized(EventArgs e)
         {

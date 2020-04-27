@@ -20,7 +20,7 @@ namespace MultiplexTrack.Views
     /// </summary>
     public partial class UserRegister : Page
     {
-        private Frame frame;
+        private Frame _frame;
         public UserRegister()
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace MultiplexTrack.Views
         public UserRegister(Frame frame)
         {
             InitializeComponent();
-            this.frame = frame;
+            this._frame = frame;
         }
     }
 }
