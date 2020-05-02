@@ -11,9 +11,8 @@
     mc:Ignorable="d">
     <Grid>
         <Frame
-            x:Name="Frame"
-            Margin="3"
-            Content="LoginFrame"
-            NavigationUIVisibility="Visible" />
+            x:Name="MainFrame"
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch" />
     </Grid>
 </Window>

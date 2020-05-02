@@ -1,4 +1,4 @@
-﻿using MultiplexTrack.Views;
+﻿using MultiplexTrack.View;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -12,7 +12,7 @@ namespace MultiplexTrack
         public MainWindow()
         {
             InitializeComponent();
-            Frame.Navigate(new UserView(Frame));
+            MainFrame.Navigate(new UserView(MainFrame));
         }
     }
 }

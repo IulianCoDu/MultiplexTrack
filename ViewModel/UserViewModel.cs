@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Input;
 using DatabaseAccess;
 using System.Windows.Controls;
-using MultiplexTrack.Views;
+using MultiplexTrack.View;
 
 namespace MultiplexTrack
 {
@@ -77,14 +77,13 @@ namespace MultiplexTrack
             set { Set(ref _loginCommand, value); } // TODO: Read about this custom Set
         }
 
-        private Frame Frame;
         public ICommand RegisterCommand
         {
             get
             {
                 return new RelayCommand(() => // TODO: Read about Relay command and this way of writing it
                 {
-                    this.Frame.Navigate(new UserRegister(this.Frame));
+
                 });
             }
             set { Set(ref _registerCommand, value); } // TODO: Read about this custom Set

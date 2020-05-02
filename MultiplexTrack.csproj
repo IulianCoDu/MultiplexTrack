@@ -83,11 +83,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModels\UserViewModel.cs" />
-    <Compile Include="Views\UserRegister.xaml.cs">
+    <Compile Include="Helpers\FrameNavigationService.cs" />
+    <Compile Include="Helpers\IFrameNavigationService.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
+    <Compile Include="View\UserRegister.xaml.cs">
       <DependentUpon>UserRegister.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserView.xaml.cs">
+    <Compile Include="View\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -102,11 +104,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\UserRegister.xaml">
+    <Page Include="View\UserRegister.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UserView.xaml">
+    <Page Include="View\UserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,6 +149,7 @@
       <Name>DatabaseAccess</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="MultiplexTrack.Views.UserView"
+    x:Class="MultiplexTrack.View.UserView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:MultiplexTrack="clr-namespace:MultiplexTrack"
