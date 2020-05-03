@@ -114,7 +114,7 @@ namespace MultiplexTrack
 
         private void Register()
         {
-            //Frame.Navigate(new UserRegister(Frame));
+            //Frame.Navigate(new UserRegisterView(Frame));
         }
 
         private void Clear()

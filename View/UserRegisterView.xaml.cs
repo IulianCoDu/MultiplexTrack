@@ -16,17 +16,17 @@ using System.Windows.Shapes;
 namespace MultiplexTrack.View
 {
     /// <summary>
-    /// Interaction logic for UserRegister.xaml
+    /// Interaction logic for UserRegisterView.xaml
     /// </summary>
-    public partial class UserRegister : Page
+    public partial class UserRegisterView : Page
     {
         private Frame _frame;
-        public UserRegister()
+        public UserRegisterView()
         {
             InitializeComponent();
         }
 
-        public UserRegister(Frame frame)
+        public UserRegisterView(Frame frame)
         {
             InitializeComponent();
             this._frame = frame;
