@@ -19,15 +19,15 @@ namespace MultiplexTrack.ViewModel
         private static void SetupNavigation()
         {
             var navigationService = new FrameNavigationService();
-            navigationService.Configure("Home", new Uri("../View/UserRegisterView.xaml", UriKind.Relative));
-            navigationService.Configure("Page1", new Uri("../View/UserLoginView.xaml", UriKind.Relative));
+            navigationService.Configure("UserRegisterView", new Uri("../View/UserRegisterView.xaml", UriKind.Relative));
+            navigationService.Configure("UserLoginView", new Uri("../View/UserLoginView.xaml", UriKind.Relative));
             SimpleIoc.Default.Register<IFrameNavigationService>(() => navigationService);
         }
         public MainViewModel MainViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
+                return SimpleIoc.Default.GetInstance<MainViewModel>();
             }
         }
 
@@ -35,7 +35,7 @@ namespace MultiplexTrack.ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<UserViewModel>();
+                return SimpleIoc.Default.GetInstance<UserViewModel>();
             }
         }
     }
