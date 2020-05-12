@@ -9,6 +9,7 @@
     Title="UserLoginView"
     Width="800"
     Height="450"
+    DataContext="{Binding UserLoginViewModel, Source={StaticResource Locator}}"
     mc:Ignorable="d">
     <Grid>
         <!--  Column and Row Definition  -->

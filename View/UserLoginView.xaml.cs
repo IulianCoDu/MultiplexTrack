@@ -25,23 +25,23 @@ namespace MultiplexTrack.View
             InitializeComponent();
         }
 
-        public UserLoginView(Frame frame)
-        {
-                InitializeComponent();
-                this.frame = frame;
-            }
+        //public UserLoginView(Frame frame)
+        //{
+        //        InitializeComponent();
+        //        this.frame = frame;
+        //    }
 
-        protected override void OnInitialized(EventArgs e)
-        {
-            base.OnInitialized(e);
-            try
-            {
-                DataContext = new UserViewModel();
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.Message);
-            }
-        }
+        //protected override void OnInitialized(EventArgs e)
+        //{
+        //    base.OnInitialized(e);
+        //    try
+        //    {
+        //        DataContext = new UserViewModel();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        System.Diagnostics.Debug.WriteLine(ex.Message);
+        //    }
+        //}
     }
 }

@@ -92,7 +92,8 @@
     <Compile Include="Helpers\FrameNavigationService.cs" />
     <Compile Include="Helpers\IFrameNavigationService.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\UserViewModel.cs" />
+    <Compile Include="ViewModel\UserLoginViewModel.cs" />
+    <Compile Include="ViewModel\UserRegisterViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\UserRegisterView.xaml.cs">
       <DependentUpon>UserRegisterView.xaml</DependentUpon>

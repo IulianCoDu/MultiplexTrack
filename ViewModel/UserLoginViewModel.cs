@@ -3,30 +3,49 @@ using GalaSoft.MvvmLight.Command;
 using System.Windows;
 using System.Windows.Input;
 using DatabaseAccess;
-using System.Windows.Controls;
-using MultiplexTrack.View;
+using MultiplexTrack.Helpers;
 
 namespace MultiplexTrack
 {
-    public class UserViewModel : ViewModelBase
+    public class UserLoginViewModel : ViewModelBase
     {
+        private IFrameNavigationService _navigationService;
+
         private MultiplexTrackDbContext databaseContext;
 
         private string _userName;
         private string _password;
         private ICommand _loginCommand;
-        private ICommand _registerCommand;
+        //private ICommand _registerCommand;
         private ICommand _cancelCommand;
         private ICommand _clearCommand;
 
-        public UserViewModel()
+        public UserLoginViewModel(IFrameNavigationService navigationService)
         {
+            _navigationService = navigationService;
+
+
             databaseContext = new MultiplexTrackDbContext();
 
             LoginCommand = new RelayCommand(() => Login());
-            RegisterCommand = new RelayCommand(() => Register());
+            //RegisterCommand = new RelayCommand(() => Register());
             ClearCommand = new RelayCommand(() => Clear());
             CancelCommand = new RelayCommand(() => Close());
+        }
+
+        private RelayCommand _registerCommand;
+
+        public RelayCommand RegisterCommand
+        {
+            get
+            {
+                return _registerCommand
+                       ?? (_registerCommand = new RelayCommand(
+                           () =>
+                           {
+                               _navigationService.NavigateTo("UserRegisterView");
+                           }));
+            }
         }
 
         public string UserNameText
@@ -75,18 +94,6 @@ namespace MultiplexTrack
                 });
             }
             set { Set(ref _loginCommand, value); } // TODO: Read about this custom Set
-        }
-
-        public ICommand RegisterCommand
-        {
-            get
-            {
-                return new RelayCommand(() => // TODO: Read about Relay command and this way of writing it
-                {
-
-                });
-            }
-            set { Set(ref _registerCommand, value); } // TODO: Read about this custom Set
         }
 
 
