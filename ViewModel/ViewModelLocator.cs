@@ -9,8 +9,6 @@ namespace MultiplexTrack.ViewModel
     {
         static ViewModelLocator()
         {
-            //TODO
-            //ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<UserLoginViewModel>();
             SimpleIoc.Default.Register<UserRegisterViewModel>();
@@ -38,6 +36,14 @@ namespace MultiplexTrack.ViewModel
             get
             {
                 return SimpleIoc.Default.GetInstance<UserLoginViewModel>();
+            }
+        }
+
+        public UserRegisterViewModel UserRegisterViewModel
+        {
+            get
+            {
+                return SimpleIoc.Default.GetInstance<UserRegisterViewModel>();
             }
         }
     }

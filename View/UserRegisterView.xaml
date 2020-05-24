@@ -8,6 +8,7 @@
     Title="UserRegisterView"
     d:DesignHeight="400"
     d:DesignWidth="400"
+    DataContext="{Binding UserRegisterViewModel, Source={StaticResource Locator}}"
     mc:Ignorable="d">
 
     <Grid>
