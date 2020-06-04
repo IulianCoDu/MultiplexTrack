@@ -16,7 +16,7 @@ namespace MultiplexTrack
         private string _userName;
         private string _password;
         private ICommand _loginCommand;
-        //private ICommand _registerCommand;
+        private ICommand _registerCommand;
         private ICommand _cancelCommand;
         private ICommand _clearCommand;
 
@@ -28,7 +28,7 @@ namespace MultiplexTrack
             databaseContext = new MultiplexTrackDbContext();
 
             LoginCommand = new RelayCommand(() => Login());
-            //RegisterCommand = new RelayCommand(() => Register());
+            RegisterCommand = new RelayCommand(() => Register());
             ClearCommand = new RelayCommand(() => Clear());
             CancelCommand = new RelayCommand(() => Close());
         }
