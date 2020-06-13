@@ -7,16 +7,9 @@ namespace MultiplexTrack.View
     /// </summary>
     public partial class UserRegisterView : Page
     {
-        private Frame _frame;
         public UserRegisterView()
         {
             InitializeComponent();
         }
-
-        //public UserRegisterView(Frame frame)
-        //{
-        //    InitializeComponent();
-        //    this._frame = frame;
-        //}
     }
 }

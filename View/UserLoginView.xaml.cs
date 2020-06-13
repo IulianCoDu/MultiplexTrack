@@ -19,29 +19,9 @@ namespace MultiplexTrack.View
     /// </summary>
     public partial class UserLoginView : Page
     {
-        private Frame frame;
         public UserLoginView()
         {
             InitializeComponent();
         }
-
-        //public UserLoginView(Frame frame)
-        //{
-        //        InitializeComponent();
-        //        this.frame = frame;
-        //    }
-
-        //protected override void OnInitialized(EventArgs e)
-        //{
-        //    base.OnInitialized(e);
-        //    try
-        //    {
-        //        DataContext = new UserViewModel();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        System.Diagnostics.Debug.WriteLine(ex.Message);
-        //    }
-        //}
     }
 }

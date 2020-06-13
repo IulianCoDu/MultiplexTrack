@@ -4,17 +4,20 @@ using System.Windows;
 using System.Windows.Input;
 using DatabaseAccess;
 using MultiplexTrack.Helpers;
+using System.Linq;
 
 namespace MultiplexTrack
 {
     public class UserLoginViewModel : ViewModelBase
     {
-        private IFrameNavigationService _navigationService;
-
         private MultiplexTrackDbContext databaseContext;
+        private IFrameNavigationService _navigationService;
 
         private string _userName;
         private string _password;
+        private string _firstName;
+        private string _lastName;
+        private string _email;
         private ICommand _loginCommand;
         private ICommand _registerCommand;
         private ICommand _cancelCommand;
@@ -22,10 +25,8 @@ namespace MultiplexTrack
 
         public UserLoginViewModel(IFrameNavigationService navigationService)
         {
-            _navigationService = navigationService;
-
-
             databaseContext = new MultiplexTrackDbContext();
+            _navigationService = navigationService;
 
             LoginCommand = new RelayCommand(() => Login());
             RegisterCommand = new RelayCommand(() => Register());
@@ -33,9 +34,9 @@ namespace MultiplexTrack
             CancelCommand = new RelayCommand(() => Close());
         }
 
-        private RelayCommand _registerCommand;
+        // Navigate to next View
 
-        public RelayCommand RegisterCommand
+        public ICommand RegisterCommandNavigation
         {
             get
             {
@@ -59,6 +60,24 @@ namespace MultiplexTrack
             set { Set(ref _password, value); }
         }
 
+        public string FirstNameText
+        {
+            get { return _firstName; }
+            set { Set(ref _firstName, value); }
+        }
+
+        public string LastNameText
+        {
+            get { return _lastName; }
+            set { Set(ref _lastName, value); }
+        }
+
+        public string EmailText
+        {
+            get { return _email; }
+            set { Set(ref _email, value); }
+        }
+
         public ICommand LoginCommand
         {
             get
@@ -72,9 +91,7 @@ namespace MultiplexTrack
                         return;
                     }
 
-                    var users = databaseContext.Users;
-
-                    foreach (Users user in users)
+                    foreach (Users user in databaseContext.Users)
                     {
                         if (UserNameText == user.User)// && PasswordText == user.Password)
                         {
@@ -85,7 +102,7 @@ namespace MultiplexTrack
                         }
                         else
                         {
-                            MessageBox.Show("Login Failed! Try again!");
+                            MessageBox.Show("Login Failed!\nTry again, or register new account!");
                             Clear();
                             return;
                         }
@@ -96,6 +113,24 @@ namespace MultiplexTrack
             set { Set(ref _loginCommand, value); } // TODO: Read about this custom Set
         }
 
+        public ICommand RegisterCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    //TODO: Save User and Password into the database, then navigate to next View to fill up the extra info
+                    if (!databaseContext.Users.Any(name => name.User == UserNameText))
+                    {
+                        
+                    }
+
+                    
+                    //databaseContext.SaveChanges();
+                });
+            }
+            set { Set(ref _registerCommand, value); } // TODO: Read about this custom Set 
+        }
 
         public ICommand ClearCommand
         {
