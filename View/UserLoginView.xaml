@@ -114,7 +114,8 @@
         <TextBlock
             Grid.Row="4"
             Grid.Column="2"
-            Margin="10"><Run Text="FirstName" /></TextBlock>
+            Visibility="{Binding IsVisible}"
+            Margin="10"><Run Text="FirstName"/></TextBlock>
 
         <xctk:WatermarkTextBox
             x:Name="FirstNameTextBox"
@@ -123,12 +124,14 @@
             VerticalAlignment="Center"
             AutomationProperties.Name="Test"
             Text="{Binding FirstNameText}"
-            Watermark="Enter First Name" Visibility="Hidden" />
+            Watermark="Enter First Name"
+            Visibility="{Binding IsVisible}" />
 
         <!--  Last name Text  -->
         <TextBlock
             Grid.Row="5"
             Grid.Column="2"
+            Visibility="{Binding IsVisible}"
             Margin="10"><Run Text="LastName" /></TextBlock>
 
         <xctk:WatermarkTextBox
@@ -138,12 +141,14 @@
             VerticalAlignment="Center"
             AutomationProperties.Name="Test"
             Text="{Binding LastNameText}"
-            Watermark="Enter Last Name" />
+            Watermark="Enter Last Name"
+            Visibility="{Binding IsVisible}" />
 
         <!--  E-mail name Text  -->
         <TextBlock
             Grid.Row="6"
             Grid.Column="2"
+            Visibility="{Binding IsVisible}"
             Margin="10"><Run Text="E-mail" /></TextBlock>
         
         <xctk:WatermarkTextBox
@@ -153,7 +158,8 @@
             VerticalAlignment="Center"
             AutomationProperties.Name="Test"
             Text="{Binding EmailText}"
-            Watermark="Enter E-mail" />
+            Watermark="Enter E-mail"
+            Visibility="{Binding IsVisible}" />
 
 
     </Grid>

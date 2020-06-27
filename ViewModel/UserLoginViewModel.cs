@@ -18,6 +18,7 @@ namespace MultiplexTrack
         private string _firstName;
         private string _lastName;
         private string _email;
+        private string _isVisible;
         private ICommand _loginCommand;
         private ICommand _registerCommand;
         private ICommand _cancelCommand;
@@ -28,8 +29,10 @@ namespace MultiplexTrack
             databaseContext = new MultiplexTrackDbContext();
             _navigationService = navigationService;
 
-            LoginCommand = new RelayCommand(() => Login());
-            RegisterCommand = new RelayCommand(() => Register());
+            _isVisible = "Hidden";
+
+            //LoginCommand = new RelayCommand(() => Login());
+            //RegisterCommand = new RelayCommand(() => Register());
             ClearCommand = new RelayCommand(() => Clear());
             CancelCommand = new RelayCommand(() => Close());
         }
@@ -78,6 +81,12 @@ namespace MultiplexTrack
             set { Set(ref _email, value); }
         }
 
+        public string IsVisible
+        {
+            get { return _isVisible; }
+            set { Set(ref _isVisible, value); }
+        }
+
         public ICommand LoginCommand
         {
             get
@@ -93,7 +102,7 @@ namespace MultiplexTrack
 
                     foreach (Users user in databaseContext.Users)
                     {
-                        if (UserNameText == user.User)// && PasswordText == user.Password)
+                        if (UserNameText == user.User && PasswordText == user.Password)// && PasswordText == user.Password)
                         {
                             loginSuccesfull = true;
                             MessageBox.Show("Login Successfull!");
@@ -120,13 +129,34 @@ namespace MultiplexTrack
                 return new RelayCommand(() =>
                 {
                     //TODO: Save User and Password into the database, then navigate to next View to fill up the extra info
-                    if (!databaseContext.Users.Any(name => name.User == UserNameText))
+                    if (databaseContext.Users.Any(name => name.User == UserNameText))
                     {
-                        
+                        MessageBox.Show("User already exists!");
+                        return;
                     }
+                    else
+                    {
+                        IsVisible = "Visible";
+                        while (FirstNameText != null && LastNameText != null && EmailText != null)
+                        {
+                            Users user = new Users();
 
-                    
-                    //databaseContext.SaveChanges();
+                            user.User = UserNameText;
+                            user.Password = PasswordText;
+                            user.FirstName = FirstNameText;
+                            user.LastName = LastNameText;
+                            user.Email = EmailText;
+
+                            databaseContext.Users.Add(user);
+                            databaseContext.SaveChanges();
+                            MessageBox.Show("New user saved to database!");
+
+                            IsVisible = "Hidden";
+                            Clear();
+                            return;
+                        }
+                        Clear();
+                    }
                 });
             }
             set { Set(ref _registerCommand, value); } // TODO: Read about this custom Set 
@@ -161,8 +191,20 @@ namespace MultiplexTrack
 
         private void Clear()
         {
-            UserNameText = "";
-            PasswordText = "";
+            if (UserNameText != null || PasswordText != null)
+            {
+                UserNameText = null;
+                PasswordText = null;
+            }
+
+            if (FirstNameText != null || LastNameText != null || EmailText != null)
+            {
+                FirstNameText = null;
+                LastNameText = null;
+                EmailText = null;
+                //IsVisible = "Visible";
+            }
+            
         }
 
     }
