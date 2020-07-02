@@ -3,11 +3,11 @@
 namespace MultiplexTrack.View
 {
     /// <summary>
-    /// Interaction logic for UserRegisterView.xaml
+    /// Interaction logic for MultiplexTrack.xaml
     /// </summary>
-    public partial class UserRegisterView : Page
+    public partial class MultiplexTrack : Page
     {
-        public UserRegisterView()
+        public MultiplexTrack()
         {
             InitializeComponent();
         }

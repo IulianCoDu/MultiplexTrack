@@ -1,14 +1,14 @@
 ﻿<Page
-    x:Class="MultiplexTrack.View.UserRegisterView"
+    x:Class="MultiplexTrack.View.MultiplexTrack"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:MultiplexTrack.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="UserRegisterView"
+    Title="MultiplexTrack"
     d:DesignHeight="400"
     d:DesignWidth="400"
-    DataContext="{Binding UserRegisterViewModel, Source={StaticResource Locator}}"
+    DataContext="{Binding MultiplexTrackModel, Source={StaticResource Locator}}"
     mc:Ignorable="d">
 
     <Grid>
@@ -35,10 +35,20 @@
             Margin="10,10,10,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            Text="Register new User"
+            Text="Welcome"
+            TextAlignment="Center"
             TextWrapping="Wrap" />
 
-
+        <Image
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="4"
+            Width="380"
+            Height="114"
+            Margin="10,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Source="OldSchoolCinema.jpg"
+            StretchDirection="UpOnly" />
 
 
     </Grid>

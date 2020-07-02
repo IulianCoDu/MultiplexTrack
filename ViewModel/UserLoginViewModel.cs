@@ -38,7 +38,6 @@ namespace MultiplexTrack
         }
 
         // Navigate to next View
-
         public ICommand RegisterCommandNavigation
         {
             get
@@ -47,7 +46,7 @@ namespace MultiplexTrack
                        ?? (_registerCommand = new RelayCommand(
                            () =>
                            {
-                               _navigationService.NavigateTo("UserRegisterView");
+                               _navigationService.NavigateTo("MultiplexTrack");
                            }));
             }
         }
@@ -102,10 +101,11 @@ namespace MultiplexTrack
 
                     foreach (Users user in databaseContext.Users)
                     {
-                        if (UserNameText == user.User && PasswordText == user.Password)// && PasswordText == user.Password)
+                        if (UserNameText == user.User && PasswordText == user.Password)
                         {
                             loginSuccesfull = true;
                             MessageBox.Show("Login Successfull!");
+                            _navigationService.NavigateTo("MultiplexTrack");
                             Clear();
                             return;
                         }
@@ -186,16 +186,16 @@ namespace MultiplexTrack
 
         private void Register()
         {
-            //Frame.Navigate(new UserRegisterView(Frame));
+            //Frame.Navigate(new MultiplexTrack(Frame));
         }
 
         private void Clear()
         {
-            if (UserNameText != null || PasswordText != null)
-            {
-                UserNameText = null;
-                PasswordText = null;
-            }
+            //if (UserNameText != null || PasswordText != null)
+            //{
+            //    UserNameText = null;
+            //    PasswordText = null;
+            //}
 
             if (FirstNameText != null || LastNameText != null || EmailText != null)
             {

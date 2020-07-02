@@ -93,10 +93,10 @@
     <Compile Include="Helpers\IFrameNavigationService.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\UserLoginViewModel.cs" />
-    <Compile Include="ViewModel\UserRegisterViewModel.cs" />
+    <Compile Include="ViewModel\MultiplexTrack.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="View\UserRegisterView.xaml.cs">
-      <DependentUpon>UserRegisterView.xaml</DependentUpon>
+    <Compile Include="View\MultiplexTrack.xaml.cs">
+      <DependentUpon>MultiplexTrack.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserLoginView.xaml.cs">
       <DependentUpon>UserLoginView.xaml</DependentUpon>
@@ -113,7 +113,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\UserRegisterView.xaml">
+    <Page Include="View\MultiplexTrack.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -158,7 +158,9 @@
       <Name>DatabaseAccess</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="View\OldSchoolCinema.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

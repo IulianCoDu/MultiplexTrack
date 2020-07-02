@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace MultiplexTrack.ViewModel
 {
-    public class UserRegisterViewModel : Page
+    public class MultiplexTrack : Page
     {
 
     }
