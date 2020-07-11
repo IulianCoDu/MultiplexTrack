@@ -6,7 +6,8 @@
     xmlns:local="clr-namespace:MultiplexTrack"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="clr-namespace:MultiplexTrack.ViewModel"
-    StartupUri="MainWindow.xaml"
+
+    StartupUri="View/MainWindow.xaml"
     mc:Ignorable="d">
 
     <Application.Resources>
@@ -24,6 +25,14 @@
             <Setter Property="FontFamily" Value="Segoe UI Light" />
             <Setter Property="FontSize" Value="15" />
         </Style>
+
+        <ImageBrush
+            x:Key="RowBackgrondImage"
+            ImageSource="OldSchoolCinema.jpg"
+            Opacity="1"
+            Stretch="Fill"
+            TileMode="Tile" />
+
     </Application.Resources>
 
 </Application>
