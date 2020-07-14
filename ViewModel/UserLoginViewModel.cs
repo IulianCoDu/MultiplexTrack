@@ -90,7 +90,7 @@ namespace MultiplexTrack
         {
             get
             {
-                return new RelayCommand(() =>
+                return new RelayCommand( () =>
                 {
                     bool loginSuccesfull = false;
                     if (UserNameText == null || PasswordText == null)
@@ -105,7 +105,8 @@ namespace MultiplexTrack
                         {
                             loginSuccesfull = true;
                             MessageBox.Show("Login Successfull!");
-                            _navigationService.NavigateTo("MultiplexTrack");
+                            //databaseContext.Dispose();
+                            _navigationService.NavigateTo("MultiplexTrackView");
                             Clear();
                             return;
                         }

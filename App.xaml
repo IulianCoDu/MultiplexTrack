@@ -6,8 +6,7 @@
     xmlns:local="clr-namespace:MultiplexTrack"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="clr-namespace:MultiplexTrack.ViewModel"
-
-    StartupUri="View/MainWindow.xaml"
+    StartupUri="View/MainWindowView.xaml"
     mc:Ignorable="d">
 
     <Application.Resources>

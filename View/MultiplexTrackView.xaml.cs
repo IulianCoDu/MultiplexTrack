@@ -5,9 +5,9 @@ namespace MultiplexTrack.View
     /// <summary>
     /// Interaction logic for MultiplexTrack.xaml
     /// </summary>
-    public partial class MultiplexTrack : Page
+    public partial class MultiplexTrackView : Page
     {
-        public MultiplexTrack()
+        public MultiplexTrackView()
         {
             InitializeComponent();
         }

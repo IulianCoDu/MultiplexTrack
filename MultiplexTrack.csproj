@@ -93,15 +93,15 @@
     <Compile Include="Helpers\IFrameNavigationService.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\UserLoginViewModel.cs" />
-    <Compile Include="ViewModel\MultiplexTrack.cs" />
+    <Compile Include="ViewModel\MultiplexTrackViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="View\MultiplexTrack.xaml.cs">
-      <DependentUpon>MultiplexTrack.xaml</DependentUpon>
+    <Compile Include="View\MultiplexTrackView.xaml.cs">
+      <DependentUpon>MultiplexTrackView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserLoginView.xaml.cs">
       <DependentUpon>UserLoginView.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\MainWindow.xaml">
+    <Page Include="View\MainWindowView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -109,11 +109,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="View\MainWindowView.xaml.cs">
+      <DependentUpon>MainWindowView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\MultiplexTrack.xaml">
+    <Page Include="View\MultiplexTrackView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,14 +1,13 @@
 ﻿<Page
-    x:Class="MultiplexTrack.View.MultiplexTrack"
+    x:Class="MultiplexTrack.View.MultiplexTrackView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:MultiplexTrack.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="MultiplexTrack"
+    Title="MultiplexTrackView"
     d:DesignHeight="400"
     d:DesignWidth="400"
-    DataContext="{Binding MultiplexTrackModel, Source={StaticResource Locator}}"
+    DataContext="{Binding MultiplexTrackViewModel, Source={StaticResource Locator}}"
     mc:Ignorable="d">
 
     <Grid>
@@ -43,9 +42,18 @@
             TextAlignment="Center"
             TextWrapping="Wrap" />
 
-        <Button />
-        <Button Grid.Column="1" />
-        <Button Grid.Column="2" />
+        <Button
+            x:Name="homeButton"
+            Grid.Column="0"
+            Content="Home" />
+        <Button
+            x:Name="moviesButton"
+            Grid.Column="1"
+            Content="Movies" />
+        <Button
+            x:Name="programButton"
+            Grid.Column="2"
+            Content="Program" />
         <Button Grid.Column="3" />
 
     </Grid>
