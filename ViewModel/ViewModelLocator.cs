@@ -1,5 +1,4 @@
-﻿using CommonServiceLocator;
-using GalaSoft.MvvmLight.Ioc;
+﻿using GalaSoft.MvvmLight.Ioc;
 using MultiplexTrack.Helpers;
 using System;
 
@@ -11,7 +10,8 @@ namespace MultiplexTrack.ViewModel
         {
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<UserLoginViewModel>();
-            SimpleIoc.Default.Register<MultiplexTrackViewModel>();
+            SimpleIoc.Default.Register<HomeViewModel>();
+            SimpleIoc.Default.Register<MoviesViewModel>();
 
             SetupNavigation();
         }
@@ -20,7 +20,8 @@ namespace MultiplexTrack.ViewModel
         {
             var navigationService = new FrameNavigationService();
             navigationService.Configure("UserLoginView", new Uri("../View/UserLoginView.xaml", UriKind.Relative));
-            navigationService.Configure("MultiplexTrackView", new Uri("../View/MultiplexTrackView.xaml", UriKind.Relative));
+            navigationService.Configure("HomeView", new Uri("../View/HomeView.xaml", UriKind.Relative));
+            navigationService.Configure("MoviesView", new Uri("../View/MoviesView.xaml", UriKind.Relative));
             SimpleIoc.Default.Register<IFrameNavigationService>(() => navigationService);
         }
         public MainViewModel MainViewModel
@@ -39,11 +40,19 @@ namespace MultiplexTrack.ViewModel
             }
         }
 
-        public MultiplexTrackViewModel MultiplexTrackModel
+        public HomeViewModel HomeViewModel
         {
             get
             {
-                return SimpleIoc.Default.GetInstance<MultiplexTrackViewModel>();
+                return SimpleIoc.Default.GetInstance<HomeViewModel>();
+            }
+        }
+
+        public MoviesViewModel MoviesViewModel
+        { 
+            get
+            {
+                return SimpleIoc.Default.GetInstance<MoviesViewModel>();
             }
         }
     }

@@ -6,10 +6,35 @@ using System.Windows.Input;
 
 namespace MultiplexTrack.ViewModel
 {
-    public class MultiplexTrackViewModel : ViewModelBase
+    public class HomeViewModel : ViewModelBase
     {
         private MultiplexTrackDbContext databaseContext;
         private IFrameNavigationService _navigationService;
+        private ICommand _moviesCommand;
+
+
+        public HomeViewModel(IFrameNavigationService navigationService)
+        {
+            databaseContext = new MultiplexTrackDbContext();
+            _navigationService = navigationService;
+
+            //_toggleButtonHome = true;
+        }
+
+        public ICommand MoviesCommand
+        {
+            get 
+            {
+                return new RelayCommand( () =>
+                {
+                    _navigationService.NavigateTo("MoviesView");
+                });
+            }
+            set { Set(ref _moviesCommand, value); }
+        }
+
+
+        
 
         //private ICommand _toggleButtonHome;
         //public ICommand HomeToggleButton()
@@ -31,13 +56,7 @@ namespace MultiplexTrack.ViewModel
             set { Set(ref _toggleButtonHome, value); }
         }
 
-        public MultiplexTrackViewModel(IFrameNavigationService navigationService)
-        {
-            databaseContext = new MultiplexTrackDbContext();
-            _navigationService = navigationService;
 
-            //_toggleButtonHome = true;
-        }
     }
 
 }

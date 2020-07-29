@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using MultiplexTrack.Helpers;
+
 namespace MultiplexTrack.ViewModel
 {
     public class MainViewModel : ViewModelBase

@@ -31,24 +31,8 @@ namespace MultiplexTrack
 
             _isVisible = "Hidden";
 
-            //LoginCommand = new RelayCommand(() => Login());
-            //RegisterCommand = new RelayCommand(() => Register());
             ClearCommand = new RelayCommand(() => Clear());
             CancelCommand = new RelayCommand(() => Close());
-        }
-
-        // Navigate to next View
-        public ICommand RegisterCommandNavigation
-        {
-            get
-            {
-                return _registerCommand
-                       ?? (_registerCommand = new RelayCommand(
-                           () =>
-                           {
-                               _navigationService.NavigateTo("MultiplexTrack");
-                           }));
-            }
         }
 
         public string UserNameText
@@ -106,7 +90,7 @@ namespace MultiplexTrack
                             loginSuccesfull = true;
                             MessageBox.Show("Login Successfull!");
                             //databaseContext.Dispose();
-                            _navigationService.NavigateTo("MultiplexTrackView");
+                            _navigationService.NavigateTo("HomeView");
                             Clear();
                             return;
                         }
