@@ -58,6 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Movies.cs">
+      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="MultiplexTrackDbContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -55,6 +55,13 @@
             Grid.Column="2"
             Content="Program" />
         <Button Grid.Column="3" />
+        <Menu
+            Grid.Row="3"
+            Grid.ColumnSpan="2"
+            Width="200"
+            Height="100"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
 
     </Grid>
 </Page>

@@ -26,5 +26,6 @@ namespace DatabaseAccess
         }
     
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Movies> Movies { get; set; }
     }
 }
