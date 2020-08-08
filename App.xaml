@@ -25,13 +25,6 @@
             <Setter Property="FontSize" Value="15" />
         </Style>
 
-        <ImageBrush
-            x:Key="RowBackgrondImage"
-            ImageSource="OldSchoolCinema.jpg"
-            Opacity="1"
-            Stretch="Fill"
-            TileMode="Tile" />
-
     </Application.Resources>
 
 </Application>

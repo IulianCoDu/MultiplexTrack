@@ -13,12 +13,8 @@
     <Grid>
         <!--  Column and Row Definition  -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5" />
-            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="150" />
             <ColumnDefinition Width="150" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="5" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -33,7 +29,7 @@
         <!--  Main Text from Login Page  -->
         <TextBlock
             Grid.Row="0"
-            Grid.Column="2"
+            Grid.Column="0"
             Grid.ColumnSpan="2"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
@@ -45,13 +41,13 @@
         <!--  Username Text  -->
         <TextBlock
             Grid.Row="1"
-            Grid.Column="2"
+            Grid.Column="0"
             Margin="10"><Run Text="Username:" /></TextBlock>
 
         <!--  Password Text  -->
         <TextBlock
             Grid.Row="2"
-            Grid.Column="2"
+            Grid.Column="0"
             Margin="10"><Run Text="Password:" /></TextBlock>
 
         <!--  TextBoxWatermark  -->
@@ -76,7 +72,7 @@
         <Button
             x:Name="loginButton"
             Grid.Row="3"
-            Grid.Column="2"
+            Grid.Column="0"
             Width="76"
             HorizontalAlignment="Left"
             Command="{Binding LoginCommand}"
@@ -85,7 +81,7 @@
         <Button
             x:Name="clearButton"
             Grid.Row="3"
-            Grid.Column="2"
+            Grid.Column="0"
             Width="76"
             HorizontalAlignment="Right"
             Command="{Binding ClearCommand}"

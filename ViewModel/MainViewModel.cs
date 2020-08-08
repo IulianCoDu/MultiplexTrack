@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using MultiplexTrack.Helpers;
+using System.Windows.Input;
 
 namespace MultiplexTrack.ViewModel
 {
@@ -8,6 +9,8 @@ namespace MultiplexTrack.ViewModel
     {
         private IFrameNavigationService _navigationService;
         private RelayCommand _loadedCommand;
+        private ICommand _homeViewCommand;
+        
         public RelayCommand LoadedCommand
         {
             get
@@ -25,5 +28,17 @@ namespace MultiplexTrack.ViewModel
         {
             _navigationService = navigationService;
         }
+
+
+        public ICommand HomeViewCommand
+        {
+            get { return new RelayCommand(() =>
+                {
+                    _navigationService.NavigateTo("HomeView");
+                }
+                );}
+            set {Set (ref _homeViewCommand, value); }
+        }
+
     }
 }

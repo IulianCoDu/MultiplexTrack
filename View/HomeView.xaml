@@ -10,11 +10,8 @@
     DataContext="{Binding HomeViewModel, Source={StaticResource Locator}}"
     mc:Ignorable="d">
 
+    <!--  OLD GRID  -->
     <Grid>
-        <!--<Grid.Background>
-            <ImageBrush ImageSource="OldSchoolCinema.jpg" Stretch="UniformToFill" />
-        </Grid.Background>-->
-        <!--  Column and Row Definition  -->
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -42,26 +39,21 @@
 
         <Button
             x:Name="homeButton"
-            Grid.Column="0"
+            Grid.Row="1"
+            Grid.Column="3"
             Content="Home" />
         <Button
             x:Name="moviesButton"
-            Grid.Column="1"
+            Grid.Row="2"
+            Grid.Column="3"
             Command="{Binding MoviesCommand}"
             Content="Movies" />
 
         <Button
             x:Name="programButton"
-            Grid.Column="2"
-            Content="Program" />
-        <Button Grid.Column="3" />
-        <Menu
             Grid.Row="3"
-            Grid.ColumnSpan="2"
-            Width="200"
-            Height="100"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top" />
-
+            Grid.Column="3"
+            Content="Program" />
     </Grid>
+
 </Page>
