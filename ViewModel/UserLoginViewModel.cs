@@ -163,12 +163,6 @@ namespace MultiplexTrack
             Application.Current.Shutdown();
         }
 
-        // This is not used
-        private void Login()
-        {
-            string userName = _userName;
-        }
-
         private void Register()
         {
             //Frame.Navigate(new MultiplexTrack(Frame));

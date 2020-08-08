@@ -20,7 +20,7 @@
     <Grid>
 
         <!--  // Background Color //  -->
-        <Grid Background="Black">
+        <Grid Background="#2e474e">
 
 
             <!--  // Background Image //  -->
@@ -52,21 +52,23 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <!--<Button x:Name="CloseBtn"
-                        Grid.Column="1"
-                        Grid.Row="1"
-                        Height="40"
-                        Width="40"
-                        BorderThickness="0"
-                        Style="{StaticResource Close_btn}" Click="CloseBtn_Click">
+            <Button
+                x:Name="CloseBtn"
+                Grid.Row="0"
+                Grid.Column="2"
+                Width="40"
+                Height="40"
+                BorderThickness="0"
+                Command="{Binding CloseCommand}">
+                <!--
+                    Style="{StaticResource Close_btn}"
+                    Click="CloseBtn_Click">
+                -->
+                <!--<Button.Background>
+                    <ImageBrush ImageSource="/Pictures/closeBtn_default.png" />
+                </Button.Background-->
 
-                <Button.Background>
-
-                    <ImageBrush ImageSource="Assets/closeBtn_default.png"/>
-
-                </Button.Background>
-
-            </Button>-->
+            </Button>
 
             <Frame
                 x:Name="MainFrame"
@@ -154,7 +156,7 @@
                                             BeginTime="0:0:0"
                                             Storyboard.TargetName="NavigationPanel"
                                             Storyboard.TargetProperty="Width"
-                                            From="230"
+                                            From="130"
                                             To="65"
                                             Duration="0:0:0.2" />
 
@@ -175,7 +177,7 @@
                                             Storyboard.TargetName="NavigationPanel"
                                             Storyboard.TargetProperty="Width"
                                             From="65"
-                                            To="230"
+                                            To="130"
                                             Duration="0:0:0.3" />
 
                                     </Storyboard>
@@ -185,7 +187,6 @@
                             </EventTrigger>
 
                         </ToggleButton.Triggers>
-
 
                     </ToggleButton>
 
@@ -203,7 +204,6 @@
 
                     <ListViewItem Margin="0,0,0,15" HorizontalAlignment="Left">
                         <!--  MouseEnter="ListViewItem_MouseEnter">  -->
-
 
                         <Button x:Name="moviesButton" Command="{Binding HomeViewCommand}">
                             <StackPanel Width="230" Orientation="Horizontal">
