@@ -201,11 +201,10 @@
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
                     <!--  // Home //  -->
-
                     <ListViewItem Margin="0,0,0,15" HorizontalAlignment="Left">
                         <!--  MouseEnter="ListViewItem_MouseEnter">  -->
 
-                        <Button x:Name="moviesButton" Command="{Binding HomeViewCommand}">
+                        <Button x:Name="homeButton" Command="{Binding HomeViewCommand}">
                             <StackPanel Width="230" Orientation="Horizontal">
                                 <Image Source="/Pictures/img_home.png" />
                                 <TextBlock Margin="25,0,0,0" Text="Home" />
@@ -213,45 +212,38 @@
                         </Button>
 
                         <!--  // Tooltip //  -->
-
-                        <!--<ListViewItem.ToolTip>
-
-                            <ToolTip x:Name="tt_home"
-                                         Content="Home"
-                                         Style="{StaticResource tt_style}"/>
-
-                        </ListViewItem.ToolTip>-->
+                        <ListViewItem.ToolTip>
+                            <ToolTip
+                                x:Name="tt_home"
+                                Content="Home"
+                                Style="{StaticResource tt_style}" />
+                        </ListViewItem.ToolTip>
 
                     </ListViewItem>
 
-                    <!--  // Contacts //  -->
-
+                    <!--  // Movies //  -->
                     <ListViewItem Margin="0,0,0,15" HorizontalAlignment="Left">
                         <!--  MouseEnter="ListViewItem_MouseEnter">  -->
 
-                        <StackPanel Width="230" Orientation="Horizontal">
-
-                            <!--<Image Source="Assets/img_contact.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
-
-                            <TextBlock Text="Contacts"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>-->
-
-                        </StackPanel>
+                        <Button x:Name="moviesButton" Command="{Binding MoviesViewCommand}">
+                            <StackPanel Width="230" Orientation="Horizontal">
+                                <Image Source="/Pictures/img_home.png" />
+                                <TextBlock Margin="25,0,0,0" Text="Movies" />
+                            </StackPanel>
+                        </Button>
 
                         <!--  // Tooltip //  -->
-
-                        <!--<ListViewItem.ToolTip>
-
-                            <ToolTip x:Name="tt_contacts"
-                                         Content="Contacts"
-                                         Style="{StaticResource tt_style}"/>
-
-                        </ListViewItem.ToolTip>-->
+                        <ListViewItem.ToolTip>
+                            <ToolTip
+                                x:Name="tt_movies"
+                                Content="Movies"
+                                Style="{StaticResource tt_style}" />
+                        </ListViewItem.ToolTip>
 
                     </ListViewItem>
+
+
+
 
                     <!--  // Listview items style template //  -->
 
