@@ -173,7 +173,13 @@
     <Resource Include="OldSchoolCinema.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pictures\" />
+    <Resource Include="Pictures\img_movies.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\img_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\closeBtn_default.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

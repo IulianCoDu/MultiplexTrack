@@ -44,11 +44,11 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="40" />
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="30" />
+                <RowDefinition Height="40" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -58,15 +58,11 @@
                 Grid.Column="2"
                 Width="40"
                 Height="40"
+                Background="Transparent"
                 BorderThickness="0"
                 Command="{Binding CloseCommand}">
-                <!--
-                    Style="{StaticResource Close_btn}"
-                    Click="CloseBtn_Click">
-                -->
-                <!--<Button.Background>
-                    <ImageBrush ImageSource="/Pictures/closeBtn_default.png" />
-                </Button.Background-->
+                <!--  Style="{StaticResource Close_btn}">  -->
+                <Image Source="/Pictures/closeBtn_default.png" />
 
             </Button>
 
@@ -86,7 +82,7 @@
             HorizontalAlignment="Left"
             Background="#2E333A">
 
-            <StackPanel x:Name="st_pnl">
+            <StackPanel x:Name="stack_pnl">
 
                 <!--  // Grid for the Menu Toggle Button //  -->
 
@@ -201,10 +197,14 @@
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
                     <!--  // Home //  -->
-                    <ListViewItem Margin="0,0,0,15" HorizontalAlignment="Left">
+                    <ListViewItem HorizontalAlignment="Left">
                         <!--  MouseEnter="ListViewItem_MouseEnter">  -->
 
-                        <Button x:Name="homeButton" Command="{Binding HomeViewCommand}">
+                        <Button
+                            x:Name="homeButton"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Command="{Binding HomeViewCommand}">
                             <StackPanel Width="230" Orientation="Horizontal">
                                 <Image Source="/Pictures/img_home.png" />
                                 <TextBlock Margin="25,0,0,0" Text="Home" />
@@ -222,12 +222,16 @@
                     </ListViewItem>
 
                     <!--  // Movies //  -->
-                    <ListViewItem Margin="0,0,0,15" HorizontalAlignment="Left">
+                    <ListViewItem>
                         <!--  MouseEnter="ListViewItem_MouseEnter">  -->
 
-                        <Button x:Name="moviesButton" Command="{Binding MoviesViewCommand}">
+                        <Button
+                            x:Name="moviesButton"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Command="{Binding MoviesViewCommand}">
                             <StackPanel Width="230" Orientation="Horizontal">
-                                <Image Source="/Pictures/img_home.png" />
+                                <Image Source="/Pictures/img_movies.png" />
                                 <TextBlock Margin="25,0,0,0" Text="Movies" />
                             </StackPanel>
                         </Button>
@@ -244,9 +248,7 @@
 
 
 
-
                     <!--  // Listview items style template //  -->
-
                     <ListView.ItemContainerStyle>
 
                         <Style TargetType="ListViewItem">

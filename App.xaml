@@ -19,6 +19,7 @@
             <Setter Property="FontFamily" Value="Segoe UI Light" />
             <Setter Property="FontSize" Value="20" />
         </Style>
+
         <!--  Text Box  -->
         <Style TargetType="TextBox">
             <Setter Property="FontFamily" Value="Segoe UI Light" />
@@ -41,6 +42,8 @@
             <Setter Property="HasDropShadow" Value="True" />
             <Setter Property="HorizontalContentAlignment" Value="Center" />
         </Style>
+        
+        
 
     </Application.Resources>
 
