@@ -25,7 +25,8 @@ namespace DatabaseAccess
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<Movies> Movies { get; set; }
+        public virtual DbSet<Movie> Movie { get; set; }
+        public virtual DbSet<Ticket> Ticket { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }

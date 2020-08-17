@@ -12,13 +12,15 @@ namespace DatabaseAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Users
+    public partial class Movie
     {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string User { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
+        public int MovieId { get; set; }
+        public string Title { get; set; }
+        public Nullable<System.DateTime> Year { get; set; }
+        public string Type { get; set; }
+        public Nullable<System.TimeSpan> Duration { get; set; }
+        public string Category { get; set; }
+        public byte[] Poster { get; set; }
+        public string Description { get; set; }
     }
 }

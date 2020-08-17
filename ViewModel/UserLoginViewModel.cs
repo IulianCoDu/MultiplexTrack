@@ -83,9 +83,9 @@ namespace MultiplexTrack
                         return;
                     }
 
-                    foreach (Users user in databaseContext.Users)
+                    foreach (User user in databaseContext.User)
                     {
-                        if (UserNameText == user.User && PasswordText == user.Password)
+                        if (UserNameText == user.UserName && PasswordText == user.Password)
                         {
                             loginSuccesfull = true;
                             MessageBox.Show("Login Successfull!");
@@ -114,7 +114,7 @@ namespace MultiplexTrack
                 return new RelayCommand(() =>
                 {
                     //TODO: Save User and Password into the database, then navigate to next View to fill up the extra info
-                    if (databaseContext.Users.Any(name => name.User == UserNameText))
+                    if (databaseContext.User.Any(name => name.UserName == UserNameText))
                     {
                         MessageBox.Show("User already exists!");
                         return;
@@ -124,15 +124,15 @@ namespace MultiplexTrack
                         IsVisible = "Visible";
                         while (FirstNameText != null && LastNameText != null && EmailText != null)
                         {
-                            Users user = new Users();
+                            User user = new User();
 
-                            user.User = UserNameText;
+                            user.UserName = UserNameText;
                             user.Password = PasswordText;
                             user.FirstName = FirstNameText;
                             user.LastName = LastNameText;
                             user.Email = EmailText;
 
-                            databaseContext.Users.Add(user);
+                            databaseContext.User.Add(user);
                             databaseContext.SaveChanges();
                             MessageBox.Show("New user saved to database!");
 
