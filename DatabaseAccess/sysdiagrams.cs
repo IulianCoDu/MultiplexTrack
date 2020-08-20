@@ -12,17 +12,12 @@ namespace DatabaseAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Movie
+    public partial class sysdiagrams
     {
-        public int MovieId { get; set; }
-        public string Title { get; set; }
-        public Nullable<System.DateTime> Year { get; set; }
-        public string Type { get; set; }
-        public Nullable<System.TimeSpan> Duration { get; set; }
-        public string Category { get; set; }
-        public byte[] Poster { get; set; }
-        public string Description { get; set; }
-    
-        public virtual MovieShowtime MovieShowtime { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

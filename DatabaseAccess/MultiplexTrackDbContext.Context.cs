@@ -13,10 +13,10 @@ namespace DatabaseAccess
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MultiplexTrackDbContext : DbContext
+    public partial class Entities : DbContext
     {
-        public MultiplexTrackDbContext()
-            : base("name=MultiplexTrackDbContext")
+        public Entities()
+            : base("name=Entities")
         {
         }
     
@@ -26,6 +26,10 @@ namespace DatabaseAccess
         }
     
         public virtual DbSet<Movie> Movie { get; set; }
+        public virtual DbSet<MovieShowtime> MovieShowtime { get; set; }
+        public virtual DbSet<Seats> Seats { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Theatre> Theatre { get; set; }
         public virtual DbSet<Ticket> Ticket { get; set; }
         public virtual DbSet<User> User { get; set; }
     }

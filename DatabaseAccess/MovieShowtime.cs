@@ -12,21 +12,24 @@ namespace DatabaseAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class MovieShowtime
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public MovieShowtime()
         {
             this.Ticket = new HashSet<Ticket>();
         }
     
-        public int UserId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
+        public int MovieShowtimeId { get; set; }
+        public Nullable<System.DateTime> StartTime { get; set; }
+        public Nullable<System.DateTime> EndTime { get; set; }
+        public Nullable<int> TicketsSold { get; set; }
+        public Nullable<int> TicketsUnsold { get; set; }
+        public Nullable<int> MovieId { get; set; }
+        public Nullable<int> TheatreId { get; set; }
     
+        public virtual Movie Movie { get; set; }
+        public virtual Theatre Theatre { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ticket> Ticket { get; set; }
     }
