@@ -32,6 +32,7 @@ namespace DatabaseAccess
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Theatre> Theatre { get; set; }
         public virtual DbSet<Ticket> Ticket { get; set; }
+        public virtual DbSet<TimeSlot> TimeSlot { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

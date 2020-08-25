@@ -23,6 +23,6 @@ namespace DatabaseAccess
         public byte[] Poster { get; set; }
         public string Description { get; set; }
     
-        public virtual MovieShowtime MovieShowtime { get; set; }
+        public virtual TimeSlot TimeSlot { get; set; }
     }
 }

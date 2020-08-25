@@ -95,17 +95,20 @@
     <Compile Include="Ticket.cs">
       <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="TimeSlot.cs">
+      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="DatabaseDump\MultiplexTrack.bak" />
     <EntityDeploy Include="MultiplexTrackDBContext.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MultiplexTrackDBContext.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DatabaseDump\MultiplexTrack.bak" />
     <None Include="MultiplexTrackDBContext.edmx.diagram">
       <DependentUpon>MultiplexTrackDBContext.edmx</DependentUpon>
     </None>
@@ -114,7 +117,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="MultiplexTrackDBContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

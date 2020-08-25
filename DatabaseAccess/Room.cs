@@ -15,9 +15,10 @@ namespace DatabaseAccess
     public partial class Room
     {
         public int RoomId { get; set; }
+        public Nullable<int> RoomNumber { get; set; }
         public Nullable<int> TheatreId { get; set; }
-        public Nullable<int> NumberOfSeats { get; set; }
     
         public virtual Theatre Theatre { get; set; }
+        public virtual Seats Seats { get; set; }
     }
 }
