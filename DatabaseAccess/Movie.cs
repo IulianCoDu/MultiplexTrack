@@ -16,9 +16,9 @@ namespace DatabaseAccess
     {
         public int MovieId { get; set; }
         public string Title { get; set; }
-        public Nullable<System.DateTime> Year { get; set; }
+        public System.DateTime Year { get; set; }
         public string Type { get; set; }
-        public Nullable<System.TimeSpan> Duration { get; set; }
+        public System.TimeSpan Duration { get; set; }
         public string Category { get; set; }
         public byte[] Poster { get; set; }
         public string Description { get; set; }

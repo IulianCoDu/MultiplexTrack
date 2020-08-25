@@ -16,7 +16,7 @@ namespace DatabaseAccess
     {
         public int SeatId { get; set; }
         public string SeatNumber { get; set; }
-        public Nullable<int> TheatreId { get; set; }
+        public int TheatreId { get; set; }
     
         public virtual Theatre Theatre { get; set; }
     }

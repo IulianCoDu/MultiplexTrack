@@ -59,70 +59,72 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Movie.cs">
-      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="MovieShowtime.cs">
-      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="MultiplexTrackDbContext.Context.cs">
+    <Compile Include="MultiplexTrackDBContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MultiplexTrackDbContext.Context.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDBContext.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="MultiplexTrackDbContext.cs">
+    <Compile Include="MultiplexTrackDBContext.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="MultiplexTrackDbContext.Designer.cs">
+    <Compile Include="MultiplexTrackDBContext.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MultiplexTrackDbContext.edmx</DependentUpon>
+      <DependentUpon>MultiplexTrackDBContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Room.cs">
+      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Seats.cs">
-      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Theatre.cs">
-      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Ticket.cs">
-      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="MultiplexTrackDbContext.edmx">
+    <EntityDeploy Include="MultiplexTrackDBContext.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MultiplexTrackDbContext.Designer.cs</LastGenOutput>
+      <LastGenOutput>MultiplexTrackDBContext.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="MultiplexTrackDbContext.edmx.diagram">
-      <DependentUpon>MultiplexTrackDbContext.edmx</DependentUpon>
+    <None Include="DatabaseDump\MultiplexTrack.bak" />
+    <None Include="MultiplexTrackDBContext.edmx.diagram">
+      <DependentUpon>MultiplexTrackDBContext.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="DatabaseDump\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="MultiplexTrackDbContext.Context.tt">
+    <Content Include="MultiplexTrackDBContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MultiplexTrackDbContext.edmx</DependentUpon>
-      <LastGenOutput>MultiplexTrackDbContext.Context.cs</LastGenOutput>
+      <DependentUpon>MultiplexTrackDBContext.edmx</DependentUpon>
+      <LastGenOutput>MultiplexTrackDBContext.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="MultiplexTrackDbContext.tt">
+    <Content Include="MultiplexTrackDBContext.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MultiplexTrackDbContext.edmx</DependentUpon>
-      <LastGenOutput>MultiplexTrackDbContext.cs</LastGenOutput>
+      <DependentUpon>MultiplexTrackDBContext.edmx</DependentUpon>
+      <LastGenOutput>MultiplexTrackDBContext.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

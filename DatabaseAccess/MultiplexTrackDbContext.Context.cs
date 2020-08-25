@@ -27,6 +27,7 @@ namespace DatabaseAccess
     
         public virtual DbSet<Movie> Movie { get; set; }
         public virtual DbSet<MovieShowtime> MovieShowtime { get; set; }
+        public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<Seats> Seats { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Theatre> Theatre { get; set; }

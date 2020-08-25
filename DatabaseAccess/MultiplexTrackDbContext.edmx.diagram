@@ -4,19 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="98defbed1c4c4177a82933aec7de514b" Name="Diagram1">
-        <EntityTypeShape EntityType="MultiplexTrackDbContext.Movie" Width="1.5" PointX="3.625" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MultiplexTrackDbContext.MovieShowtime" Width="1.5" PointX="3.625" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MultiplexTrackDbContext.Seats" Width="1.5" PointX="11.375" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MultiplexTrackDbContext.sysdiagrams" Width="1.5" PointX="13.125" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MultiplexTrackDbContext.Theatre" Width="1.5" PointX="7.25" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MultiplexTrackDbContext.Ticket" Width="1.5" PointX="0.5" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MultiplexTrackDbContext.User" Width="1.5" PointX="0.5" PointY="1.75" IsExpanded="true" />
-        <AssociationConnector Association="MultiplexTrackDbContext.FK_MovieShowtime_Movie" ManuallyRouted="false" />
-        <AssociationConnector Association="MultiplexTrackDbContext.FK_MovieShowtime_Theatre" ManuallyRouted="false" />
-        <AssociationConnector Association="MultiplexTrackDbContext.FK_Ticket_Movie" ManuallyRouted="false" />
-        <AssociationConnector Association="MultiplexTrackDbContext.FK_Seats_Theatre" ManuallyRouted="false" />
-        <AssociationConnector Association="MultiplexTrackDbContext.FK_Ticket_User" ManuallyRouted="false" />
+      <Diagram DiagramId="9b96f45835d84edaa63f02e6ffd1a3ec" Name="Diagram1">
+        <EntityTypeShape EntityType="MultiplexTrackDBContext.Movie" Width="1.5" PointX="4" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MultiplexTrackDBContext.MovieShowtime" Width="1.5" PointX="4" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MultiplexTrackDBContext.Room" Width="1.5" PointX="7.375" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="MultiplexTrackDBContext.Seats" Width="1.5" PointX="7.375" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MultiplexTrackDBContext.sysdiagrams" Width="1.5" PointX="10.375" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MultiplexTrackDBContext.Theatre" Width="1.5" PointX="4" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MultiplexTrackDBContext.Ticket" Width="1.5" PointX="0.625" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MultiplexTrackDBContext.User" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="MultiplexTrackDBContext.FK_MovieShowtime_Movie" ManuallyRouted="false" />
+        <AssociationConnector Association="MultiplexTrackDBContext.FK_MovieShowtime_Theatre" ManuallyRouted="false" />
+        <AssociationConnector Association="MultiplexTrackDBContext.FK_Ticket_Movie" ManuallyRouted="false" />
+        <AssociationConnector Association="MultiplexTrackDBContext.FK_Room_Theatre" ManuallyRouted="false" />
+        <AssociationConnector Association="MultiplexTrackDBContext.FK_Seats_Theatre" ManuallyRouted="false" />
+        <AssociationConnector Association="MultiplexTrackDBContext.FK_Ticket_User" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

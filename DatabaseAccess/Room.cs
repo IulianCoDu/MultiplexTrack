@@ -12,18 +12,12 @@ namespace DatabaseAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Ticket
+    public partial class Room
     {
-        public int TicketId { get; set; }
-        public string MovieName { get; set; }
-        public string ScreenNumber { get; set; }
-        public int SeatNumber { get; set; }
-        public System.DateTime StartHour { get; set; }
-        public int Price { get; set; }
-        public int UserId { get; set; }
-        public int MovieShowtimeId { get; set; }
+        public int RoomId { get; set; }
+        public Nullable<int> TheatreId { get; set; }
+        public Nullable<int> NumberOfSeats { get; set; }
     
-        public virtual MovieShowtime MovieShowtime { get; set; }
-        public virtual User User { get; set; }
+        public virtual Theatre Theatre { get; set; }
     }
 }

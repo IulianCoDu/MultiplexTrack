@@ -21,10 +21,11 @@ namespace DatabaseAccess
         }
     
         public int TheatreId { get; set; }
-        public Nullable<int> RoomNumber { get; set; }
-        public Nullable<int> NumberOfSeats { get; set; }
+        public string TheatreName { get; set; }
+        public string TheatreLocation { get; set; }
     
         public virtual MovieShowtime MovieShowtime { get; set; }
+        public virtual Room Room { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Seats> Seats { get; set; }
     }

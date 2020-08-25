@@ -21,12 +21,10 @@ namespace DatabaseAccess
         }
     
         public int MovieShowtimeId { get; set; }
-        public Nullable<System.DateTime> StartTime { get; set; }
-        public Nullable<System.DateTime> EndTime { get; set; }
-        public Nullable<int> TicketsSold { get; set; }
-        public Nullable<int> TicketsUnsold { get; set; }
-        public Nullable<int> MovieId { get; set; }
-        public Nullable<int> TheatreId { get; set; }
+        public System.DateTime StartTime { get; set; }
+        public System.DateTime EndTime { get; set; }
+        public int MovieId { get; set; }
+        public int TheatreId { get; set; }
     
         public virtual Movie Movie { get; set; }
         public virtual Theatre Theatre { get; set; }
