@@ -25,6 +25,7 @@ namespace DatabaseAccess
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Movie> Movie { get; set; }
         public virtual DbSet<MovieShowtime> MovieShowtime { get; set; }
         public virtual DbSet<Room> Room { get; set; }

@@ -12,15 +12,16 @@ namespace DatabaseAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class TimeSlot
+    public partial class Category
     {
-        public int TimeSlotId { get; set; }
-        public System.TimeSpan StartTime { get; set; }
-        public System.TimeSpan EndTime { get; set; }
-        public int MovieShowTime { get; set; }
-        public int User { get; set; }
+        public int CategoryId { get; set; }
+        public Nullable<bool> Comedy { get; set; }
+        public Nullable<bool> Drama { get; set; }
+        public Nullable<bool> Action { get; set; }
+        public Nullable<bool> Animation { get; set; }
+        public Nullable<bool> SciFi { get; set; }
+        public int Movie { get; set; }
     
-        public virtual MovieShowtime MovieShowtime1 { get; set; }
-        public virtual User User1 { get; set; }
+        public virtual Movie Movie1 { get; set; }
     }
 }

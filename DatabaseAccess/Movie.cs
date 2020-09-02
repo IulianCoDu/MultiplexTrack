@@ -14,15 +14,25 @@ namespace DatabaseAccess
     
     public partial class Movie
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Movie()
+        {
+            this.Category = new HashSet<Category>();
+        }
+    
         public int MovieId { get; set; }
         public string Title { get; set; }
         public System.DateTime Year { get; set; }
         public string Type { get; set; }
         public System.TimeSpan Duration { get; set; }
-        public string Category { get; set; }
         public byte[] Poster { get; set; }
         public string Description { get; set; }
+        public int MovieShowTime { get; set; }
+        public int User { get; set; }
     
-        public virtual TimeSlot TimeSlot { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Category> Category { get; set; }
+        public virtual MovieShowtime MovieShowtime1 { get; set; }
+        public virtual User User1 { get; set; }
     }
 }

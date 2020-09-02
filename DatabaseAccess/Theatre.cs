@@ -23,8 +23,9 @@ namespace DatabaseAccess
         public int TheatreId { get; set; }
         public string TheatreName { get; set; }
         public string TheatreLocation { get; set; }
+        public int MovieShowTime { get; set; }
     
-        public virtual MovieShowtime MovieShowtime { get; set; }
+        public virtual MovieShowtime MovieShowtime1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Room> Room { get; set; }
     }

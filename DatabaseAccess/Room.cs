@@ -14,11 +14,18 @@ namespace DatabaseAccess
     
     public partial class Room
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Room()
+        {
+            this.Seats = new HashSet<Seats>();
+        }
+    
         public int RoomId { get; set; }
-        public Nullable<int> RoomNumber { get; set; }
-        public Nullable<int> TheatreId { get; set; }
+        public int RoomNumber { get; set; }
+        public int TheatreId { get; set; }
     
         public virtual Theatre Theatre { get; set; }
-        public virtual Seats Seats { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Seats> Seats { get; set; }
     }
 }

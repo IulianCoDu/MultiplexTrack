@@ -58,59 +58,62 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs">
+      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Movie.cs">
-      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="MovieShowtime.cs">
-      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="MultiplexTrackDBContext.Context.cs">
+    <Compile Include="MultiplexTrackDbContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MultiplexTrackDBContext.Context.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDbContext.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="MultiplexTrackDBContext.cs">
+    <Compile Include="MultiplexTrackDbContext.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="MultiplexTrackDBContext.Designer.cs">
+    <Compile Include="MultiplexTrackDbContext.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MultiplexTrackDBContext.edmx</DependentUpon>
+      <DependentUpon>MultiplexTrackDbContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room.cs">
-      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Seats.cs">
-      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Theatre.cs">
-      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Ticket.cs">
-      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="TimeSlot.cs">
-      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>MultiplexTrackDBContext.tt</DependentUpon>
+      <DependentUpon>MultiplexTrackDbContext.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="DatabaseDump\MultiplexTrack.bak" />
-    <EntityDeploy Include="MultiplexTrackDBContext.edmx">
+    <EntityDeploy Include="MultiplexTrackDbContext.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MultiplexTrackDBContext.Designer.cs</LastGenOutput>
+      <LastGenOutput>MultiplexTrackDbContext.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="MultiplexTrackDBContext.edmx.diagram">
-      <DependentUpon>MultiplexTrackDBContext.edmx</DependentUpon>
+    <None Include="MultiplexTrackDbContext.edmx.diagram">
+      <DependentUpon>MultiplexTrackDbContext.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -118,15 +121,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MultiplexTrackDBContext.Context.tt">
+    <Content Include="MultiplexTrackDbContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MultiplexTrackDBContext.edmx</DependentUpon>
-      <LastGenOutput>MultiplexTrackDBContext.Context.cs</LastGenOutput>
+      <DependentUpon>MultiplexTrackDbContext.edmx</DependentUpon>
+      <LastGenOutput>MultiplexTrackDbContext.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="MultiplexTrackDBContext.tt">
+    <Content Include="MultiplexTrackDbContext.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MultiplexTrackDBContext.edmx</DependentUpon>
-      <LastGenOutput>MultiplexTrackDBContext.cs</LastGenOutput>
+      <DependentUpon>MultiplexTrackDbContext.edmx</DependentUpon>
+      <LastGenOutput>MultiplexTrackDbContext.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

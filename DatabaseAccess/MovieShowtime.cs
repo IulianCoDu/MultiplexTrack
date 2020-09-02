@@ -14,15 +14,23 @@ namespace DatabaseAccess
     
     public partial class MovieShowtime
     {
-        public int MovieShowtimeId { get; set; }
-        public System.DateTime StartTime { get; set; }
-        public System.DateTime EndTime { get; set; }
-        public Nullable<int> TicketId { get; set; }
-        public int MovieId { get; set; }
-        public int TheatreId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MovieShowtime()
+        {
+            this.Movie = new HashSet<Movie>();
+            this.Theatre = new HashSet<Theatre>();
+            this.TimeSlot = new HashSet<TimeSlot>();
+        }
     
-        public virtual Ticket Ticket { get; set; }
-        public virtual Theatre Theatre { get; set; }
-        public virtual TimeSlot TimeSlot { get; set; }
+        public int MovieShowtimeId { get; set; }
+        public int Ticket { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Movie> Movie { get; set; }
+        public virtual Ticket Ticket1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Theatre> Theatre { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TimeSlot> TimeSlot { get; set; }
     }
 }
