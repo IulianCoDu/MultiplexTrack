@@ -18,6 +18,7 @@ namespace DatabaseAccess
         public Movie()
         {
             this.Category = new HashSet<Category>();
+            this.MovieShowtime = new HashSet<MovieShowtime>();
         }
     
         public int MovieId { get; set; }
@@ -27,12 +28,12 @@ namespace DatabaseAccess
         public System.TimeSpan Duration { get; set; }
         public byte[] Poster { get; set; }
         public string Description { get; set; }
-        public int MovieShowTime { get; set; }
-        public int User { get; set; }
+        public int UserId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Category> Category { get; set; }
-        public virtual MovieShowtime MovieShowtime1 { get; set; }
-        public virtual User User1 { get; set; }
+        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MovieShowtime> MovieShowtime { get; set; }
     }
 }

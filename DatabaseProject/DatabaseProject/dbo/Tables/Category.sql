@@ -5,8 +5,10 @@
     [Action]     BIT NULL,
     [Animation]  BIT NULL,
     [SciFi]      BIT NULL,
-    [Movie]      INT NOT NULL,
+    [MovieId]    INT NOT NULL,
     CONSTRAINT [PK_Category] PRIMARY KEY CLUSTERED ([CategoryId] ASC),
-    CONSTRAINT [FK_Category_Movie] FOREIGN KEY ([Movie]) REFERENCES [dbo].[Movie] ([MovieId])
+    CONSTRAINT [FK_Category_Movie] FOREIGN KEY ([MovieId]) REFERENCES [dbo].[Movie] ([MovieId])
 );
+
+
 

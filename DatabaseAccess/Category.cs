@@ -20,8 +20,8 @@ namespace DatabaseAccess
         public Nullable<bool> Action { get; set; }
         public Nullable<bool> Animation { get; set; }
         public Nullable<bool> SciFi { get; set; }
-        public int Movie { get; set; }
+        public int MovieId { get; set; }
     
-        public virtual Movie Movie1 { get; set; }
+        public virtual Movie Movie { get; set; }
     }
 }

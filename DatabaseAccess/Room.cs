@@ -17,6 +17,7 @@ namespace DatabaseAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Room()
         {
+            this.MovieShowtime = new HashSet<MovieShowtime>();
             this.Seats = new HashSet<Seats>();
         }
     
@@ -24,6 +25,8 @@ namespace DatabaseAccess
         public int RoomNumber { get; set; }
         public int TheatreId { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MovieShowtime> MovieShowtime { get; set; }
         public virtual Theatre Theatre { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Seats> Seats { get; set; }

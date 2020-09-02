@@ -17,15 +17,16 @@ namespace DatabaseAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Theatre()
         {
+            this.MovieShowtime = new HashSet<MovieShowtime>();
             this.Room = new HashSet<Room>();
         }
     
         public int TheatreId { get; set; }
         public string TheatreName { get; set; }
         public string TheatreLocation { get; set; }
-        public int MovieShowTime { get; set; }
     
-        public virtual MovieShowtime MovieShowtime1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MovieShowtime> MovieShowtime { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Room> Room { get; set; }
     }
