@@ -14,12 +14,6 @@ namespace DatabaseAccess
     
     public partial class Ticket
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Ticket()
-        {
-            this.MovieShowtime = new HashSet<MovieShowtime>();
-        }
-    
         public int TicketId { get; set; }
         public string MovieName { get; set; }
         public string ScreenNumber { get; set; }
@@ -29,8 +23,7 @@ namespace DatabaseAccess
         public int UserId { get; set; }
         public int MovieShowtimeId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MovieShowtime> MovieShowtime { get; set; }
+        public virtual MovieShowtime MovieShowtime { get; set; }
         public virtual User User { get; set; }
     }
 }

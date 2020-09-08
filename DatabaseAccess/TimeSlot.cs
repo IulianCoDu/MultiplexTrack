@@ -17,10 +17,10 @@ namespace DatabaseAccess
         public int TimeSlotId { get; set; }
         public System.TimeSpan StartTime { get; set; }
         public System.TimeSpan EndTime { get; set; }
-        public int MovieShowTime { get; set; }
-        public int User { get; set; }
+        public int MovieShowTimeId { get; set; }
+        public int UserId { get; set; }
     
-        public virtual MovieShowtime MovieShowtime1 { get; set; }
-        public virtual User User1 { get; set; }
+        public virtual MovieShowtime MovieShowtime { get; set; }
+        public virtual User User { get; set; }
     }
 }

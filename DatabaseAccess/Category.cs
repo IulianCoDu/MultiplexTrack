@@ -14,14 +14,16 @@ namespace DatabaseAccess
     
     public partial class Category
     {
-        public int CategoryId { get; set; }
-        public Nullable<bool> Comedy { get; set; }
-        public Nullable<bool> Drama { get; set; }
-        public Nullable<bool> Action { get; set; }
-        public Nullable<bool> Animation { get; set; }
-        public Nullable<bool> SciFi { get; set; }
-        public int MovieId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Category()
+        {
+            this.Movie = new HashSet<Movie>();
+        }
     
-        public virtual Movie Movie { get; set; }
+        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Movie> Movie { get; set; }
     }
 }
