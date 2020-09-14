@@ -1,11 +1,15 @@
 ﻿CREATE TABLE [dbo].[TimeSlot] (
-    [TimeSlotId]    INT      NOT NULL,
-    [StartTime]     TIME (7) NOT NULL,
-    [EndTime]       TIME (7) NOT NULL,
-    [MovieShowTime] INT      NOT NULL,
-    [User]          INT      NOT NULL,
+    [TimeSlotId]      INT      NOT NULL,
+    [StartTime]       TIME (7) NOT NULL,
+    [EndTime]         TIME (7) NOT NULL,
+    [MovieShowTimeId] INT      NOT NULL,
+    [UserId]          INT      NOT NULL,
+    [RoomId]          INT      NOT NULL,
     CONSTRAINT [PK_TimeSlot] PRIMARY KEY CLUSTERED ([TimeSlotId] ASC),
-    CONSTRAINT [FK_TimeSlot_MovieShowtime] FOREIGN KEY ([MovieShowTime]) REFERENCES [dbo].[User] ([UserId]),
-    CONSTRAINT [FK_TimeSlot_MovieShowtime1] FOREIGN KEY ([MovieShowTime]) REFERENCES [dbo].[MovieShowtime] ([MovieShowtimeId])
+    CONSTRAINT [FK_TimeSlot_MovieShowtime] FOREIGN KEY ([MovieShowTimeId]) REFERENCES [dbo].[MovieShowtime] ([MovieShowtimeId]),
+    CONSTRAINT [FK_TimeSlot_Room] FOREIGN KEY ([RoomId]) REFERENCES [dbo].[Room] ([RoomId]),
+    CONSTRAINT [FK_TimeSlot_User] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([UserId])
 );
+
+
 

@@ -24,6 +24,7 @@
           <Property Name="Poster" Type="varbinary" MaxLength="50" />
           <Property Name="Description" Type="varchar" MaxLength="100" />
           <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="TimeSlotId" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -101,6 +102,7 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           <Property Name="EndTime" Type="time" Precision="7" Nullable="false" />
           <Property Name="MovieShowTimeId" Type="int" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoomId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -135,6 +137,18 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
             </Principal>
             <Dependent Role="Movie_Category">
               <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movie_TimeSlot">
+          <End Role="TimeSlot" Type="Self.TimeSlot" Multiplicity="1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeSlot">
+              <PropertyRef Name="TimeSlotId" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="TimeSlotId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -246,6 +260,18 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TimeSlot_Room">
+          <End Role="Room" Type="Self.Room" Multiplicity="1" />
+          <End Role="TimeSlot" Type="Self.TimeSlot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="TimeSlot">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TimeSlot_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="TimeSlot" Type="Self.TimeSlot" Multiplicity="*" />
@@ -283,6 +309,10 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
             <End Role="Movie" EntitySet="Movie" />
             <End Role="Movie_Category" EntitySet="Movie_Category" />
           </AssociationSet>
+          <AssociationSet Name="FK_Movie_TimeSlot" Association="Self.FK_Movie_TimeSlot">
+            <End Role="TimeSlot" EntitySet="TimeSlot" />
+            <End Role="Movie" EntitySet="Movie" />
+          </AssociationSet>
           <AssociationSet Name="FK_Movie_User" Association="Self.FK_Movie_User">
             <End Role="User" EntitySet="User" />
             <End Role="Movie" EntitySet="Movie" />
@@ -319,6 +349,10 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
             <End Role="MovieShowtime" EntitySet="MovieShowtime" />
             <End Role="TimeSlot" EntitySet="TimeSlot" />
           </AssociationSet>
+          <AssociationSet Name="FK_TimeSlot_Room" Association="Self.FK_TimeSlot_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="TimeSlot" EntitySet="TimeSlot" />
+          </AssociationSet>
           <AssociationSet Name="FK_TimeSlot_User" Association="Self.FK_TimeSlot_User">
             <End Role="User" EntitySet="User" />
             <End Role="TimeSlot" EntitySet="TimeSlot" />
@@ -349,6 +383,8 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           <Property Name="Poster" Type="Binary" MaxLength="50" FixedLength="false" />
           <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="TimeSlotId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TimeSlot" Relationship="Self.FK_Movie_TimeSlot" FromRole="Movie" ToRole="TimeSlot" />
           <NavigationProperty Name="User" Relationship="Self.FK_Movie_User" FromRole="Movie" ToRole="User" />
           <NavigationProperty Name="MovieShowtime" Relationship="Self.FK_MovieShowtime_Movie" FromRole="Movie" ToRole="MovieShowtime" />
           <NavigationProperty Name="Category" Relationship="Self.Movie_Category" FromRole="Movie" ToRole="Category" />
@@ -378,6 +414,7 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           <NavigationProperty Name="MovieShowtime" Relationship="Self.FK_MovieShowtime_Room" FromRole="Room" ToRole="MovieShowtime" />
           <NavigationProperty Name="Theatre" Relationship="Self.FK_Room_Theatre" FromRole="Room" ToRole="Theatre" />
           <NavigationProperty Name="Seats" Relationship="Self.FK_Seats_Room" FromRole="Room" ToRole="Seats" />
+          <NavigationProperty Name="TimeSlot" Relationship="Self.FK_TimeSlot_Room" FromRole="Room" ToRole="TimeSlot" />
         </EntityType>
         <EntityType Name="Seats">
           <Key>
@@ -432,7 +469,10 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           <Property Name="EndTime" Type="Time" Nullable="false" Precision="7" />
           <Property Name="MovieShowTimeId" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="RoomId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Movie" Relationship="Self.FK_Movie_TimeSlot" FromRole="TimeSlot" ToRole="Movie" />
           <NavigationProperty Name="MovieShowtime" Relationship="Self.FK_TimeSlot_MovieShowtime" FromRole="TimeSlot" ToRole="MovieShowtime" />
+          <NavigationProperty Name="Room" Relationship="Self.FK_TimeSlot_Room" FromRole="TimeSlot" ToRole="Room" />
           <NavigationProperty Name="User" Relationship="Self.FK_TimeSlot_User" FromRole="TimeSlot" ToRole="User" />
         </EntityType>
         <EntityType Name="User">
@@ -450,6 +490,18 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           <NavigationProperty Name="Ticket" Relationship="Self.FK_Ticket_User" FromRole="User" ToRole="Ticket" />
           <NavigationProperty Name="TimeSlot" Relationship="Self.FK_TimeSlot_User" FromRole="User" ToRole="TimeSlot" />
         </EntityType>
+        <Association Name="FK_Movie_TimeSlot">
+          <End Role="TimeSlot" Type="Self.TimeSlot" Multiplicity="1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeSlot">
+              <PropertyRef Name="TimeSlotId" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="TimeSlotId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Movie_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
@@ -546,6 +598,18 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TimeSlot_Room">
+          <End Role="Room" Type="Self.Room" Multiplicity="1" />
+          <End Role="TimeSlot" Type="Self.TimeSlot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="TimeSlot">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Ticket_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
@@ -585,6 +649,10 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           <EntitySet Name="Ticket" EntityType="Self.Ticket" />
           <EntitySet Name="TimeSlot" EntityType="Self.TimeSlot" />
           <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_Movie_TimeSlot" Association="Self.FK_Movie_TimeSlot">
+            <End Role="TimeSlot" EntitySet="TimeSlot" />
+            <End Role="Movie" EntitySet="Movie" />
+          </AssociationSet>
           <AssociationSet Name="FK_Movie_User" Association="Self.FK_Movie_User">
             <End Role="User" EntitySet="User" />
             <End Role="Movie" EntitySet="Movie" />
@@ -616,6 +684,10 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           <AssociationSet Name="FK_Seats_Room" Association="Self.FK_Seats_Room">
             <End Role="Room" EntitySet="Room" />
             <End Role="Seats" EntitySet="Seats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TimeSlot_Room" Association="Self.FK_TimeSlot_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="TimeSlot" EntitySet="TimeSlot" />
           </AssociationSet>
           <AssociationSet Name="FK_Ticket_User" Association="Self.FK_Ticket_User">
             <End Role="User" EntitySet="User" />
@@ -655,6 +727,7 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
                 <ScalarProperty Name="Poster" ColumnName="Poster" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TimeSlotId" ColumnName="TimeSlotId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -729,6 +802,7 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
                 <ScalarProperty Name="EndTime" ColumnName="EndTime" />
                 <ScalarProperty Name="MovieShowTimeId" ColumnName="MovieShowTimeId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

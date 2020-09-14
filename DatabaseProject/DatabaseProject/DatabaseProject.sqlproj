@@ -71,5 +71,6 @@
     <Build Include="dbo\Tables\TimeSlot.sql" />
     <Build Include="dbo\Tables\Room.sql" />
     <Build Include="dbo\Tables\Category.sql" />
+    <Build Include="dbo\Tables\Movie_Category.sql" />
   </ItemGroup>
 </Project>

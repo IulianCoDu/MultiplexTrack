@@ -19,6 +19,7 @@ namespace DatabaseAccess
         {
             this.MovieShowtime = new HashSet<MovieShowtime>();
             this.Seats = new HashSet<Seats>();
+            this.TimeSlot = new HashSet<TimeSlot>();
         }
     
         public int RoomId { get; set; }
@@ -30,5 +31,7 @@ namespace DatabaseAccess
         public virtual Theatre Theatre { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Seats> Seats { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TimeSlot> TimeSlot { get; set; }
     }
 }

@@ -7,9 +7,13 @@
     [Poster]      VARBINARY (50) NULL,
     [Description] VARCHAR (100)  NULL,
     [UserId]      INT            NOT NULL,
+    [TimeSlotId]  INT            NOT NULL,
     CONSTRAINT [PK_Movie] PRIMARY KEY CLUSTERED ([MovieId] ASC),
+    CONSTRAINT [FK_Movie_TimeSlot] FOREIGN KEY ([TimeSlotId]) REFERENCES [dbo].[TimeSlot] ([TimeSlotId]),
     CONSTRAINT [FK_Movie_User] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([UserId])
 );
+
+
 
 
 

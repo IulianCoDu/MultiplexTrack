@@ -14,13 +14,23 @@ namespace DatabaseAccess
     
     public partial class TimeSlot
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TimeSlot()
+        {
+            this.Movie = new HashSet<Movie>();
+        }
+    
         public int TimeSlotId { get; set; }
         public System.TimeSpan StartTime { get; set; }
         public System.TimeSpan EndTime { get; set; }
         public int MovieShowTimeId { get; set; }
         public int UserId { get; set; }
+        public int RoomId { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Movie> Movie { get; set; }
         public virtual MovieShowtime MovieShowtime { get; set; }
+        public virtual Room Room { get; set; }
         public virtual User User { get; set; }
     }
 }
