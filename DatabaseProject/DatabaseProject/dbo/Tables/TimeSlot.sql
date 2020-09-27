@@ -6,10 +6,11 @@
     [UserId]          INT      NOT NULL,
     [RoomId]          INT      NOT NULL,
     CONSTRAINT [PK_TimeSlot] PRIMARY KEY CLUSTERED ([TimeSlotId] ASC),
-    CONSTRAINT [FK_TimeSlot_MovieShowtime] FOREIGN KEY ([MovieShowTimeId]) REFERENCES [dbo].[MovieShowtime] ([MovieShowtimeId]),
     CONSTRAINT [FK_TimeSlot_Room] FOREIGN KEY ([RoomId]) REFERENCES [dbo].[Room] ([RoomId]),
     CONSTRAINT [FK_TimeSlot_User] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([UserId])
 );
+
+
 
 
 

@@ -8,9 +8,11 @@
     [UserId]          INT          NOT NULL,
     [MovieShowtimeId] INT          NOT NULL,
     CONSTRAINT [PK_Ticket] PRIMARY KEY CLUSTERED ([TicketId] ASC),
-    CONSTRAINT [FK_Ticket_MovieShowtime] FOREIGN KEY ([TicketId]) REFERENCES [dbo].[MovieShowtime] ([MovieShowtimeId]),
+    CONSTRAINT [FK_Ticket_MovieShowtime] FOREIGN KEY ([MovieShowtimeId]) REFERENCES [dbo].[MovieShowtime] ([MovieShowtimeId]),
     CONSTRAINT [FK_Ticket_User] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([UserId])
 );
+
+
 
 
 

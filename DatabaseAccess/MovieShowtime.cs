@@ -17,7 +17,7 @@ namespace DatabaseAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MovieShowtime()
         {
-            this.TimeSlot = new HashSet<TimeSlot>();
+            this.Ticket = new HashSet<Ticket>();
         }
     
         public int MovieShowtimeId { get; set; }
@@ -25,12 +25,13 @@ namespace DatabaseAccess
         public int MovieId { get; set; }
         public int RoomId { get; set; }
         public int TheatreId { get; set; }
+        public int TimeSlotId { get; set; }
     
         public virtual Movie Movie { get; set; }
         public virtual Room Room { get; set; }
         public virtual Theatre Theatre { get; set; }
-        public virtual Ticket Ticket { get; set; }
+        public virtual TimeSlot TimeSlot { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TimeSlot> TimeSlot { get; set; }
+        public virtual ICollection<Ticket> Ticket { get; set; }
     }
 }

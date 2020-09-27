@@ -17,7 +17,7 @@ namespace DatabaseAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TimeSlot()
         {
-            this.Movie = new HashSet<Movie>();
+            this.MovieShowtime = new HashSet<MovieShowtime>();
         }
     
         public int TimeSlotId { get; set; }
@@ -27,9 +27,9 @@ namespace DatabaseAccess
         public int UserId { get; set; }
         public int RoomId { get; set; }
     
+        public virtual Movie Movie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Movie> Movie { get; set; }
-        public virtual MovieShowtime MovieShowtime { get; set; }
+        public virtual ICollection<MovieShowtime> MovieShowtime { get; set; }
         public virtual Room Room { get; set; }
         public virtual User User { get; set; }
     }

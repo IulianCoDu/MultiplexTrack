@@ -9,9 +9,11 @@
     [UserId]      INT            NOT NULL,
     [TimeSlotId]  INT            NOT NULL,
     CONSTRAINT [PK_Movie] PRIMARY KEY CLUSTERED ([MovieId] ASC),
-    CONSTRAINT [FK_Movie_TimeSlot] FOREIGN KEY ([TimeSlotId]) REFERENCES [dbo].[TimeSlot] ([TimeSlotId]),
+    CONSTRAINT [FK_Movie_TimeSlot] FOREIGN KEY ([MovieId]) REFERENCES [dbo].[TimeSlot] ([TimeSlotId]),
     CONSTRAINT [FK_Movie_User] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([UserId])
 );
+
+
 
 
 
