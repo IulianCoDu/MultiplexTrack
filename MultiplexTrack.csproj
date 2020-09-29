@@ -167,9 +167,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\OldSchoolCinema.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="OldSchoolCinema.jpg" />
   </ItemGroup>
   <ItemGroup>

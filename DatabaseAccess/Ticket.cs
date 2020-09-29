@@ -24,6 +24,7 @@ namespace DatabaseAccess
         public int MovieShowtimeId { get; set; }
     
         public virtual MovieShowtime MovieShowtime { get; set; }
+        public virtual Seats Seats { get; set; }
         public virtual User User { get; set; }
     }
 }

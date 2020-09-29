@@ -23,7 +23,7 @@ namespace DatabaseAccess
         }
     
         public int RoomId { get; set; }
-        public int RoomNumber { get; set; }
+        public string RoomNumber { get; set; }
         public int TheatreId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
