@@ -15,10 +15,10 @@ namespace MultiplexTrack
 
         private string _userName;
         private string _password;
-        private string _firstName;
-        private string _lastName;
-        private string _email;
-        private string _isVisible;
+        //private string _firstName;
+        //private string _lastName;
+        //private string _email;
+        //private string _isVisible;
         private ICommand _loginCommand;
         private ICommand _registerCommand;
         private ICommand _cancelCommand;
@@ -29,7 +29,7 @@ namespace MultiplexTrack
             databaseContext = new MultiplexTrackDbContext();
             _navigationService = navigationService;
 
-            _isVisible = "Hidden";
+            //_isVisible = "Hidden";
 
             ClearCommand = new RelayCommand(() => Clear());
             CancelCommand = new RelayCommand(() => Close());
@@ -46,29 +46,29 @@ namespace MultiplexTrack
             set { Set(ref _password, value); }
         }
 
-        public string FirstNameText
-        {
-            get { return _firstName; }
-            set { Set(ref _firstName, value); }
-        }
+        //public string FirstNameText
+        //{
+        //    get { return _firstName; }
+        //    set { Set(ref _firstName, value); }
+        //}
 
-        public string LastNameText
-        {
-            get { return _lastName; }
-            set { Set(ref _lastName, value); }
-        }
+        //public string LastNameText
+        //{
+        //    get { return _lastName; }
+        //    set { Set(ref _lastName, value); }
+        //}
 
-        public string EmailText
-        {
-            get { return _email; }
-            set { Set(ref _email, value); }
-        }
+        //public string EmailText
+        //{
+        //    get { return _email; }
+        //    set { Set(ref _email, value); }
+        //}
 
-        public string IsVisible
-        {
-            get { return _isVisible; }
-            set { Set(ref _isVisible, value); }
-        }
+        //public string IsVisible
+        //{
+        //    get { return _isVisible; }
+        //    set { Set(ref _isVisible, value); }
+        //}
 
         public ICommand LoginCommand
         {
@@ -121,26 +121,27 @@ namespace MultiplexTrack
                     }
                     else
                     {
-                        IsVisible = "Visible";
-                        while (FirstNameText != null && LastNameText != null && EmailText != null)
-                        {
-                            User user = new User();
+                        _navigationService.NavigateTo("UserRegisterView");
+                        //IsVisible = "Visible";
+                        //while (FirstNameText != null && LastNameText != null && EmailText != null)
+                        //{
+                        //    User user = new User();
 
-                            user.UserName = UserNameText;
-                            user.Password = PasswordText;
-                            user.FirstName = FirstNameText;
-                            user.LastName = LastNameText;
-                            user.Email = EmailText;
+                        //    user.UserName = UserNameText;
+                        //    user.Password = PasswordText;
+                        //    user.FirstName = FirstNameText;
+                        //    user.LastName = LastNameText;
+                        //    user.Email = EmailText;
 
-                            databaseContext.User.Add(user);
-                            databaseContext.SaveChanges();
-                            MessageBox.Show("New user saved to database!");
+                        //    databaseContext.User.Add(user);
+                        //    databaseContext.SaveChanges();
+                        //    MessageBox.Show("New user saved to database!");
 
-                            IsVisible = "Hidden";
-                            Clear();
-                            return;
-                        }
-                        Clear();
+                        //    IsVisible = "Hidden";
+                        //    Clear();
+                        //    return;
+                        //}
+                        //Clear();
                     }
                 });
             }
@@ -176,13 +177,13 @@ namespace MultiplexTrack
             //    PasswordText = null;
             //}
 
-            if (FirstNameText != null || LastNameText != null || EmailText != null)
-            {
-                FirstNameText = null;
-                LastNameText = null;
-                EmailText = null;
-                //IsVisible = "Visible";
-            }
+            //if (FirstNameText != null || LastNameText != null || EmailText != null)
+            //{
+            //    FirstNameText = null;
+            //    LastNameText = null;
+            //    EmailText = null;
+            //    //IsVisible = "Visible";
+            //}
             
         }
 

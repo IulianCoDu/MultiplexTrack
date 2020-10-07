@@ -22,6 +22,7 @@ namespace MultiplexTrack.ViewModel
             navigationService.Configure("UserLoginView", new Uri("../View/UserLoginView.xaml", UriKind.Relative));
             navigationService.Configure("HomeView", new Uri("../View/HomeView.xaml", UriKind.Relative));
             navigationService.Configure("MoviesView", new Uri("../View/MoviesView.xaml", UriKind.Relative));
+            navigationService.Configure("UserRegisterView", new Uri("../View/UserRegisterView.xaml", UriKind.Relative));
             SimpleIoc.Default.Register<IFrameNavigationService>(() => navigationService);
         }
         public MainViewModel MainViewModel
