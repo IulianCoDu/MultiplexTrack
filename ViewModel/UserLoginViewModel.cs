@@ -114,13 +114,13 @@ namespace MultiplexTrack
                 return new RelayCommand(() =>
                 {
                     //TODO: Save User and Password into the database, then navigate to next View to fill up the extra info
-                    if (databaseContext.User.Any(name => name.UserName == UserNameText))
-                    {
-                        MessageBox.Show("User already exists!");
-                        return;
-                    }
-                    else
-                    {
+                    //if (databaseContext.User.Any(name => name.UserName == UserNameText))
+                    //{
+                    //    MessageBox.Show("User already exists!");
+                    //    return;
+                    //}
+                    //else
+                    //{
                         _navigationService.NavigateTo("UserRegisterView");
                         //IsVisible = "Visible";
                         //while (FirstNameText != null && LastNameText != null && EmailText != null)
@@ -142,7 +142,7 @@ namespace MultiplexTrack
                         //    return;
                         //}
                         //Clear();
-                    }
+                    //}
                 });
             }
             set { Set(ref _registerCommand, value); } // TODO: Read about this custom Set 

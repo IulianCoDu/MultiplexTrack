@@ -13,6 +13,8 @@ namespace MultiplexTrack.ViewModel
         private MultiplexTrackDbContext databaseContext;
         private IFrameNavigationService _navigationService;
 
+        private string _userName;
+        private string _password;
         private string _firstName;
         private string _lastName;
         private string _email;
@@ -21,7 +23,18 @@ namespace MultiplexTrack.ViewModel
 
         public UserRegisterViewModel(IFrameNavigationService frameNavigationService)
         {
-            _isVisible = "Hidden";
+            
+        }
+
+        public string UserNameText
+        {
+            get { return _userName; }
+            set { Set(ref _userName, value); }
+        }
+        public string PasswordText
+        {
+            get { return _password; }
+            set { Set(ref _password, value); }
         }
 
         public ICommand SaveCommand
@@ -31,35 +44,34 @@ namespace MultiplexTrack.ViewModel
                 return new RelayCommand(() =>
                 {
                     //TODO: Save User and Password into the database, then navigate to next View to fill up the extra info
-                    //if (databaseContext.User.Any(name => name.UserName == UserNameText))
-                    //{
-                    //    MessageBox.Show("User already exists!");
-                    //    return;
-                    //}
-                    //else
-                    //{
-                        _navigationService.NavigateTo("UserRegisterView");
-                        //IsVisible = "Visible";
-                        //while (FirstNameText != null && LastNameText != null && EmailText != null)
-                        //{
-                        //    User user = new User();
+                    if (databaseContext.User.Any(name => name.UserName == UserNameText))
+                    {
+                        MessageBox.Show("User already exists!");
+                        return;
+                    }
+                    else
+                    {
+                        //_navigationService.NavigateTo("UserRegisterView");
 
-                        //    user.UserName = UserNameText;
-                        //    user.Password = PasswordText;
-                        //    user.FirstName = FirstNameText;
-                        //    user.LastName = LastNameText;
-                        //    user.Email = EmailText;
+                        while (FirstNameText != null && LastNameText != null && EmailText != null)
+                        {
+                            User user = new User();
 
-                        //    databaseContext.User.Add(user);
-                        //    databaseContext.SaveChanges();
-                        //    MessageBox.Show("New user saved to database!");
+                            user.UserName = UserNameText;
+                            user.Password = PasswordText;
+                            user.FirstName = FirstNameText;
+                            user.LastName = LastNameText;
+                            user.Email = EmailText;
 
-                        //    IsVisible = "Hidden";
-                        //    //Clear();
-                        //    return;
-                        //}
-                        //Clear();
-                    //}
+                            databaseContext.User.Add(user);
+                            databaseContext.SaveChanges();
+                            MessageBox.Show("New user saved to database!");
+
+                            IsVisible = "Hidden";
+                            //Clear();
+                            return;
+                        }
+                    }
                 });
             }
             set { Set(ref _saveCommand, value); } // TODO: Read about this custom Set 

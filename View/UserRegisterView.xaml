@@ -22,10 +22,13 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!--  Main Text from Login Page  -->
+        <!--  Main Text from Register Page  -->
         <TextBlock
             Grid.Row="0"
             Grid.Column="0"
@@ -39,67 +42,97 @@
 
         <!--  Username Text  -->
         <TextBlock
-            Grid.Row="2"
+            Grid.Row="1"
             Grid.Column="0"
             Margin="10"
-            Visibility="{Binding IsVisible}"><Run Text="FirstName" /></TextBlock>
+            Text="FirstName" />
 
         <xctk:WatermarkTextBox
             x:Name="FirstNameTextBox"
-            Grid.Row="4"
+            Grid.Row="1"
             Grid.Column="1"
+            Margin="5"
             VerticalAlignment="Center"
-            AutomationProperties.Name="Test"
             Text="{Binding FirstNameText}"
-            Visibility="{Binding IsVisible}"
             Watermark="Enter First Name" />
+        <!--  Visibility="{Binding IsVisible}"  -->
+
 
         <!--  Last name Text  -->
         <TextBlock
-            Grid.Row="3"
+            Grid.Row="2"
             Grid.Column="0"
             Margin="10"
-            Visibility="{Binding IsVisible}"><Run Text="LastName" /></TextBlock>
+            Text="LastName" />
 
         <xctk:WatermarkTextBox
             x:Name="LastNameTextBox"
-            Grid.Row="4"
+            Grid.Row="2"
             Grid.Column="1"
+            Margin="5"
             VerticalAlignment="Center"
-            AutomationProperties.Name="Test"
             Text="{Binding LastNameText}"
-            Visibility="{Binding IsVisible}"
             Watermark="Enter Last Name" />
+
 
         <!--  E-mail name Text  -->
         <TextBlock
-            Grid.Row="6"
+            Grid.Row="3"
             Grid.Column="0"
             Margin="10"
-            Visibility="{Binding IsVisible}"><Run Text="E-mail" /></TextBlock>
+            Text="E-mail" />
 
         <xctk:WatermarkTextBox
             x:Name="EmailTextBox"
-            Grid.Row="6"
+            Grid.Row="3"
             Grid.Column="1"
+            Margin="5"
             VerticalAlignment="Center"
-            AutomationProperties.Name="Test"
             Text="{Binding EmailText}"
-            Visibility="{Binding IsVisible}"
+            Watermark="Enter User Name" />
+
+        <!--  User name Text  -->
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="0"
+            Margin="10"
+            Text="User" />
+
+        <xctk:WatermarkTextBox
+            x:Name="UserTextBox"
+            Grid.Row="4"
+            Grid.Column="1"
+            Margin="5"
+            VerticalAlignment="Center"
+            Text="{Binding EmailText}"
             Watermark="Enter E-mail" />
 
+        <!--  Password name Text  -->
+        <TextBlock
+            Grid.Row="5"
+            Grid.Column="0"
+            Margin="10"
+            Text="Password" />
+
+        <xctk:WatermarkTextBox
+            x:Name="PasswordTextBox"
+            Grid.Row="5"
+            Grid.Column="1"
+            Margin="5"
+            VerticalAlignment="Center"
+            Text="{Binding EmailText}"
+            Watermark="Enter Password" />
+
+        <!--  Save Button  -->
         <Button
             x:Name="registerButton"
-            Grid.Row="3"
-            Grid.Column="3"
-            Width="76"
-            HorizontalAlignment="Left"
-            Command="{Binding SaveCommand}"
+            Grid.Row="6"
+            Grid.Column="1"
+            Margin="5"
+            Command="{Binding}"
             Content="Save" />
-
-
-
-
+        <!--  TODO: Save Buton visible only after all fields are filled  -->
+        <!--  Visibility="{Binding IsVisible}"  -->
 
     </Grid>
 </Page>
