@@ -12,6 +12,7 @@
     <Application.Resources>
 
         <!--  Global View Model Locator  -->
+        <!--  TODO: Read about this  -->        
         <viewmodel:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
 
         <!--  Text Block  -->
@@ -42,8 +43,8 @@
             <Setter Property="HasDropShadow" Value="True" />
             <Setter Property="HorizontalContentAlignment" Value="Center" />
         </Style>
-        
-        
+
+
 
     </Application.Resources>
 

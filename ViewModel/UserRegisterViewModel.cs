@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace MultiplexTrack.ViewModel
 {
-    class UserRegisterViewModel : ViewModelBase
+    public class UserRegisterViewModel : ViewModelBase
     {
         private MultiplexTrackDbContext databaseContext;
         private IFrameNavigationService _navigationService;
@@ -21,9 +21,10 @@ namespace MultiplexTrack.ViewModel
         private string _isVisible;
         private ICommand _saveCommand;
 
-        public UserRegisterViewModel(IFrameNavigationService frameNavigationService)
+        public UserRegisterViewModel(IFrameNavigationService navigationService)
         {
-            
+            databaseContext = new MultiplexTrackDbContext();
+            _navigationService = navigationService;
         }
 
         public string UserNameText
@@ -36,6 +37,25 @@ namespace MultiplexTrack.ViewModel
             get { return _password; }
             set { Set(ref _password, value); }
         }
+
+        public string FirstNameText
+        {
+            get { return _firstName; }
+            set { Set(ref _firstName, value); }
+        }
+
+        public string LastNameText
+        {
+            get { return _lastName; }
+            set { Set(ref _lastName, value); }
+        }
+
+        public string EmailText
+        {
+            get { return _email; }
+            set { Set(ref _email, value); }
+        }
+
 
         public ICommand SaveCommand
         {
@@ -66,9 +86,7 @@ namespace MultiplexTrack.ViewModel
                             databaseContext.User.Add(user);
                             databaseContext.SaveChanges();
                             MessageBox.Show("New user saved to database!");
-
-                            IsVisible = "Hidden";
-                            //Clear();
+                            Clear(); // TODO: How to refactor the use of this method in two different Pages
                             return;
                         }
                     }
@@ -77,28 +95,28 @@ namespace MultiplexTrack.ViewModel
             set { Set(ref _saveCommand, value); } // TODO: Read about this custom Set 
         }
 
-        public string FirstNameText
-        {
-            get { return _firstName; }
-            set { Set(ref _firstName, value); }
-        }
-
-        public string LastNameText
-        {
-            get { return _lastName; }
-            set { Set(ref _lastName, value); }
-        }
-
-        public string EmailText
-        {
-            get { return _email; }
-            set { Set(ref _email, value); }
-        }
-
         public string IsVisible
         {
             get { return _isVisible; }
             set { Set(ref _isVisible, value); }
+        }
+
+        private void Clear()
+        {
+            if (UserNameText != null || PasswordText != null)
+            {
+                UserNameText = null;
+                PasswordText = null;
+            }
+
+            if (FirstNameText != null || LastNameText != null || EmailText != null)
+            {
+                FirstNameText = null;
+                LastNameText = null;
+                EmailText = null;
+                //IsVisible = "Visible";
+            }
+
         }
     }
 }

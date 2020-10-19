@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:MultiplexTrack.View"
+    xmlns:local1="clr-namespace:MultiplexTrack.ViewModel"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
     Title="UserRegisterView"
@@ -40,40 +41,37 @@
             Text="Register Form"
             TextWrapping="Wrap" />
 
-        <!--  Username Text  -->
+        <!--  User Text  -->
         <TextBlock
             Grid.Row="1"
             Grid.Column="0"
             Margin="10"
-            Text="FirstName" />
+            Text="User" />
 
         <xctk:WatermarkTextBox
-            x:Name="FirstNameTextBox"
+            x:Name="UserTextBox"
             Grid.Row="1"
             Grid.Column="1"
             Margin="5"
             VerticalAlignment="Center"
-            Text="{Binding FirstNameText}"
-            Watermark="Enter First Name" />
-        <!--  Visibility="{Binding IsVisible}"  -->
+            Text="{Binding UserNameText}"
+            Watermark="Enter User Name" />
 
-
-        <!--  Last name Text  -->
+        <!--  Password Text  -->
         <TextBlock
             Grid.Row="2"
             Grid.Column="0"
             Margin="10"
-            Text="LastName" />
+            Text="Password" />
 
         <xctk:WatermarkTextBox
-            x:Name="LastNameTextBox"
+            x:Name="PasswordTextBox"
             Grid.Row="2"
             Grid.Column="1"
             Margin="5"
             VerticalAlignment="Center"
-            Text="{Binding LastNameText}"
-            Watermark="Enter Last Name" />
-
+            Text="{Binding PasswordText}"
+            Watermark="Enter Password" />
 
         <!--  E-mail name Text  -->
         <TextBlock
@@ -89,39 +87,44 @@
             Margin="5"
             VerticalAlignment="Center"
             Text="{Binding EmailText}"
-            Watermark="Enter User Name" />
-
-        <!--  User name Text  -->
-        <TextBlock
-            Grid.Row="4"
-            Grid.Column="0"
-            Margin="10"
-            Text="User" />
-
-        <xctk:WatermarkTextBox
-            x:Name="UserTextBox"
-            Grid.Row="4"
-            Grid.Column="1"
-            Margin="5"
-            VerticalAlignment="Center"
-            Text="{Binding EmailText}"
             Watermark="Enter E-mail" />
 
-        <!--  Password name Text  -->
+        <!--  First name Text  -->
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="0"
+            Margin="10"
+            Text="FirstName" />
+
+        <xctk:WatermarkTextBox
+            x:Name="FirstNameTextBox"
+            Grid.Row="4"
+            Grid.Column="1"
+            Margin="5"
+            VerticalAlignment="Center"
+            Text="{Binding FirstNameText}"
+            Watermark="Enter First Name" />
+        <!--  Visibility="{Binding IsVisible}"  -->
+
+
+        <!--  Last name Text  -->
         <TextBlock
             Grid.Row="5"
             Grid.Column="0"
             Margin="10"
-            Text="Password" />
+            Text="LastName" />
 
         <xctk:WatermarkTextBox
-            x:Name="PasswordTextBox"
+            x:Name="LastNameTextBox"
             Grid.Row="5"
             Grid.Column="1"
             Margin="5"
             VerticalAlignment="Center"
-            Text="{Binding EmailText}"
-            Watermark="Enter Password" />
+            Text="{Binding LastNameText}"
+            Watermark="Enter Last Name" />
+
+
+
 
         <!--  Save Button  -->
         <Button
@@ -129,7 +132,7 @@
             Grid.Row="6"
             Grid.Column="1"
             Margin="5"
-            Command="{Binding}"
+            Command="{Binding SaveCommand}"
             Content="Save" />
         <!--  TODO: Save Buton visible only after all fields are filled  -->
         <!--  Visibility="{Binding IsVisible}"  -->

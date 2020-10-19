@@ -4,7 +4,6 @@ using System.Windows;
 using System.Windows.Input;
 using DatabaseAccess;
 using MultiplexTrack.Helpers;
-using System.Linq;
 
 namespace MultiplexTrack
 {
@@ -138,7 +137,7 @@ namespace MultiplexTrack
                         //    MessageBox.Show("New user saved to database!");
 
                         //    IsVisible = "Hidden";
-                        //    Clear();
+                            Clear();
                         //    return;
                         //}
                         //Clear();
@@ -171,20 +170,20 @@ namespace MultiplexTrack
 
         private void Clear()
         {
-            //if (UserNameText != null || PasswordText != null)
-            //{
-            //    UserNameText = null;
-            //    PasswordText = null;
-            //}
+            if (UserNameText != null || PasswordText != null)
+            {
+                UserNameText = null;
+                PasswordText = null;
+            }
 
-            //if (FirstNameText != null || LastNameText != null || EmailText != null)
-            //{
-            //    FirstNameText = null;
-            //    LastNameText = null;
-            //    EmailText = null;
-            //    //IsVisible = "Visible";
-            //}
-            
+            if (FirstNameText != null || LastNameText != null || EmailText != null)
+            {
+                FirstNameText = null;
+                LastNameText = null;
+                EmailText = null;
+                //IsVisible = "Visible";
+            }
+
         }
 
     }

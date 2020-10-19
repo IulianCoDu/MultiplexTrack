@@ -10,6 +10,7 @@ namespace MultiplexTrack.ViewModel
         {
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<UserLoginViewModel>();
+            SimpleIoc.Default.Register<UserRegisterViewModel>();
             SimpleIoc.Default.Register<HomeViewModel>();
             SimpleIoc.Default.Register<MoviesViewModel>();
 
@@ -38,6 +39,14 @@ namespace MultiplexTrack.ViewModel
             get
             {
                 return SimpleIoc.Default.GetInstance<UserLoginViewModel>();
+            }
+        }
+
+        public UserRegisterViewModel UserRegisterViewModel
+        {
+            get
+            {
+                return SimpleIoc.Default.GetInstance<UserRegisterViewModel>();
             }
         }
 
