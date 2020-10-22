@@ -175,15 +175,6 @@ namespace MultiplexTrack
                 UserNameText = null;
                 PasswordText = null;
             }
-
-            if (FirstNameText != null || LastNameText != null || EmailText != null)
-            {
-                FirstNameText = null;
-                LastNameText = null;
-                EmailText = null;
-                //IsVisible = "Visible";
-            }
-
         }
 
     }

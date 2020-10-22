@@ -19,6 +19,7 @@ namespace MultiplexTrack.ViewModel
         private string _lastName;
         private string _email;
         private string _isVisible;
+        private bool _checkBox;
         private ICommand _saveCommand;
 
         public UserRegisterViewModel(IFrameNavigationService navigationService)
@@ -56,6 +57,12 @@ namespace MultiplexTrack.ViewModel
             set { Set(ref _email, value); }
         }
 
+        public bool CheckBox
+        {
+            get { return _checkBox; }
+            set { Set(ref _checkBox, value); }
+        }
+
 
         public ICommand SaveCommand
         {
@@ -63,7 +70,6 @@ namespace MultiplexTrack.ViewModel
             {
                 return new RelayCommand(() =>
                 {
-                    //TODO: Save User and Password into the database, then navigate to next View to fill up the extra info
                     if (databaseContext.User.Any(name => name.UserName == UserNameText))
                     {
                         MessageBox.Show("User already exists!");
@@ -71,8 +77,6 @@ namespace MultiplexTrack.ViewModel
                     }
                     else
                     {
-                        //_navigationService.NavigateTo("UserRegisterView");
-
                         while (FirstNameText != null && LastNameText != null && EmailText != null)
                         {
                             User user = new User();
@@ -82,6 +86,7 @@ namespace MultiplexTrack.ViewModel
                             user.FirstName = FirstNameText;
                             user.LastName = LastNameText;
                             user.Email = EmailText;
+                            user.Administrator = CheckBox;
 
                             databaseContext.User.Add(user);
                             databaseContext.SaveChanges();
