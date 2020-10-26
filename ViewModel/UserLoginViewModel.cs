@@ -14,10 +14,6 @@ namespace MultiplexTrack
 
         private string _userName;
         private string _password;
-        //private string _firstName;
-        //private string _lastName;
-        //private string _email;
-        //private string _isVisible;
         private ICommand _loginCommand;
         private ICommand _registerCommand;
         private ICommand _cancelCommand;
@@ -28,8 +24,6 @@ namespace MultiplexTrack
             databaseContext = new MultiplexTrackDbContext();
             _navigationService = navigationService;
 
-            //_isVisible = "Hidden";
-
             ClearCommand = new RelayCommand(() => Clear());
             CancelCommand = new RelayCommand(() => Close());
         }
@@ -37,7 +31,7 @@ namespace MultiplexTrack
         public string UserNameText
         {
             get { return _userName; }
-            set { Set (ref _userName, value);}
+            set { Set(ref _userName, value); }
         }
         public string PasswordText
         {
@@ -45,63 +39,39 @@ namespace MultiplexTrack
             set { Set(ref _password, value); }
         }
 
-        //public string FirstNameText
-        //{
-        //    get { return _firstName; }
-        //    set { Set(ref _firstName, value); }
-        //}
-
-        //public string LastNameText
-        //{
-        //    get { return _lastName; }
-        //    set { Set(ref _lastName, value); }
-        //}
-
-        //public string EmailText
-        //{
-        //    get { return _email; }
-        //    set { Set(ref _email, value); }
-        //}
-
-        //public string IsVisible
-        //{
-        //    get { return _isVisible; }
-        //    set { Set(ref _isVisible, value); }
-        //}
-
         public ICommand LoginCommand
         {
             get
             {
-                return new RelayCommand( () =>
-                {
-                    bool loginSuccesfull = false;
-                    if (UserNameText == null || PasswordText == null)
-                    {
-                        MessageBox.Show("The User and/or Password can't be empty");
-                        return;
-                    }
+                return new RelayCommand(() =>
+               {
+                   bool loginSuccesfull = false;
+                   if (UserNameText == null || PasswordText == null)
+                   {
+                       MessageBox.Show("The User and/or Password can't be empty");
+                       return;
+                   }
 
-                    foreach (User user in databaseContext.User)
-                    {
-                        if (UserNameText == user.UserName && PasswordText == user.Password)
-                        {
-                            loginSuccesfull = true;
-                            MessageBox.Show("Login Successfull!");
-                            //databaseContext.Dispose();
-                            _navigationService.NavigateTo("HomeView");
-                            Clear();
-                            return;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Login Failed!\nTry again, or register new account!");
-                            Clear();
-                            return;
-                        }
-                    }
-                    
-                });
+                   foreach (User user in databaseContext.User)
+                   {
+                       if (UserNameText == user.UserName && PasswordText == user.Password)
+                       {
+                           loginSuccesfull = true;
+                           MessageBox.Show("Login Successfull!");
+                           //databaseContext.Dispose();
+                           Clear();
+                           _navigationService.NavigateTo("HomeView");
+                           return;
+                       }
+                       else
+                       {
+                           MessageBox.Show("Login Failed!\nTry again, or register new account!");
+                           Clear();
+                           return;
+                       }
+                   }
+
+               });
             }
             set { Set(ref _loginCommand, value); } // TODO: Read about this custom Set
         }
@@ -112,36 +82,8 @@ namespace MultiplexTrack
             {
                 return new RelayCommand(() =>
                 {
-                    //TODO: Save User and Password into the database, then navigate to next View to fill up the extra info
-                    //if (databaseContext.User.Any(name => name.UserName == UserNameText))
-                    //{
-                    //    MessageBox.Show("User already exists!");
-                    //    return;
-                    //}
-                    //else
-                    //{
-                        _navigationService.NavigateTo("UserRegisterView");
-                        //IsVisible = "Visible";
-                        //while (FirstNameText != null && LastNameText != null && EmailText != null)
-                        //{
-                        //    User user = new User();
-
-                        //    user.UserName = UserNameText;
-                        //    user.Password = PasswordText;
-                        //    user.FirstName = FirstNameText;
-                        //    user.LastName = LastNameText;
-                        //    user.Email = EmailText;
-
-                        //    databaseContext.User.Add(user);
-                        //    databaseContext.SaveChanges();
-                        //    MessageBox.Show("New user saved to database!");
-
-                        //    IsVisible = "Hidden";
-                            Clear();
-                        //    return;
-                        //}
-                        //Clear();
-                    //}
+                    _navigationService.NavigateTo("UserRegisterView");
+                    Clear();
                 });
             }
             set { Set(ref _registerCommand, value); } // TODO: Read about this custom Set 
@@ -161,11 +103,6 @@ namespace MultiplexTrack
         private void Close()
         {
             Application.Current.Shutdown();
-        }
-
-        private void Register()
-        {
-            //Frame.Navigate(new MultiplexTrack(Frame));
         }
 
         private void Clear()

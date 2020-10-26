@@ -70,7 +70,7 @@ namespace MultiplexTrack.ViewModel
             {
                 return new RelayCommand(() =>
                 {
-                    if (databaseContext.User.Any(name => name.UserName == UserNameText))
+                    if (databaseContext.User.Any(userName => userName.UserName == UserNameText))
                     {
                         MessageBox.Show("User already exists!");
                         return;
@@ -90,8 +90,10 @@ namespace MultiplexTrack.ViewModel
 
                             databaseContext.User.Add(user);
                             databaseContext.SaveChanges();
+                            Clear();
                             MessageBox.Show("New user saved to database!");
-                            Clear(); // TODO: How to refactor the use of this method in two different Pages
+                             // TODO: How to refactor the use of this method in two different Pages
+                            _navigationService.NavigateTo("HomeView");
                             return;
                         }
                     }
@@ -119,7 +121,6 @@ namespace MultiplexTrack.ViewModel
                 FirstNameText = null;
                 LastNameText = null;
                 EmailText = null;
-                //IsVisible = "Visible";
             }
 
         }
