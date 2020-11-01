@@ -19,6 +19,7 @@
 
     <Grid>
 
+        <!--#region OldMenu-->
         <!--  // Background Color //  -->
         <Grid Background="#2e474e">
 
@@ -78,17 +79,21 @@
         <!--  // Navigation Panel //  -->
         <Grid
             x:Name="NavigationPanel"
-            Width="65"
+            Width="30"
             HorizontalAlignment="Left"
             Background="#2E333A">
 
-            <StackPanel x:Name="stack_pnl">
+            <!--<StackPanel x:Name="stack_pnl">
 
-                <!--  // Grid for the Menu Toggle Button //  -->
+            -->
+            <!--  // Grid for the Menu Toggle Button //  -->
+            <!--
 
                 <Grid Height="90">
 
-                    <!--  // Menu title text //  -->
+            -->
+            <!--  // Menu title text //  -->
+            <!--
 
                     <TextBlock
                         Grid.Row="1"
@@ -100,9 +105,11 @@
                         FontSize="22"
                         Foreground="White"
                         Text="M E N U">
-                        <!--  Style="{StaticResource font_style}"  -->
+            -->
+            <!--  Style="{StaticResource font_style}"  -->
 
-                        <!--  // Shadow Effect //  -->
+            <!--  // Shadow Effect //  -->
+            <!--
 
                         <TextBlock.Effect>
 
@@ -116,7 +123,9 @@
 
                     </TextBlock>
 
-                    <!--  // Toggle Button //  -->
+            -->
+            <!--  // Toggle Button //  -->
+            <!--
 
                     <ToggleButton
                         x:Name="Tg_Btn"
@@ -127,18 +136,20 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         BorderThickness="0">
-                        <!--  Style="{StaticResource tb_style}" Unchecked="Tg_Btn_Unchecked" Checked="Tg_Btn_Checked">  -->
+            -->
+            <!--  Style="{StaticResource tb_style}" Unchecked="Tg_Btn_Unchecked" Checked="Tg_Btn_Checked">  -->
 
-                        <!--  // Toggle button default background image //  -->
+            <!--  // Toggle button default background image //  -->
 
-                        <!--<ToggleButton.Background>
+            <!--<ToggleButton.Background>
 
                             <ImageBrush ImageSource="Assets/tgBtn_default.png"
                                             Stretch="None"/>
 
                         </ToggleButton.Background>-->
 
-                        <!--  // Toggle Button - Checked, Unchecked events //  -->
+            <!--  // Toggle Button - Checked, Unchecked events //  -->
+            <!--
 
                         <ToggleButton.Triggers>
 
@@ -188,7 +199,9 @@
 
                 </Grid>
 
-                <!--  // ListView with menu list items //  -->
+            -->
+            <!--  // ListView with menu list items //  -->
+            <!--
 
                 <ListView
                     x:Name="ListView"
@@ -196,9 +209,13 @@
                     BorderBrush="Transparent"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
-                    <!--  // Home //  -->
+            -->
+            <!--  // Home //  -->
+            <!--
                     <ListViewItem HorizontalAlignment="Left">
-                        <!--  MouseEnter="ListViewItem_MouseEnter">  -->
+            -->
+            <!--  MouseEnter="ListViewItem_MouseEnter">  -->
+            <!--
 
                         <Button
                             x:Name="homeButton"
@@ -211,7 +228,9 @@
                             </StackPanel>
                         </Button>
 
-                        <!--  // Tooltip //  -->
+            -->
+            <!--  // Tooltip //  -->
+            <!--
                         <ListViewItem.ToolTip>
                             <ToolTip
                                 x:Name="tt_home"
@@ -221,9 +240,13 @@
 
                     </ListViewItem>
 
-                    <!--  // Movies //  -->
+            -->
+            <!--  // Movies //  -->
+            <!--
                     <ListViewItem>
-                        <!--  MouseEnter="ListViewItem_MouseEnter">  -->
+            -->
+            <!--  MouseEnter="ListViewItem_MouseEnter">  -->
+            <!--
 
                         <Button
                             x:Name="moviesButton"
@@ -236,7 +259,9 @@
                             </StackPanel>
                         </Button>
 
-                        <!--  // Tooltip //  -->
+            -->
+            <!--  // Tooltip //  -->
+            <!--
                         <ListViewItem.ToolTip>
                             <ToolTip
                                 x:Name="tt_movies"
@@ -248,7 +273,9 @@
 
 
 
-                    <!--  // Listview items style template //  -->
+            -->
+            <!--  // Listview items style template //  -->
+            <!--
                     <ListView.ItemContainerStyle>
 
                         <Style TargetType="ListViewItem">
@@ -306,8 +333,33 @@
                 </ListView>
 
             </StackPanel>
+            -->
+            <!--#endregion-->
+            <Menu>
+                <MenuItem
+                    Name="menuMovies"
+                    Background="#FF424242"
+                    FontSize="18"
+                    Foreground="#FFE9E9E9"
+                    Header="Recent Releases">
+                    <!--  Click="menuReleases_Click"  -->
+                    <MenuItem.Icon>
+                        <Image Source="pack://siteoforigin:,,,/files/ic_movie_white_48dp_2x.ico" />
+                    </MenuItem.Icon>
+                </MenuItem>
 
-
+                <MenuItem
+                    x:Name="menuNowPlaying"
+                    Height="30"
+                    Background="#FF424242"
+                    FontSize="18"
+                    Foreground="#FFE9E9E9"
+                    Header="Now Playing">
+                    <MenuItem.Icon>
+                        <Image Source="pack://siteoforigin:,,,/files/ic_local_movies_white_48dp_2x.ico" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </Menu>
         </Grid>
 
     </Grid>
