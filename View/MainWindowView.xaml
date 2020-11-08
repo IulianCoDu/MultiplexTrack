@@ -70,7 +70,7 @@
             <Frame
                 x:Name="MainFrame"
                 Grid.Row="1"
-                Grid.Column="1"
+                Grid.Column="0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 NavigationUIVisibility="Hidden" />
@@ -79,7 +79,7 @@
         <!--  // Navigation Panel //  -->
         <Grid
             x:Name="NavigationPanel"
-            Width="30"
+            Width="70"
             HorizontalAlignment="Left"
             Background="#2E333A">
 
@@ -335,7 +335,20 @@
             </StackPanel>
             -->
             <!--#endregion-->
-            <Menu>
+            <Menu Background="#2E333A">
+
+                <MenuItem
+                    Name="menuName"
+                    Background="#FF424242"
+                    FontSize="18"
+                    Foreground="#FFE9E9E9"
+                    Header="MENU">
+                    <!--  Click="menuReleases_Click"  -->
+                    <!--<MenuItem.Icon>
+                        <Image Source="pack://siteoforigin:,,,/files/ic_movie_white_48dp_2x.ico" />
+                    </MenuItem.Icon>-->
+                </MenuItem>
+
                 <MenuItem
                     Name="menuMovies"
                     Background="#FF424242"
@@ -359,6 +372,8 @@
                         <Image Source="pack://siteoforigin:,,,/files/ic_local_movies_white_48dp_2x.ico" />
                     </MenuItem.Icon>
                 </MenuItem>
+
+
             </Menu>
         </Grid>
 
