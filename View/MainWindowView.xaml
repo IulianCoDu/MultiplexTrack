@@ -83,18 +83,10 @@
             HorizontalAlignment="Left"
             Background="#2E333A">
 
-            <!--<StackPanel x:Name="stack_pnl">
-
-            -->
-            <!--  // Grid for the Menu Toggle Button //  -->
-            <!--
-
-                <Grid Height="90">
-
-            -->
-            <!--  // Menu title text //  -->
-            <!--
-
+            <StackPanel x:Name="stack_pnl">
+                <!--  Grid for the Menu Toggle Button  -->
+                <Grid Height="50">
+                    <!--  Menu title text  -->
                     <TextBlock
                         Grid.Row="1"
                         Grid.Column="0"
@@ -105,28 +97,20 @@
                         FontSize="22"
                         Foreground="White"
                         Text="M E N U">
-            -->
-            <!--  Style="{StaticResource font_style}"  -->
-
-            <!--  // Shadow Effect //  -->
-            <!--
-
+                        <!--
+                            Style=&quot;{StaticResource font_style}&quot;
+                            Shadow Effect
+                        -->
                         <TextBlock.Effect>
-
                             <DropShadowEffect
                                 BlurRadius="10"
                                 Direction="-90"
                                 ShadowDepth="1"
                                 Color="White" />
-
                         </TextBlock.Effect>
-
                     </TextBlock>
-
-            -->
-            <!--  // Toggle Button //  -->
-            <!--
-
+                    
+                    <!--  Toggle Button  -->
                     <ToggleButton
                         x:Name="Tg_Btn"
                         Grid.Column="0"
@@ -136,21 +120,14 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         BorderThickness="0">
-            -->
-            <!--  Style="{StaticResource tb_style}" Unchecked="Tg_Btn_Unchecked" Checked="Tg_Btn_Checked">  -->
+                        <!--  Style=&quot;{StaticResource tb_style}&quot; Unchecked=&quot;Tg_Btn_Unchecked&quot; Checked=&quot;Tg_Btn_Checked&quot;&gt;  -->
+                        <!--  Toggle button default background image  -->
+                        <ToggleButton.Background>
 
-            <!--  // Toggle button default background image //  -->
+                            <ImageBrush ImageSource="/Pictures/closeBtn_default.png" Stretch="None" />
 
-            <!--<ToggleButton.Background>
-
-                            <ImageBrush ImageSource="Assets/tgBtn_default.png"
-                                            Stretch="None"/>
-
-                        </ToggleButton.Background>-->
-
-            <!--  // Toggle Button - Checked, Unchecked events //  -->
-            <!--
-
+                        </ToggleButton.Background>
+                        <!--  Toggle Button - Checked, Unchecked events  -->
                         <ToggleButton.Triggers>
 
                             <EventTrigger RoutedEvent="ToggleButton.Unchecked">
@@ -198,25 +175,15 @@
                     </ToggleButton>
 
                 </Grid>
-
-            -->
-            <!--  // ListView with menu list items //  -->
-            <!--
-
+                <!--  ListView with menu list items  -->
                 <ListView
                     x:Name="ListView"
                     Background="Transparent"
                     BorderBrush="Transparent"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-
-            -->
-            <!--  // Home //  -->
-            <!--
+                    <!--  Home  -->
                     <ListViewItem HorizontalAlignment="Left">
-            -->
-            <!--  MouseEnter="ListViewItem_MouseEnter">  -->
-            <!--
-
+                        <!--  MouseEnter=&quot;ListViewItem_MouseEnter&quot;&gt;  -->
                         <Button
                             x:Name="homeButton"
                             Background="Transparent"
@@ -227,10 +194,7 @@
                                 <TextBlock Margin="25,0,0,0" Text="Home" />
                             </StackPanel>
                         </Button>
-
-            -->
-            <!--  // Tooltip //  -->
-            <!--
+                        <!--  Tooltip  -->
                         <ListViewItem.ToolTip>
                             <ToolTip
                                 x:Name="tt_home"
@@ -240,14 +204,12 @@
 
                     </ListViewItem>
 
-            -->
-            <!--  // Movies //  -->
-            <!--
-                    <ListViewItem>
-            -->
-            <!--  MouseEnter="ListViewItem_MouseEnter">  -->
-            <!--
 
+                    <!--  Movies  -->
+
+                    <ListViewItem>
+
+                        <!--  MouseEnter="ListViewItem_MouseEnter">  -->
                         <Button
                             x:Name="moviesButton"
                             Background="Transparent"
@@ -258,10 +220,7 @@
                                 <TextBlock Margin="25,0,0,0" Text="Movies" />
                             </StackPanel>
                         </Button>
-
-            -->
-            <!--  // Tooltip //  -->
-            <!--
+                        <!--  Tooltip  -->
                         <ListViewItem.ToolTip>
                             <ToolTip
                                 x:Name="tt_movies"
@@ -273,9 +232,9 @@
 
 
 
-            -->
-            <!--  // Listview items style template //  -->
-            <!--
+
+                    <!--  Listview items style template  -->
+
                     <ListView.ItemContainerStyle>
 
                         <Style TargetType="ListViewItem">
@@ -333,48 +292,7 @@
                 </ListView>
 
             </StackPanel>
-            -->
-            <!--#endregion-->
-            <Menu Background="#2E333A">
 
-                <MenuItem
-                    Name="menuName"
-                    Background="#FF424242"
-                    FontSize="18"
-                    Foreground="#FFE9E9E9"
-                    Header="MENU">
-                    <!--  Click="menuReleases_Click"  -->
-                    <!--<MenuItem.Icon>
-                        <Image Source="pack://siteoforigin:,,,/files/ic_movie_white_48dp_2x.ico" />
-                    </MenuItem.Icon>-->
-                </MenuItem>
-
-                <MenuItem
-                    Name="menuMovies"
-                    Background="#FF424242"
-                    FontSize="18"
-                    Foreground="#FFE9E9E9"
-                    Header="Recent Releases">
-                    <!--  Click="menuReleases_Click"  -->
-                    <MenuItem.Icon>
-                        <Image Source="pack://siteoforigin:,,,/files/ic_movie_white_48dp_2x.ico" />
-                    </MenuItem.Icon>
-                </MenuItem>
-
-                <MenuItem
-                    x:Name="menuNowPlaying"
-                    Height="30"
-                    Background="#FF424242"
-                    FontSize="18"
-                    Foreground="#FFE9E9E9"
-                    Header="Now Playing">
-                    <MenuItem.Icon>
-                        <Image Source="pack://siteoforigin:,,,/files/ic_local_movies_white_48dp_2x.ico" />
-                    </MenuItem.Icon>
-                </MenuItem>
-
-
-            </Menu>
         </Grid>
 
     </Grid>
