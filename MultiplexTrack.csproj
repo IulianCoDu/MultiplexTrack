@@ -186,17 +186,6 @@
   <ItemGroup>
     <Resource Include="Pictures\closeBtn_default.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Files\ic_local_movies_black_48dp_2x.ico" />
-    <Resource Include="Files\ic_local_movies_white_48dp_2x.ico" />
-    <Resource Include="Files\ic_movie_white_48dp_2x.ico" />
-    <Resource Include="Files\ic_pan_tool_white_48dp_2x.png" />
-    <Resource Include="Files\ic_search_white_48dp_2x.ico" />
-    <Resource Include="Files\ic_stars_white_48dp_2x.ico" />
-    <Resource Include="Files\ic_stars_white_48dp_2x.png" />
-    <Resource Include="Files\ic_timer_white_48dp_2x.ico" />
-    <Resource Include="Files\ic_timer_white_48dp_2x.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

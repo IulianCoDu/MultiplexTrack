@@ -62,7 +62,6 @@
                 Background="Transparent"
                 BorderThickness="0"
                 Command="{Binding CloseCommand}">
-                <!--  Style="{StaticResource Close_btn}">  -->
                 <Image Source="/Pictures/closeBtn_default.png" />
 
             </Button>
@@ -79,7 +78,7 @@
         <!--  // Navigation Panel //  -->
         <Grid
             x:Name="NavigationPanel"
-            Width="70"
+            Width="60"
             HorizontalAlignment="Left"
             Background="#2E333A">
 
@@ -88,9 +87,7 @@
                 <Grid Height="50">
                     <!--  Menu title text  -->
                     <TextBlock
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        Margin="73,-20,0,0"
+                        Margin="50,0,0,0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Background="Transparent"
@@ -109,72 +106,57 @@
                                 Color="White" />
                         </TextBlock.Effect>
                     </TextBlock>
-                    
+
                     <!--  Toggle Button  -->
                     <ToggleButton
                         x:Name="Tg_Btn"
                         Grid.Column="0"
                         Width="30"
                         Height="30"
-                        Margin="18,-20,0,0"
-                        HorizontalAlignment="Left"
+                        HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         BorderThickness="0">
-                        <!--  Style=&quot;{StaticResource tb_style}&quot; Unchecked=&quot;Tg_Btn_Unchecked&quot; Checked=&quot;Tg_Btn_Checked&quot;&gt;  -->
+
                         <!--  Toggle button default background image  -->
                         <ToggleButton.Background>
-
                             <ImageBrush ImageSource="/Pictures/closeBtn_default.png" Stretch="None" />
-
                         </ToggleButton.Background>
+
                         <!--  Toggle Button - Checked, Unchecked events  -->
                         <ToggleButton.Triggers>
-
                             <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-
                                 <BeginStoryboard>
-
                                     <Storyboard x:Name="HideStackPanel">
-
                                         <DoubleAnimation
                                             BeginTime="0:0:0"
                                             Storyboard.TargetName="NavigationPanel"
                                             Storyboard.TargetProperty="Width"
-                                            From="130"
-                                            To="65"
-                                            Duration="0:0:0.2" />
-
+                                            From="150"
+                                            To="60"
+                                            Duration="0:0:1" />
                                     </Storyboard>
-
                                 </BeginStoryboard>
-
                             </EventTrigger>
 
                             <EventTrigger RoutedEvent="ToggleButton.Checked">
-
                                 <BeginStoryboard>
-
                                     <Storyboard x:Name="ShowStackPanel">
-
                                         <DoubleAnimation
                                             BeginTime="0:0:0"
                                             Storyboard.TargetName="NavigationPanel"
                                             Storyboard.TargetProperty="Width"
-                                            From="65"
-                                            To="130"
-                                            Duration="0:0:0.3" />
-
+                                            From="60"
+                                            To="150"
+                                            Duration="0:0:1" />
                                     </Storyboard>
-
                                 </BeginStoryboard>
-
                             </EventTrigger>
-
                         </ToggleButton.Triggers>
 
                     </ToggleButton>
 
                 </Grid>
+
                 <!--  ListView with menu list items  -->
                 <ListView
                     x:Name="ListView"
@@ -183,14 +165,16 @@
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <!--  Home  -->
                     <ListViewItem HorizontalAlignment="Left">
-                        <!--  MouseEnter=&quot;ListViewItem_MouseEnter&quot;&gt;  -->
                         <Button
                             x:Name="homeButton"
                             Background="Transparent"
                             BorderBrush="Transparent"
                             Command="{Binding HomeViewCommand}">
                             <StackPanel Width="230" Orientation="Horizontal">
-                                <Image Source="/Pictures/img_home.png" />
+                                <Image
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="/Pictures/img_home.png" />
                                 <TextBlock Margin="25,0,0,0" Text="Home" />
                             </StackPanel>
                         </Button>
@@ -216,7 +200,10 @@
                             BorderBrush="Transparent"
                             Command="{Binding MoviesViewCommand}">
                             <StackPanel Width="230" Orientation="Horizontal">
-                                <Image Source="/Pictures/img_movies.png" />
+                                <Image
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="/Pictures/img_movies.png" />
                                 <TextBlock Margin="25,0,0,0" Text="Movies" />
                             </StackPanel>
                         </Button>
