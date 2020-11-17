@@ -13,8 +13,10 @@
     <Grid>
         <!--  Column and Row Definition  -->
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="150" />
             <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -29,7 +31,7 @@
         <!--  Main Text from Login Page  -->
         <TextBlock
             Grid.Row="0"
-            Grid.Column="0"
+            Grid.Column="1"
             Grid.ColumnSpan="2"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
@@ -41,20 +43,20 @@
         <!--  Username Text  -->
         <TextBlock
             Grid.Row="1"
-            Grid.Column="0"
+            Grid.Column="1"
             Margin="10"><Run Text="Username:" /></TextBlock>
 
         <!--  Password Text  -->
         <TextBlock
             Grid.Row="2"
-            Grid.Column="0"
+            Grid.Column="1"
             Margin="10"><Run Text="Password:" /></TextBlock>
 
         <!--  TextBoxWatermark  -->
         <xctk:WatermarkTextBox
             x:Name="UserNameTextBox"
             Grid.Row="1"
-            Grid.Column="3"
+            Grid.Column="2"
             VerticalAlignment="Center"
             AutomationProperties.Name="Test"
             Text="{Binding UserNameText}"
@@ -64,7 +66,7 @@
         <xctk:WatermarkTextBox
             x:Name="PasswordBox"
             Grid.Row="2"
-            Grid.Column="3"
+            Grid.Column="2"
             VerticalAlignment="Center"
             Text="{Binding PasswordText}"
             Watermark="Enter Password" />
@@ -72,7 +74,7 @@
         <Button
             x:Name="loginButton"
             Grid.Row="3"
-            Grid.Column="0"
+            Grid.Column="1"
             Width="76"
             HorizontalAlignment="Left"
             Command="{Binding LoginCommand}"
@@ -81,27 +83,29 @@
         <Button
             x:Name="clearButton"
             Grid.Row="3"
-            Grid.Column="0"
+            Grid.Column="2"
             Width="76"
-            HorizontalAlignment="Right"
+            HorizontalAlignment="Left"
             Command="{Binding ClearCommand}"
             Content="Clear" />
         <!--  Register button row  -->
         <Button
             x:Name="registerButton"
             Grid.Row="3"
-            Grid.Column="3"
+            Grid.Column="1"
             Width="76"
-            HorizontalAlignment="Left"
+            HorizontalAlignment="Right"
             Command="{Binding RegisterCommand}"
             Content="Register" />
         <!--  Canncel button row  -->
         <Button
             x:Name="cancelButton"
             Grid.Row="3"
-            Grid.Column="3"
+            Grid.Column="2"
             Width="76"
+            Height="20"
             HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
             Command="{Binding CancelCommand}"
             Content="Cancel" />
 
