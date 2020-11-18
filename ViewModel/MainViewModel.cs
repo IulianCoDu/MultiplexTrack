@@ -56,7 +56,6 @@ namespace MultiplexTrack.ViewModel
             set {Set (ref _homeViewCommand, value); }
         }
 
-
         public ICommand MoviesViewCommand
         {
             get {

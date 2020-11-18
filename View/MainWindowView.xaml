@@ -43,7 +43,7 @@
 
             <!--  // App Close Button //  -->
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="40" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
@@ -52,23 +52,12 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Button
-                x:Name="CloseBtn"
-                Grid.Row="0"
-                Grid.Column="2"
-                Width="40"
-                Height="40"
-                Background="Transparent"
-                BorderThickness="0"
-                Command="{Binding CloseCommand}">
-                <Image Source="/Pictures/closeBtn_default.png" />
 
-            </Button>
 
             <Frame
                 x:Name="MainFrame"
                 Grid.Row="1"
-                Grid.Column="0"
+                Grid.Column="1"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 NavigationUIVisibility="Hidden" />
@@ -191,7 +180,6 @@
                     <!--  Movies  -->
 
                     <ListViewItem>
-
                         <!--  MouseEnter="ListViewItem_MouseEnter">  -->
                         <Button
                             x:Name="moviesButton"
@@ -213,7 +201,30 @@
                                 Content="Movies"
                                 Style="{StaticResource tt_style}" />
                         </ListViewItem.ToolTip>
+                    </ListViewItem>
 
+                    <ListViewItem>
+                        <!--  MouseEnter="ListViewItem_MouseEnter">  -->
+                        <Button
+                            x:Name="closeBtn"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Command="{Binding CloseCommand}">
+                            <StackPanel Width="230" Orientation="Horizontal">
+                                <Image
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="/Pictures/closeBtn_default.png" />
+                                <TextBlock Margin="25,0,0,0" Text="Close" />
+                            </StackPanel>
+                        </Button>
+                        <!--  Tooltip  -->
+                        <ListViewItem.ToolTip>
+                            <ToolTip
+                                x:Name="tt_close"
+                                Content="Close"
+                                Style="{StaticResource tt_style}" />
+                        </ListViewItem.ToolTip>
                     </ListViewItem>
 
 
