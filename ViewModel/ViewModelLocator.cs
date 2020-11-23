@@ -12,6 +12,7 @@ namespace MultiplexTrack.ViewModel
             SimpleIoc.Default.Register<UserLoginViewModel>();
             SimpleIoc.Default.Register<UserRegisterViewModel>();
             SimpleIoc.Default.Register<HomeViewModel>();
+            SimpleIoc.Default.Register<MovieShowTimeModel>();
             SimpleIoc.Default.Register<MoviesViewModel>();
 
             SetupNavigation();
@@ -24,6 +25,7 @@ namespace MultiplexTrack.ViewModel
             navigationService.Configure("HomeView", new Uri("../View/HomeView.xaml", UriKind.Relative));
             navigationService.Configure("MoviesView", new Uri("../View/MoviesView.xaml", UriKind.Relative));
             navigationService.Configure("UserRegisterView", new Uri("../View/UserRegisterView.xaml", UriKind.Relative));
+            navigationService.Configure("MovieShowTimeView", new Uri("../View/MovieShowTimeView.xaml", UriKind.Relative));
             SimpleIoc.Default.Register<IFrameNavigationService>(() => navigationService);
         }
         public MainViewModel MainViewModel
@@ -55,6 +57,14 @@ namespace MultiplexTrack.ViewModel
             get
             {
                 return SimpleIoc.Default.GetInstance<HomeViewModel>();
+            }
+        }
+
+        public MovieShowTimeModel MovieShowTimeModel
+        {
+            get
+            {
+                return SimpleIoc.Default.GetInstance<MovieShowTimeModel>();
             }
         }
 

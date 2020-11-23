@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using MultiplexTrack.Helpers;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace MultiplexTrack.ViewModel
@@ -33,9 +34,6 @@ namespace MultiplexTrack.ViewModel
             set { Set(ref _moviesCommand, value); }
         }
 
-
-        
-
         //private ICommand _toggleButtonHome;
         //public ICommand HomeToggleButton()
         //{
@@ -56,6 +54,10 @@ namespace MultiplexTrack.ViewModel
             set { Set(ref _toggleButtonHome, value); }
         }
 
+
+
+        //Grid
+        //Grid grid = new Grid();
 
     }
 

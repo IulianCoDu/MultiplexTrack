@@ -12,6 +12,7 @@ namespace MultiplexTrack.ViewModel
         private IFrameNavigationService _navigationService;
         private RelayCommand _loadedCommand;
         private ICommand _homeViewCommand;
+        private ICommand _moviesShowTimeCommand;
         private ICommand _moviesViewCommand;
         private ICommand _closeCommand;
 
@@ -54,6 +55,19 @@ namespace MultiplexTrack.ViewModel
                 }
                 );}
             set {Set (ref _homeViewCommand, value); }
+        }
+
+        public ICommand MoviesShowTimeCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    _navigationService.NavigateTo("MovieShowTimeView");
+                }
+                );
+            }
+            set { Set(ref _moviesShowTimeCommand, value); }
         }
 
         public ICommand MoviesViewCommand

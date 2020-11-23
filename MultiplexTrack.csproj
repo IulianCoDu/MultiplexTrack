@@ -92,11 +92,15 @@
     <Compile Include="Helpers\FrameNavigationService.cs" />
     <Compile Include="Helpers\IFrameNavigationService.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\MovieShowTimeModel.cs" />
     <Compile Include="ViewModel\MoviesViewModel.cs" />
     <Compile Include="ViewModel\UserLoginViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\UserRegisterViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\MovieShowTimeView.xaml.cs">
+      <DependentUpon>MovieShowTimeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MoviesView.xaml.cs">
       <DependentUpon>MoviesView.xaml</DependentUpon>
     </Compile>
@@ -121,6 +125,10 @@
       <DependentUpon>MainWindowView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\MovieShowTimeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MoviesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

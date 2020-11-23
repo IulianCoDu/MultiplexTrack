@@ -43,12 +43,11 @@
 
             <!--  // App Close Button //  -->
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="60" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="40" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -176,6 +175,32 @@
 
                     </ListViewItem>
 
+                    <!--  Movie Show Time  -->
+
+                    <ListViewItem>
+                        <!--  MouseEnter="ListViewItem_MouseEnter">  -->
+                        <Button
+                            x:Name="moviesShowTimeButton"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Command="{Binding MoviesShowTimeCommand}">
+                            <StackPanel Width="230" Orientation="Horizontal">
+                                <Image
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Source="/Pictures/img_movies.png" />
+                                <TextBlock Margin="25,0,0,0" Text="Movies" />
+                            </StackPanel>
+                        </Button>
+                        <!--  Tooltip  -->
+                        <ListViewItem.ToolTip>
+                            <ToolTip
+                                x:Name="tt_moviesShowTime"
+                                Content="Movies Show Time"
+                                Style="{StaticResource tt_style}" />
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+
 
                     <!--  Movies  -->
 
@@ -202,6 +227,8 @@
                                 Style="{StaticResource tt_style}" />
                         </ListViewItem.ToolTip>
                     </ListViewItem>
+
+                    <!--  Close  -->
 
                     <ListViewItem>
                         <!--  MouseEnter="ListViewItem_MouseEnter">  -->
