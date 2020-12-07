@@ -4,18 +4,128 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
     Title="MoviesView"
     d:DesignHeight="450"
     d:DesignWidth="800"
     DataContext="{Binding MoviesViewModel, Source={StaticResource Locator}}"
     mc:Ignorable="d">
 
-    <Grid>
-        <DataGrid
-            Width="780"
-            Height="400"
-            Margin="10,10,0,0"
+    <Grid x:Name="Image">
+        <!--  Column and Row Definition  -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  Main Text from Movies Page  -->
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Text="Movies"
+            TextAlignment="Center" />
+
+
+        <!--  Poster Text  -->
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="10"
+            Text="Poster" />
+
+        <!--  TextBoxWatermark  -->
+        <xctk:WatermarkTextBox
+            x:Name="UserNameTextBox"
+            Grid.Row="1"
+            Grid.Column="2"
+            VerticalAlignment="Center"
+            AutomationProperties.Name="Test"
+            Text="{Binding UserNameText}"
+            Watermark="Enter User Name" />
+
+        <!--  Title Text  -->
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="10"
+            Text="Title" />
+
+        <!--  PasswordBoxWatermark  -->
+        <xctk:WatermarkTextBox
+            x:Name="TitleBox"
+            Grid.Row="2"
+            Grid.Column="2"
+            VerticalAlignment="Center"
+            Text="{Binding PasswordText}"
+            Watermark="Enter Title of the Movie" />
+
+        <!--  Year Text  -->
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="1"
+            Margin="10"
+            Text="Year" />
+
+        <!--  Date Picker  -->
+        <DatePicker
+            Grid.Row="3"
+            Grid.Column="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center" />
+
+
+        <Button
+            x:Name="loginButton"
+            Grid.Row="8"
+            Grid.Column="1"
+            Width="76"
             HorizontalAlignment="Left"
-            VerticalAlignment="Top" />
+            Command="{Binding LoginCommand}"
+            Content="Login" />
+        <!--  Clear button row  -->
+        <Button
+            x:Name="clearButton"
+            Grid.Row="8"
+            Grid.Column="2"
+            Width="76"
+            HorizontalAlignment="Left"
+            Command="{Binding ClearCommand}"
+            Content="Clear" />
+        <!--  Register button row  -->
+        <Button
+            x:Name="registerButton"
+            Grid.Row="8"
+            Grid.Column="1"
+            Width="76"
+            HorizontalAlignment="Right"
+            Command="{Binding RegisterCommand}"
+            Content="Register" />
+        <!--  Canncel button row  -->
+        <Button
+            x:Name="cancelButton"
+            Grid.Row="8"
+            Grid.Column="2"
+            Width="76"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Command="{Binding CancelCommand}"
+            Content="Cancel" />
     </Grid>
 </Page>

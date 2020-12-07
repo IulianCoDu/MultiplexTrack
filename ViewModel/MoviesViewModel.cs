@@ -15,5 +15,7 @@ namespace MultiplexTrack.ViewModel
             databaseContext = new MultiplexTrackDbContext();
             _navigationService = navigationService;
         }
+
+        public ICommand MyProperty { get; set; }
     }
 }

@@ -29,14 +29,10 @@
             Grid.Row="0"
             Grid.Column="1"
             Grid.ColumnSpan="2"
-            Width="180"
-            Height="47"
-            Margin="0"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            Text="Welcome"
-            TextAlignment="Center"
-            TextWrapping="Wrap" />
+            Text="MovieShowTime"
+            TextAlignment="Center" />
 
         <ListBox Grid.Row="1" />
     </Grid>
