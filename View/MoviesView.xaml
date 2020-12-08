@@ -47,7 +47,6 @@
         <TextBlock
             Grid.Row="1"
             Grid.Column="1"
-            Margin="10"
             Text="Poster" />
 
         <!--  TextBoxWatermark  -->
@@ -64,7 +63,6 @@
         <TextBlock
             Grid.Row="2"
             Grid.Column="1"
-            Margin="10"
             Text="Title" />
 
         <!--  PasswordBoxWatermark  -->
@@ -76,19 +74,42 @@
             Text="{Binding PasswordText}"
             Watermark="Enter Title of the Movie" />
 
-        <!--  Year Text  -->
+        <!--  Type Text  -->
         <TextBlock
             Grid.Row="3"
             Grid.Column="1"
-            Margin="10"
+            Text="Type" />
+
+        <ComboBox
+            Grid.Row="3"
+            Grid.Column="2"
+            VerticalAlignment="Center"
+            IsEditable="True"
+            IsReadOnly="True"
+            ItemsSource="{Binding Items}"
+            Text="{Binding Text}">
+            <!--<ComboBox.ItemTemplate>
+                <DataTemplate DataType="{x:Type local:Item}">
+                    <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>-->
+        </ComboBox>
+
+        <!--  Year Text  -->
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="1"
             Text="Year" />
 
         <!--  Date Picker  -->
         <DatePicker
-            Grid.Row="3"
+            Grid.Row="4"
             Grid.Column="2"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center" />
+            VerticalAlignment="Center"
+            AutomationProperties.HelpText="Select a date"
+            FirstDayOfWeek="Monday" />
+
+
 
 
         <Button
@@ -99,33 +120,6 @@
             HorizontalAlignment="Left"
             Command="{Binding LoginCommand}"
             Content="Login" />
-        <!--  Clear button row  -->
-        <Button
-            x:Name="clearButton"
-            Grid.Row="8"
-            Grid.Column="2"
-            Width="76"
-            HorizontalAlignment="Left"
-            Command="{Binding ClearCommand}"
-            Content="Clear" />
-        <!--  Register button row  -->
-        <Button
-            x:Name="registerButton"
-            Grid.Row="8"
-            Grid.Column="1"
-            Width="76"
-            HorizontalAlignment="Right"
-            Command="{Binding RegisterCommand}"
-            Content="Register" />
-        <!--  Canncel button row  -->
-        <Button
-            x:Name="cancelButton"
-            Grid.Row="8"
-            Grid.Column="2"
-            Width="76"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
-            Command="{Binding CancelCommand}"
-            Content="Cancel" />
+
     </Grid>
 </Page>
