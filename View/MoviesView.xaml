@@ -49,15 +49,13 @@
             Grid.Column="1"
             Text="Poster" />
 
-        <!--  TextBoxWatermark  -->
         <xctk:WatermarkTextBox
             x:Name="UserNameTextBox"
             Grid.Row="1"
             Grid.Column="2"
             VerticalAlignment="Center"
             AutomationProperties.Name="Test"
-            Text="{Binding UserNameText}"
-            Watermark="Enter User Name" />
+            Watermark="Image will be added" />
 
         <!--  Title Text  -->
         <TextBlock
@@ -65,13 +63,11 @@
             Grid.Column="1"
             Text="Title" />
 
-        <!--  PasswordBoxWatermark  -->
         <xctk:WatermarkTextBox
             x:Name="TitleBox"
             Grid.Row="2"
             Grid.Column="2"
             VerticalAlignment="Center"
-            Text="{Binding PasswordText}"
             Watermark="Enter Title of the Movie" />
 
         <!--  Type Text  -->
@@ -80,20 +76,27 @@
             Grid.Column="1"
             Text="Type" />
 
-        <ComboBox
+        <xctk:CheckComboBox
+            Grid.Row="3"
+            Grid.Column="2"
+            VerticalAlignment="Center"
+            DisplayMemberPath="CategoryName"
+            ItemsSource="{Binding CategoriesType}" />
+        <!--<ComboBox
             Grid.Row="3"
             Grid.Column="2"
             VerticalAlignment="Center"
             IsEditable="True"
             IsReadOnly="True"
-            ItemsSource="{Binding Items}"
-            Text="{Binding Text}">
-            <!--<ComboBox.ItemTemplate>
+            IsSynchronizedWithCurrentItem="True"
+            ItemsSource="{Binding CategoriesType}" />-->
+        <!--  Text="{Binding Text}">  -->
+        <!--<ComboBox.ItemTemplate>
                 <DataTemplate DataType="{x:Type local:Item}">
                     <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}" />
                 </DataTemplate>
             </ComboBox.ItemTemplate>-->
-        </ComboBox>
+
 
         <!--  Year Text  -->
         <TextBlock
@@ -109,7 +112,30 @@
             AutomationProperties.HelpText="Select a date"
             FirstDayOfWeek="Monday" />
 
+        <!--  Duration Text  -->
+        <TextBlock
+            Grid.Row="5"
+            Grid.Column="1"
+            Text="Duration" />
 
+        <xctk:TimePicker
+            Grid.Row="5"
+            Grid.Column="2"
+            AutomationProperties.HelpText="Select a time"
+            Text="test" />
+
+        <!--  Description Text  -->
+        <TextBlock
+            Grid.Row="6"
+            Grid.Column="1"
+            Text="Description" />
+
+        <xctk:WatermarkTextBox
+            Grid.Row="6"
+            Grid.Column="2"
+            AcceptsReturn="True"
+            TextWrapping="Wrap"
+            Watermark="Enter a description..." />
 
 
         <Button

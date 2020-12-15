@@ -41,51 +41,45 @@ namespace MultiplexTrack
 
         public ICommand LoginCommand
         {
-            get
-            {
-                return new RelayCommand(() =>
-               {
-                   bool loginSuccesfull = false;
-                   if (UserNameText == null || PasswordText == null)
-                   {
-                       MessageBox.Show("The User and/or Password can't be empty");
-                       return;
-                   }
+            get => new RelayCommand(() =>
+                                {
+                                    bool loginSuccesfull = false;
+                                    if (UserNameText == null || PasswordText == null)
+                                    {
+                                        MessageBox.Show("The User and/or Password can't be empty");
+                                        return;
+                                    }
 
-                   foreach (User user in databaseContext.User)
-                   {
-                       if (UserNameText == user.UserName && PasswordText == user.Password)
-                       {
-                           loginSuccesfull = true;
-                           MessageBox.Show("Login Successfull!");
+                                    foreach (User user in databaseContext.User)
+                                    {
+                                        if (UserNameText == user.UserName && PasswordText == user.Password)
+                                        {
+                                            loginSuccesfull = true;
+                                            MessageBox.Show("Login Successfull!");
                            //databaseContext.Dispose();
                            Clear();
-                           _navigationService.NavigateTo("HomeView");
-                           return;
-                       }
-                       else
-                       {
-                           MessageBox.Show("Login Failed!\nTry again, or register new account!");
-                           Clear();
-                           return;
-                       }
-                   }
+                                            _navigationService.NavigateTo("HomeView");
+                                            return;
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Login Failed!\nTry again, or register new account!");
+                                            Clear();
+                                            return;
+                                        }
+                                    }
 
-               });
-            }
+                                });
             set { Set(ref _loginCommand, value); } // TODO: Read about this custom Set
         }
 
         public ICommand RegisterCommand
         {
-            get
-            {
-                return new RelayCommand(() =>
-                {
-                    _navigationService.NavigateTo("UserRegisterView");
-                    Clear();
-                });
-            }
+            get => new RelayCommand(() =>
+                                 {
+                                     _navigationService.NavigateTo("UserRegisterView");
+                                     Clear();
+                                 });
             set { Set(ref _registerCommand, value); } // TODO: Read about this custom Set 
         }
 
