@@ -715,7 +715,7 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           <End Type="MultiplexTrackDbContext.Category" Role="Category" Multiplicity="*" />
           <End Type="MultiplexTrackDbContext.Movie" Role="Movie" Multiplicity="*" />
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

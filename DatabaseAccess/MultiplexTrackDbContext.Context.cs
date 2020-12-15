@@ -13,10 +13,10 @@ namespace DatabaseAccess
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MultiplexTrackDbContext : DbContext
+    public partial class Entities : DbContext
     {
-        public MultiplexTrackDbContext()
-            : base("name=MultiplexTrackDbContext")
+        public Entities()
+            : base("name=Entities")
         {
         }
     

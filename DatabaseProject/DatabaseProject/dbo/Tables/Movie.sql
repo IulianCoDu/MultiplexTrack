@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [dbo].[Movie] (
     [MovieId]     INT            NOT NULL,
-    [Title]       VARCHAR (50)   NOT NULL,
+    [Title]       NVARCHAR (50)  NOT NULL,
     [Year]        DATE           NOT NULL,
-    [Type]        VARCHAR (2)    NOT NULL,
+    [Type]        NVARCHAR (50)  NOT NULL,
     [Duration]    TIME (7)       NOT NULL,
     [Poster]      VARBINARY (50) NULL,
     [Description] VARCHAR (100)  NULL,
@@ -12,6 +12,8 @@
     CONSTRAINT [FK_Movie_TimeSlot] FOREIGN KEY ([MovieId]) REFERENCES [dbo].[TimeSlot] ([TimeSlotId]),
     CONSTRAINT [FK_Movie_User] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([UserId])
 );
+
+
 
 
 
