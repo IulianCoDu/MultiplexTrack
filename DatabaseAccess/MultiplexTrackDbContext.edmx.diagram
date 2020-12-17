@@ -5,10 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="e6d098df2bdd41b18258a8b19e31c119" Name="Diagram1">
-        <EntityTypeShape EntityType="MultiplexTrackDbContext.Category" Width="1.5" PointX="3" PointY="1.625" />
+        <EntityTypeShape EntityType="MultiplexTrackDbContext.Category" Width="1.5" PointX="3" PointY="1.5" />
         <EntityTypeShape EntityType="MultiplexTrackDbContext.Movie" Width="1.5" PointX="5.25" PointY="4.125" />
         <EntityTypeShape EntityType="MultiplexTrackDbContext.MovieShowtime" Width="1.5" PointX="7.5" PointY="4.375" />
-        <EntityTypeShape EntityType="MultiplexTrackDbContext.Room" Width="1.5" PointX="5.375" PointY="8.75" />
+        <EntityTypeShape EntityType="MultiplexTrackDbContext.Room" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="MultiplexTrackDbContext.Seats" Width="1.5" PointX="12" PointY="5" />
         <EntityTypeShape EntityType="MultiplexTrackDbContext.Theatre" Width="1.5" PointX="1.5" PointY="8.625" />
         <EntityTypeShape EntityType="MultiplexTrackDbContext.Ticket" Width="1.5" PointX="9.75" PointY="4.375" />

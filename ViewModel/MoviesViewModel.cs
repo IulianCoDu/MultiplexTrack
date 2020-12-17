@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using MultiplexTrack.Helpers;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace MultiplexTrack.ViewModel
 {
@@ -11,15 +12,13 @@ namespace MultiplexTrack.ViewModel
         private MultiplexTrackDbContext databaseContext;
         private IFrameNavigationService _navigationService;
 
-        private string _categoryType;
-        // private new IList<Category> _categoryType;
-        //private ICommand _categoryType;
-
+        private ObservableCollection<Category> categories;
 
         public MoviesViewModel(IFrameNavigationService navigationService)
         {
             databaseContext = new MultiplexTrackDbContext();
             _navigationService = navigationService;
+            categories = new ObservableCollection<Category> { new Category ()};
         }
 
         //public ICommand ShowMovieType
@@ -36,15 +35,11 @@ namespace MultiplexTrack.ViewModel
         //    set { Set(ref _categoryType, value); }
         //}
 
-        public IList<Category> Categories { get; set; }
 
+        public ObservableCollection<Category> CategoriesValue { get => categories; set => Set(ref categories, value); }
+        //public ObservableCollection<Category> CategoriesItems { get => categories; set => Set(ref categories, value); }
 
-
-        public string CategoriesType
-        {
-            get { return _categoryType; }
-            set { Set(ref _categoryType, value); }
-        }
+        //TODO: Selected Items (categories)
 
         public IList<Category> GetCategories()
         {
@@ -57,5 +52,5 @@ namespace MultiplexTrack.ViewModel
         }
     }
 
-    
+
 }

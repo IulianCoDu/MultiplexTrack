@@ -11,6 +11,7 @@
           </Key>
           <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategorySelected" Type="bit" />
         </EntityType>
         <EntityType Name="Movie">
           <Key>
@@ -441,6 +442,7 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           </Key>
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
           <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CategorySelected" Type="Boolean" />
           <NavigationProperty Name="Movie" Relationship="MultiplexTrackDbContext.Movie_Category" FromRole="Category" ToRole="Movie" />
         </EntityType>
         <EntityType Name="Movie">
@@ -724,6 +726,7 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           <EntitySetMapping Name="Category">
             <EntityTypeMapping TypeName="MultiplexTrackDbContext.Category">
               <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategorySelected" ColumnName="CategorySelected" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
               </MappingFragment>

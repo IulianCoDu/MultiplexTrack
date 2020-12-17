@@ -80,8 +80,8 @@
             Grid.Row="3"
             Grid.Column="2"
             VerticalAlignment="Center"
-            DisplayMemberPath="CategoryName"
-            ItemsSource="{Binding CategoriesType}" />
+            ItemsSource="{Binding CategoriesValue}"
+            SelectedItemsOverride="{Binding}" />
         <!--<ComboBox
             Grid.Row="3"
             Grid.Column="2"
