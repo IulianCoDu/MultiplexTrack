@@ -369,7 +369,7 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MultiplexTrackDbContext" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MultiplexTrackDbContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Category" EntityType="MultiplexTrackDbContext.Category" />
           <EntitySet Name="Movie" EntityType="MultiplexTrackDbContext.Movie" />
           <EntitySet Name="MovieShowtime" EntityType="MultiplexTrackDbContext.MovieShowtime" />
@@ -722,7 +722,7 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MultiplexTrackDbContextStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="MultiplexTrackDbContextStoreContainer" CdmEntityContainer="MultiplexTrackDbContext">
           <EntitySetMapping Name="Category">
             <EntityTypeMapping TypeName="MultiplexTrackDbContext.Category">
               <MappingFragment StoreEntitySet="Category">

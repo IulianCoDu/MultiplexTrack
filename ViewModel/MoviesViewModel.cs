@@ -19,6 +19,7 @@ namespace MultiplexTrack.ViewModel
             databaseContext = new MultiplexTrackDbContext();
             _navigationService = navigationService;
             categories = new ObservableCollection<Category> { new Category ()};
+            GetCategories();
         }
 
         //public ICommand ShowMovieType
@@ -41,13 +42,13 @@ namespace MultiplexTrack.ViewModel
 
         //TODO: Selected Items (categories)
 
-        public IList<Category> GetCategories()
+        public ObservableCollection<Category> GetCategories()
         {
-            IList<Category> categories = new List<Category>();
-            for (int i = 0; i < categories.Count; i++)
+            foreach (Category category in databaseContext.Category)
             {
-                //_categoryType.Add(categories);
+                categories.Add(category);
             }
+
             return categories;
         }
     }

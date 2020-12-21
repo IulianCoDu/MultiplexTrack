@@ -16,7 +16,7 @@ namespace DatabaseAccess
     public partial class MultiplexTrackDbContext : DbContext
     {
         public MultiplexTrackDbContext()
-            : base("name=Entities")
+            : base("name=MultiplexTrackDbContext")
         {
         }
     
