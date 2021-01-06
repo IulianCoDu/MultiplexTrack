@@ -56,8 +56,8 @@ namespace MultiplexTrack
                                         {
                                             loginSuccesfull = true;
                                             MessageBox.Show("Login Successfull!");
-                           //databaseContext.Dispose();
-                           Clear();
+                                            //databaseContext.Dispose();
+                                            Clear();
                                             _navigationService.NavigateTo("HomeView");
                                             return;
                                         }

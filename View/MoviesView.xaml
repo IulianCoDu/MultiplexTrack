@@ -49,13 +49,19 @@
             Grid.Column="1"
             Text="Poster" />
 
-        <xctk:WatermarkTextBox
-            x:Name="UserNameTextBox"
+        <Image
+            x:Name="Images"
             Grid.Row="1"
             Grid.Column="2"
-            VerticalAlignment="Center"
-            AutomationProperties.Name="Test"
-            Watermark="Image will be added" />
+            Source="{Binding FileName}" />
+
+        <Button
+            x:Name="loadPoster"
+            Grid.Row="1"
+            Grid.Column="3"
+            HorizontalAlignment="Left"
+            Command="{Binding LoadPosterCommand}"
+            Content="Load Poster" />
 
         <!--  Title Text  -->
         <TextBlock
@@ -68,6 +74,7 @@
             Grid.Row="2"
             Grid.Column="2"
             VerticalAlignment="Center"
+            Text="{Binding Title}"
             Watermark="Enter Title of the Movie" />
 
         <!--  Type Text  -->
@@ -81,24 +88,7 @@
             Grid.Column="2"
             VerticalAlignment="Center"
             DisplayMemberPath="CategoryName"
-            ItemsSource="{Binding CategoriesValue}"
-            SelectedItemsOverride="{Binding}"
-            SelectedMemberPath="CategoryId" />
-        <!--<ComboBox
-            Grid.Row="3"
-            Grid.Column="2"
-            VerticalAlignment="Center"
-            IsEditable="True"
-            IsReadOnly="True"
-            IsSynchronizedWithCurrentItem="True"
-            ItemsSource="{Binding CategoriesType}" />-->
-        <!--  Text="{Binding Text}">  -->
-        <!--<ComboBox.ItemTemplate>
-                <DataTemplate DataType="{x:Type local:Item}">
-                    <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}" />
-                </DataTemplate>
-            </ComboBox.ItemTemplate>-->
-
+            ItemsSource="{Binding CategoriesValue}" />
 
         <!--  Year Text  -->
         <TextBlock
@@ -135,19 +125,19 @@
         <xctk:WatermarkTextBox
             Grid.Row="6"
             Grid.Column="2"
+            VerticalAlignment="Center"
             AcceptsReturn="True"
-            TextWrapping="Wrap"
+            Text="{Binding Description}"
             Watermark="Enter a description..." />
 
-
         <Button
-            x:Name="loginButton"
+            x:Name="saveButton"
             Grid.Row="8"
             Grid.Column="1"
-            Width="76"
-            HorizontalAlignment="Left"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
             Command="{Binding LoginCommand}"
-            Content="Login" />
+            Content="Save Movie" />
 
     </Grid>
 </Page>
