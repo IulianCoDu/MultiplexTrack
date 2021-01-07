@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[MovieShowtime] (
-    [MovieShowtimeId] INT NOT NULL,
+    [MovieShowtimeId] INT IDENTITY (1, 1) NOT NULL,
     [TicketId]        INT NOT NULL,
     [MovieId]         INT NOT NULL,
     [RoomId]          INT NOT NULL,
@@ -11,6 +11,8 @@
     CONSTRAINT [FK_MovieShowtime_Theatre] FOREIGN KEY ([TheatreId]) REFERENCES [dbo].[Theatre] ([TheatreId]),
     CONSTRAINT [FK_MovieShowtime_TimeSlot] FOREIGN KEY ([TimeSlotId]) REFERENCES [dbo].[TimeSlot] ([TimeSlotId])
 );
+
+
 
 
 

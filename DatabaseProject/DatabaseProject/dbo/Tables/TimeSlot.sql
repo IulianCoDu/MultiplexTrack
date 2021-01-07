@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[TimeSlot] (
-    [TimeSlotId]      INT      NOT NULL,
+    [TimeSlotId]      INT      IDENTITY (1, 1) NOT NULL,
     [StartTime]       TIME (7) NOT NULL,
     [EndTime]         TIME (7) NOT NULL,
     [MovieShowTimeId] INT      NOT NULL,
@@ -9,6 +9,8 @@
     CONSTRAINT [FK_TimeSlot_Room] FOREIGN KEY ([RoomId]) REFERENCES [dbo].[Room] ([RoomId]),
     CONSTRAINT [FK_TimeSlot_User] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([UserId])
 );
+
+
 
 
 
