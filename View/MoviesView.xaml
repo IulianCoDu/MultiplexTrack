@@ -47,6 +47,8 @@
         <TextBlock
             Grid.Row="1"
             Grid.Column="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
             Text="Poster" />
 
         <Image
@@ -60,6 +62,7 @@
             Grid.Row="1"
             Grid.Column="3"
             HorizontalAlignment="Left"
+            VerticalAlignment="Center"
             Command="{Binding LoadPosterCommand}"
             Content="Load Poster" />
 
@@ -67,6 +70,8 @@
         <TextBlock
             Grid.Row="2"
             Grid.Column="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
             Text="Title" />
 
         <xctk:WatermarkTextBox
@@ -81,6 +86,8 @@
         <TextBlock
             Grid.Row="3"
             Grid.Column="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
             Text="Type" />
 
         <xctk:CheckComboBox
@@ -94,32 +101,52 @@
         <TextBlock
             Grid.Row="4"
             Grid.Column="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
             Text="Year" />
-
         <!--  Date Picker  -->
-        <DatePicker
+        <xctk:DateTimePicker
             Grid.Row="4"
             Grid.Column="2"
-            VerticalAlignment="Center"
-            AutomationProperties.HelpText="Select a date"
-            FirstDayOfWeek="Monday" />
+            AutoCloseCalendar="True"
+            Format="Custom"
+            FormatString="yyyy"
+            MouseWheelActiveOnFocus="True"
+            Text="{Binding Date}"
+            TimePickerVisibility="Hidden"
+            Watermark="Select year" />
 
         <!--  Duration Text  -->
         <TextBlock
             Grid.Row="5"
             Grid.Column="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
             Text="Duration" />
-
+        <!--  Time Picker  -->
         <xctk:TimePicker
             Grid.Row="5"
             Grid.Column="2"
-            AutomationProperties.HelpText="Select a time"
-            Text="test" />
+            Format="Custom"
+            FormatString="hh:mm:ss"
+            MouseWheelActiveOnFocus="True"
+            Text="{Binding Time}"
+            Watermark="Select duration" />
+
+        <!--<xctk:DateTimePicker
+            Grid.Row="5"
+            Grid.Column="2"
+            Format="Custom"
+            FormatString="hh:mm:ss"
+            MouseWheelActiveTrigger="FocusedMouseOver"
+            Watermark="Select duration" />-->
 
         <!--  Description Text  -->
         <TextBlock
             Grid.Row="6"
             Grid.Column="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
             Text="Description" />
 
         <xctk:WatermarkTextBox

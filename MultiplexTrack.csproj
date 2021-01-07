@@ -194,6 +194,9 @@
   <ItemGroup>
     <Resource Include="Pictures\closeBtn_default.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PosterPictures\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

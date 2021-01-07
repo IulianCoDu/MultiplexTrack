@@ -21,6 +21,8 @@ namespace MultiplexTrack.ViewModel
         private ObservableCollection<Category> categories;
         private string _fileName;
         private string _title;
+        private string _date;
+        private string _time;
         private string _description;
 
 
@@ -54,7 +56,6 @@ namespace MultiplexTrack.ViewModel
             }
         }
 
-
         public string FileName
         {
             get { return _fileName; }
@@ -79,6 +80,18 @@ namespace MultiplexTrack.ViewModel
         {
             get { return _title; }
             set { Set(ref _title, value); }
+        }
+
+        public string Date
+        {
+            get { return _date; }
+            set { Set(ref _date, value); }
+        }
+
+        public string Time
+        {
+            get { return _time; }
+            set { Set(ref _time, value); }
         }
 
         public string Description
