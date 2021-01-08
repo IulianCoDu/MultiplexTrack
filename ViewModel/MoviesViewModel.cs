@@ -5,6 +5,7 @@ using Microsoft.Win32;
 using MultiplexTrack.Helpers;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
@@ -16,21 +17,20 @@ namespace MultiplexTrack.ViewModel
         private IFrameNavigationService _navigationService;
 
         private ICommand _loadPoster;
-        BitmapImage _bitmapImage = new BitmapImage();
-
-        private ObservableCollection<Category> categories;
         private string _fileName;
+        private ObservableCollection<Category> _categories;
         private string _title;
         private string _date;
         private string _time;
         private string _description;
-
+        private ICommand _saveMovie;
 
         public MoviesViewModel(IFrameNavigationService navigationService)
         {
             databaseContext = new MultiplexTrackDbContext();
             _navigationService = navigationService;
-            categories = new ObservableCollection<Category> { new Category() };
+
+            _categories = new ObservableCollection<Category> { new Category() };
         }
 
         public ICommand LoadPosterCommand
@@ -50,10 +50,7 @@ namespace MultiplexTrack.ViewModel
                     FileName = op.FileName;
                 }
             });
-            set
-            {
-                Set(ref _loadPoster, value);
-            }
+            set => Set(ref _loadPoster, value);
         }
 
         public string FileName
@@ -66,14 +63,22 @@ namespace MultiplexTrack.ViewModel
                     _fileName = value;
                     RaisePropertyChanged("FileName");
                 }
-
             }
         }
 
-        public ObservableCollection<Category> CategoriesValue
+        public ObservableCollection<Category> Categories
         {
             get => GetCategories();
-            set => Set(ref categories, value);
+            set => Set(ref _categories, value);
+        }
+        public ObservableCollection<Category> GetCategories()
+        {
+            foreach (Category category in databaseContext.Category)
+            {
+                _categories.Add(category);
+            }
+
+            return _categories;
         }
 
         public string Title
@@ -99,20 +104,36 @@ namespace MultiplexTrack.ViewModel
             get { return _description; }
             set { Set(ref _description, value); }
         }
-        //public ObservableCollection<Category> CategoriesItems { get => categories; set => Set(ref categories, value); }
 
-        //TODO: Selected Items (categories)
-
-        public ObservableCollection<Category> GetCategories()
+        public ICommand SaveMovie
         {
-            foreach (Category category in databaseContext.Category)
+            get => new RelayCommand(() =>
             {
-                categories.Add(category);
-            }
+                if (FileName != null && Title != null && Date != null && Time != null && Description != null)
+                {
+                    Clear();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("All fields are mandatory");
+                }
 
-            return categories;
+            });
+            set { Set(ref _saveMovie, value); }
+        }
+
+        private void Clear()
+        {
+            if (FileName != null && Title != null && Categories != null && Date != null && Time != null && Description != null)
+            {
+                FileName = null;
+                Title = null;
+                //Categories = null;
+                Date = null;
+                Time = null;
+                Description = null;
+            }
         }
     }
-
-
 }

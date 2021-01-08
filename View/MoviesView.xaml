@@ -39,7 +39,7 @@
             Grid.ColumnSpan="2"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            Text="Movies"
+            Text="Add a new Movie"
             TextAlignment="Center" />
 
 
@@ -50,13 +50,11 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             Text="Poster" />
-
         <Image
             x:Name="Images"
             Grid.Row="1"
             Grid.Column="2"
             Source="{Binding FileName}" />
-
         <Button
             x:Name="loadPoster"
             Grid.Row="1"
@@ -73,7 +71,6 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             Text="Title" />
-
         <xctk:WatermarkTextBox
             x:Name="TitleBox"
             Grid.Row="2"
@@ -88,14 +85,13 @@
             Grid.Column="1"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            Text="Type" />
-
+            Text="Category" />
         <xctk:CheckComboBox
             Grid.Row="3"
             Grid.Column="2"
             VerticalAlignment="Center"
             DisplayMemberPath="CategoryName"
-            ItemsSource="{Binding CategoriesValue}" />
+            ItemsSource="{Binding Categories}" />
 
         <!--  Year Text  -->
         <TextBlock
@@ -133,14 +129,6 @@
             Text="{Binding Time}"
             Watermark="Select duration" />
 
-        <!--<xctk:DateTimePicker
-            Grid.Row="5"
-            Grid.Column="2"
-            Format="Custom"
-            FormatString="hh:mm:ss"
-            MouseWheelActiveTrigger="FocusedMouseOver"
-            Watermark="Select duration" />-->
-
         <!--  Description Text  -->
         <TextBlock
             Grid.Row="6"
@@ -148,7 +136,6 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             Text="Description" />
-
         <xctk:WatermarkTextBox
             Grid.Row="6"
             Grid.Column="2"
@@ -163,7 +150,7 @@
             Grid.Column="1"
             Grid.ColumnSpan="2"
             HorizontalAlignment="Center"
-            Command="{Binding LoginCommand}"
+            Command="{Binding SaveMovie}"
             Content="Save Movie" />
 
     </Grid>

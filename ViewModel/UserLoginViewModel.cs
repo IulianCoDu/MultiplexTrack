@@ -33,6 +33,7 @@ namespace MultiplexTrack
             get { return _userName; }
             set { Set(ref _userName, value); }
         }
+
         public string PasswordText
         {
             get { return _password; }
@@ -94,6 +95,7 @@ namespace MultiplexTrack
             get { return _cancelCommand; }
             set { Set(ref _cancelCommand, value); }
         }
+
         private void Close()
         {
             Application.Current.Shutdown();
@@ -107,6 +109,5 @@ namespace MultiplexTrack
                 PasswordText = null;
             }
         }
-
     }
 }
