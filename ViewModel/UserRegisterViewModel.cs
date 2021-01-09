@@ -63,7 +63,6 @@ namespace MultiplexTrack.ViewModel
             set { Set(ref _checkBox, value); }
         }
 
-
         public ICommand SaveCommand
         {
             get

@@ -108,7 +108,7 @@
             Format="Custom"
             FormatString="yyyy"
             MouseWheelActiveOnFocus="True"
-            Text="{Binding Date}"
+            Text="{Binding Year}"
             TimePickerVisibility="Hidden"
             Watermark="Select year" />
 
@@ -126,7 +126,7 @@
             Format="Custom"
             FormatString="hh:mm:ss"
             MouseWheelActiveOnFocus="True"
-            Text="{Binding Time}"
+            Text="{Binding TimeDuration}"
             Watermark="Select duration" />
 
         <!--  Description Text  -->

@@ -5,6 +5,7 @@ using Microsoft.Win32;
 using MultiplexTrack.Helpers;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
@@ -13,21 +14,21 @@ namespace MultiplexTrack.ViewModel
 {
     public class MoviesViewModel : ViewModelBase
     {
-        private MultiplexTrackDbContext databaseContext;
+        private MultiplexTrackDbContext _databaseContext;
         private IFrameNavigationService _navigationService;
 
         private ICommand _loadPoster;
         private string _fileName;
         private ObservableCollection<Category> _categories;
         private string _title;
-        private string _date;
+        private string _year;
         private string _time;
         private string _description;
         private ICommand _saveMovie;
 
         public MoviesViewModel(IFrameNavigationService navigationService)
         {
-            databaseContext = new MultiplexTrackDbContext();
+            _databaseContext = new MultiplexTrackDbContext();
             _navigationService = navigationService;
 
             _categories = new ObservableCollection<Category> { new Category() };
@@ -73,11 +74,10 @@ namespace MultiplexTrack.ViewModel
         }
         public ObservableCollection<Category> GetCategories()
         {
-            foreach (Category category in databaseContext.Category)
+            foreach (Category category in _databaseContext.Category)
             {
                 _categories.Add(category);
             }
-
             return _categories;
         }
 
@@ -87,13 +87,13 @@ namespace MultiplexTrack.ViewModel
             set { Set(ref _title, value); }
         }
 
-        public string Date
+        public string Year
         {
-            get { return _date; }
-            set { Set(ref _date, value); }
+            get { return _year; }
+            set { Set(ref _year, value); }
         }
 
-        public string Time
+        public string TimeDuration
         {
             get { return _time; }
             set { Set(ref _time, value); }
@@ -109,8 +109,27 @@ namespace MultiplexTrack.ViewModel
         {
             get => new RelayCommand(() =>
             {
-                if (FileName != null && Title != null && Date != null && Time != null && Description != null)
+                if (FileName != null && Title != null && Year != null && TimeDuration != null && Description != null)
                 {
+                    //if (_databaseContext.Movie.Any())
+                    //{
+
+                    //}
+                    Movie movie = new Movie();
+
+                    movie.Poster = FileName;
+                    movie.Title = Title;
+                    foreach (var category in _categories)
+                    {
+                        //movie.Category = category.CategoryName;
+                    }
+                    movie.Category = _categories;
+                    movie.Year = Year;
+                    movie.Duration = TimeDuration;
+                    movie.Description = Description;
+
+                    //_databaseContext.Movie.
+
                     Clear();
                     return;
                 }
@@ -125,13 +144,13 @@ namespace MultiplexTrack.ViewModel
 
         private void Clear()
         {
-            if (FileName != null && Title != null && Categories != null && Date != null && Time != null && Description != null)
+            if (FileName != null && Title != null && Categories != null && Year != null && TimeDuration != null && Description != null)
             {
                 FileName = null;
                 Title = null;
                 //Categories = null;
-                Date = null;
-                Time = null;
+                Year = null;
+                TimeDuration = null;
                 Description = null;
             }
         }
