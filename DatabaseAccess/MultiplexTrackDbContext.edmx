@@ -33,14 +33,14 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
             <PropertyRef Name="MovieId" />
             <PropertyRef Name="CategoryId" />
           </Key>
-          <Property Name="MovieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieId" Type="int" Nullable="false" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="MovieShowtime">
           <Key>
             <PropertyRef Name="MovieShowtimeId" />
           </Key>
-          <Property Name="MovieShowtimeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieShowtimeId" Type="int" Nullable="false" />
           <Property Name="TicketId" Type="int" Nullable="false" />
           <Property Name="MovieId" Type="int" Nullable="false" />
           <Property Name="RoomId" Type="int" Nullable="false" />
@@ -464,7 +464,7 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           <Key>
             <PropertyRef Name="MovieShowtimeId" />
           </Key>
-          <Property Name="MovieShowtimeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieShowtimeId" Type="Int32" Nullable="false" />
           <Property Name="TicketId" Type="Int32" Nullable="false" />
           <Property Name="MovieId" Type="Int32" Nullable="false" />
           <Property Name="RoomId" Type="Int32" Nullable="false" />

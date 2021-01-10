@@ -36,11 +36,8 @@ namespace MultiplexTrack.ViewModel
 
             _categories = new ObservableCollection<Category>();
             _selectedCategories = new ObservableCollection<Category>();
-        }
 
-        public ICommand LoadPosterCommand
-        {
-            get => new RelayCommand(() =>
+            _loadPoster = new RelayCommand(() =>
             {
                 OpenFileDialog op = new OpenFileDialog();
                 op.Title = "Select a poster for movie";
@@ -55,6 +52,13 @@ namespace MultiplexTrack.ViewModel
                     FileName = op.FileName;
                 }
             });
+
+            _saveMovie = new RelayCommand(ExecuteSaveMovie);
+        }
+
+        public ICommand LoadPosterCommand
+        {
+            get => _loadPoster;
             set => Set(ref _loadPoster, value);
         }
 
@@ -62,8 +66,8 @@ namespace MultiplexTrack.ViewModel
         {
             get { return _fileName; }
             set
-                //TODO: Use Set method
-            { 
+            //TODO: Use Set method
+            {
                 if (_fileName != value)
                 {
                     _fileName = value;
@@ -119,42 +123,7 @@ namespace MultiplexTrack.ViewModel
 
         public ICommand SaveMovie
         {
-            get => new RelayCommand(() =>
-            {
-                if (FileName != null && Title != null && SelectedCategories != null && SelectedCategories.Any() && Year != null && TimeDuration != null && Description != null)
-                {
-                    Movie movie = new Movie();
-
-                    movie.Poster = FileName;
-                    movie.Title = Title;
-                    //TODO: Try to get rid of Movie Type - redundant
-                    movie.Type = "Action, Adventure";
-                    movie.Year = Year;
-                    movie.Duration = TimeDuration;
-                    movie.Description = Description;
-                    movie.Category = null;
-                    movie.MovieShowtime = null;
-                    //movie.UserId = 1;
-                    //movie.TimeSlotId = 1;
-
-                    //TODO: Uncomment after Categories issue is solved
-                    //foreach (var category in SelectedCategories)
-                    //{
-                    //    movie.Category.Add(category);
-                    //}
-
-                    _databaseContext.Movie.Add(movie);
-                    _databaseContext.SaveChanges();
-
-                    Clear();
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show("All fields are mandatory");
-                }
-
-            });
+            get => _saveMovie;
             set { Set(ref _saveMovie, value); }
         }
 
@@ -171,5 +140,42 @@ namespace MultiplexTrack.ViewModel
                 Description = null;
             }
         }
+
+        private void ExecuteSaveMovie()
+        {
+            if (FileName != null && Title != null && SelectedCategories != null && SelectedCategories.Any() && Year != null && TimeDuration != null && Description != null)
+            {
+                Movie movie = new Movie();
+                movie.MovieId = 1;
+                movie.Poster = FileName;
+                movie.Title = Title;
+                //TODO: Try to get rid of Movie Type - redundant
+                movie.Type = "Action, Adventure";
+                movie.Year = Year;
+                movie.Duration = TimeDuration;
+                movie.Description = Description;
+                movie.Category = null;
+                movie.MovieShowtime = null;
+                movie.UserId = 1;
+                movie.TimeSlotId = 1;
+
+                //TODO: Uncomment after Categories issue is solved
+                //foreach (var category in SelectedCategories)
+                //{
+                //    movie.Category.Add(category);
+                //}
+
+                _databaseContext.Movie.Add(movie);
+                _databaseContext.SaveChanges();
+
+                Clear();
+                return;
+            }
+            else
+            {
+                MessageBox.Show("All fields are mandatory");
+            }
+        }
+        
     }
 }
