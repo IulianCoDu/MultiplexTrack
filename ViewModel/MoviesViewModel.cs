@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Microsoft.Win32;
 using MultiplexTrack.Helpers;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
@@ -17,9 +18,11 @@ namespace MultiplexTrack.ViewModel
         private MultiplexTrackDbContext _databaseContext;
         private IFrameNavigationService _navigationService;
 
+        private ObservableCollection<Category> _categories;
+        private ObservableCollection<Category> _selectedCategories;
+
         private ICommand _loadPoster;
         private string _fileName;
-        private ObservableCollection<Category> _categories;
         private string _title;
         private string _year;
         private string _time;
@@ -31,7 +34,8 @@ namespace MultiplexTrack.ViewModel
             _databaseContext = new MultiplexTrackDbContext();
             _navigationService = navigationService;
 
-            _categories = new ObservableCollection<Category> { new Category() };
+            _categories = new ObservableCollection<Category>();
+            _selectedCategories = new ObservableCollection<Category>();
         }
 
         public ICommand LoadPosterCommand
@@ -58,7 +62,8 @@ namespace MultiplexTrack.ViewModel
         {
             get { return _fileName; }
             set
-            {
+                //TODO: Use Set method
+            { 
                 if (_fileName != value)
                 {
                     _fileName = value;
@@ -67,7 +72,7 @@ namespace MultiplexTrack.ViewModel
             }
         }
 
-        public ObservableCollection<Category> Categories
+        public ObservableCollection<Category> CategoriesSource
         {
             get => GetCategories();
             set => Set(ref _categories, value);
@@ -79,6 +84,13 @@ namespace MultiplexTrack.ViewModel
                 _categories.Add(category);
             }
             return _categories;
+        }
+
+        //TODO: change from Observable to IList
+        public ObservableCollection<Category> SelectedCategories
+        {
+            get { return _selectedCategories; }
+            set { Set(ref _selectedCategories, value); }
         }
 
         public string Title
@@ -109,26 +121,30 @@ namespace MultiplexTrack.ViewModel
         {
             get => new RelayCommand(() =>
             {
-                if (FileName != null && Title != null && Year != null && TimeDuration != null && Description != null)
+                if (FileName != null && Title != null && SelectedCategories != null && SelectedCategories.Any() && Year != null && TimeDuration != null && Description != null)
                 {
-                    //if (_databaseContext.Movie.Any())
-                    //{
-
-                    //}
                     Movie movie = new Movie();
 
                     movie.Poster = FileName;
                     movie.Title = Title;
-                    foreach (var category in _categories)
-                    {
-                        //movie.Category = category.CategoryName;
-                    }
-                    movie.Category = _categories;
+                    //TODO: Try to get rid of Movie Type - redundant
+                    movie.Type = "Action, Adventure";
                     movie.Year = Year;
                     movie.Duration = TimeDuration;
                     movie.Description = Description;
+                    movie.Category = null;
+                    movie.MovieShowtime = null;
+                    //movie.UserId = 1;
+                    //movie.TimeSlotId = 1;
 
-                    //_databaseContext.Movie.
+                    //TODO: Uncomment after Categories issue is solved
+                    //foreach (var category in SelectedCategories)
+                    //{
+                    //    movie.Category.Add(category);
+                    //}
+
+                    _databaseContext.Movie.Add(movie);
+                    _databaseContext.SaveChanges();
 
                     Clear();
                     return;
@@ -144,10 +160,11 @@ namespace MultiplexTrack.ViewModel
 
         private void Clear()
         {
-            if (FileName != null && Title != null && Categories != null && Year != null && TimeDuration != null && Description != null)
+            if (FileName != null && Title != null && Year != null && TimeDuration != null && Description != null)
             {
                 FileName = null;
                 Title = null;
+                _databaseContext.Category.RemoveRange(_categories);
                 //Categories = null;
                 Year = null;
                 TimeDuration = null;

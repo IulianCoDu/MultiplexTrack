@@ -91,7 +91,6 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           <Property Name="TimeSlotId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StartTime" Type="time" Precision="7" Nullable="false" />
           <Property Name="EndTime" Type="time" Precision="7" Nullable="false" />
-          <Property Name="MovieShowTimeId" Type="int" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="RoomId" Type="int" Nullable="false" />
         </EntityType>
@@ -368,7 +367,7 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MultiplexTrackModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MultiplexTrackDbContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Category" EntityType="MultiplexTrackModel.Category" />
           <EntitySet Name="Movie" EntityType="MultiplexTrackModel.Movie" />
           <EntitySet Name="MovieShowtime" EntityType="MultiplexTrackModel.MovieShowtime" />
@@ -532,7 +531,6 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           <Property Name="TimeSlotId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
           <Property Name="EndTime" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="MovieShowTimeId" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="RoomId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Movie" Relationship="MultiplexTrackModel.FK_Movie_TimeSlot" FromRole="TimeSlot" ToRole="Movie" />
@@ -720,7 +718,7 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MultiplexTrackModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="MultiplexTrackModelStoreContainer" CdmEntityContainer="MultiplexTrackDbContext">
           <EntitySetMapping Name="Category">
             <EntityTypeMapping TypeName="MultiplexTrackModel.Category">
               <MappingFragment StoreEntitySet="Category">
@@ -802,7 +800,6 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
               <MappingFragment StoreEntitySet="TimeSlot">
                 <ScalarProperty Name="RoomId" ColumnName="RoomId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="MovieShowTimeId" ColumnName="MovieShowTimeId" />
                 <ScalarProperty Name="EndTime" ColumnName="EndTime" />
                 <ScalarProperty Name="StartTime" ColumnName="StartTime" />
                 <ScalarProperty Name="TimeSlotId" ColumnName="TimeSlotId" />

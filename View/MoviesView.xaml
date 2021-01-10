@@ -91,7 +91,8 @@
             Grid.Column="2"
             VerticalAlignment="Center"
             DisplayMemberPath="CategoryName"
-            ItemsSource="{Binding Categories}" />
+            ItemsSource="{Binding CategoriesSource}"
+            SelectedItemsOverride="{Binding SelectedCategories}" />
 
         <!--  Year Text  -->
         <TextBlock
