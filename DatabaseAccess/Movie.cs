@@ -24,14 +24,12 @@ namespace DatabaseAccess
         public int MovieId { get; set; }
         public string Title { get; set; }
         public string Year { get; set; }
-        public string Type { get; set; }
         public string Duration { get; set; }
         public string Poster { get; set; }
         public string Description { get; set; }
         public int UserId { get; set; }
         public int TimeSlotId { get; set; }
     
-        public virtual TimeSlot TimeSlot { get; set; }
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MovieShowtime> MovieShowtime { get; set; }

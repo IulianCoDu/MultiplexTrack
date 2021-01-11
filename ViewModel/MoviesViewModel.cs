@@ -66,12 +66,10 @@ namespace MultiplexTrack.ViewModel
         {
             get { return _fileName; }
             set
-            //TODO: Use Set method
             {
                 if (_fileName != value)
                 {
-                    _fileName = value;
-                    RaisePropertyChanged("FileName");
+                    Set(ref _fileName, value);
                 }
             }
         }
@@ -143,21 +141,19 @@ namespace MultiplexTrack.ViewModel
 
         private void ExecuteSaveMovie()
         {
-            if (FileName != null && Title != null && SelectedCategories != null && SelectedCategories.Any() && Year != null && TimeDuration != null && Description != null)
+            if (FileName != null && Title != null && SelectedCategories != null && Year != null && TimeDuration != null && Description != null)
             {
                 Movie movie = new Movie();
-                movie.MovieId = 1;
+                //movie.MovieId = 2;
                 movie.Poster = FileName;
                 movie.Title = Title;
-                //TODO: Try to get rid of Movie Type - redundant
-                movie.Type = "Action, Adventure";
                 movie.Year = Year;
                 movie.Duration = TimeDuration;
                 movie.Description = Description;
-                movie.Category = null;
-                movie.MovieShowtime = null;
-                movie.UserId = 1;
-                movie.TimeSlotId = 1;
+                //movie.Category = null;
+                //movie.MovieShowtime = null;
+                //movie.UserId = 1;
+                //movie.TimeSlotId = 1;
 
                 //TODO: Uncomment after Categories issue is solved
                 //foreach (var category in SelectedCategories)
@@ -166,7 +162,15 @@ namespace MultiplexTrack.ViewModel
                 //}
 
                 _databaseContext.Movie.Add(movie);
-                _databaseContext.SaveChanges();
+                try
+                {
+                    _databaseContext.SaveChanges();
+                }
+                catch (System.Exception)
+                {
+
+                    throw;
+                }
 
                 Clear();
                 return;
@@ -176,6 +180,6 @@ namespace MultiplexTrack.ViewModel
                 MessageBox.Show("All fields are mandatory");
             }
         }
-        
+
     }
 }
