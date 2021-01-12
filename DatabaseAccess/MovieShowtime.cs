@@ -21,11 +21,11 @@ namespace DatabaseAccess
         }
     
         public int MovieShowtimeId { get; set; }
-        public int TicketId { get; set; }
         public int MovieId { get; set; }
         public int RoomId { get; set; }
         public int TheatreId { get; set; }
         public int TimeSlotId { get; set; }
+        public int Price { get; set; }
     
         public virtual Movie Movie { get; set; }
         public virtual Room Room { get; set; }

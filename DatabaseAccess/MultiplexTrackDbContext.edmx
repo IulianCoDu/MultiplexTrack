@@ -23,7 +23,6 @@
           <Property Name="Poster" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
-          <Property Name="TimeSlotId" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -40,18 +39,18 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
             <PropertyRef Name="MovieShowtimeId" />
           </Key>
           <Property Name="MovieShowtimeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TicketId" Type="int" Nullable="false" />
           <Property Name="MovieId" Type="int" Nullable="false" />
           <Property Name="RoomId" Type="int" Nullable="false" />
           <Property Name="TheatreId" Type="int" Nullable="false" />
           <Property Name="TimeSlotId" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
             <PropertyRef Name="RoomId" />
           </Key>
           <Property Name="RoomId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="RoomNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="RoomNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="TheatreId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Seats">
@@ -59,7 +58,7 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
             <PropertyRef Name="SeatId" />
           </Key>
           <Property Name="SeatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SeatNumber" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="SeatNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="RoomId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Theatre">
@@ -75,13 +74,9 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
             <PropertyRef Name="TicketId" />
           </Key>
           <Property Name="TicketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MovieName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ScreenNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="SeatNumber" Type="int" Nullable="false" />
-          <Property Name="StartHour" Type="datetime" Nullable="false" />
-          <Property Name="Price" Type="int" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="MovieShowtimeId" Type="int" Nullable="false" />
+          <Property Name="SeatId" Type="int" />
         </EntityType>
         <EntityType Name="TimeSlot">
           <Key>
@@ -213,18 +208,6 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Seats_Ticket">
-          <End Role="Ticket" Type="Self.Ticket" Multiplicity="1" />
-          <End Role="Seats" Type="Self.Seats" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Ticket">
-              <PropertyRef Name="TicketId" />
-            </Principal>
-            <Dependent Role="Seats">
-              <PropertyRef Name="SeatId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Ticket_MovieShowtime">
           <End Role="MovieShowtime" Type="Self.MovieShowtime" Multiplicity="1" />
           <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
@@ -325,10 +308,6 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
             <End Role="Room" EntitySet="Room" />
             <End Role="Seats" EntitySet="Seats" />
           </AssociationSet>
-          <AssociationSet Name="FK_Seats_Ticket" Association="Self.FK_Seats_Ticket">
-            <End Role="Ticket" EntitySet="Ticket" />
-            <End Role="Seats" EntitySet="Seats" />
-          </AssociationSet>
           <AssociationSet Name="FK_Ticket_MovieShowtime" Association="Self.FK_Ticket_MovieShowtime">
             <End Role="MovieShowtime" EntitySet="MovieShowtime" />
             <End Role="Ticket" EntitySet="Ticket" />
@@ -396,10 +375,6 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
             <End Role="Room" EntitySet="Room" />
             <End Role="TimeSlot" EntitySet="TimeSlot" />
           </AssociationSet>
-          <AssociationSet Name="FK_Seats_Ticket" Association="MultiplexTrackModel.FK_Seats_Ticket">
-            <End Role="Ticket" EntitySet="Ticket" />
-            <End Role="Seats" EntitySet="Seats" />
-          </AssociationSet>
           <AssociationSet Name="FK_Ticket_User" Association="MultiplexTrackModel.FK_Ticket_User">
             <End Role="User" EntitySet="User" />
             <End Role="Ticket" EntitySet="Ticket" />
@@ -432,7 +407,6 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           <Property Name="Poster" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="TimeSlotId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="User" Relationship="MultiplexTrackModel.FK_Movie_User" FromRole="Movie" ToRole="User" />
           <NavigationProperty Name="MovieShowtime" Relationship="MultiplexTrackModel.FK_MovieShowtime_Movie" FromRole="Movie" ToRole="MovieShowtime" />
           <NavigationProperty Name="Category" Relationship="MultiplexTrackModel.Movie_Category" FromRole="Movie" ToRole="Category" />
@@ -442,11 +416,11 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
             <PropertyRef Name="MovieShowtimeId" />
           </Key>
           <Property Name="MovieShowtimeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TicketId" Type="Int32" Nullable="false" />
           <Property Name="MovieId" Type="Int32" Nullable="false" />
           <Property Name="RoomId" Type="Int32" Nullable="false" />
           <Property Name="TheatreId" Type="Int32" Nullable="false" />
           <Property Name="TimeSlotId" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Movie" Relationship="MultiplexTrackModel.FK_MovieShowtime_Movie" FromRole="MovieShowtime" ToRole="Movie" />
           <NavigationProperty Name="Room" Relationship="MultiplexTrackModel.FK_MovieShowtime_Room" FromRole="MovieShowtime" ToRole="Room" />
           <NavigationProperty Name="Theatre" Relationship="MultiplexTrackModel.FK_MovieShowtime_Theatre" FromRole="MovieShowtime" ToRole="Theatre" />
@@ -458,7 +432,7 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
             <PropertyRef Name="RoomId" />
           </Key>
           <Property Name="RoomId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RoomNumber" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="RoomNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="TheatreId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="MovieShowtime" Relationship="MultiplexTrackModel.FK_MovieShowtime_Room" FromRole="Room" ToRole="MovieShowtime" />
           <NavigationProperty Name="Theatre" Relationship="MultiplexTrackModel.FK_Room_Theatre" FromRole="Room" ToRole="Theatre" />
@@ -470,10 +444,9 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
             <PropertyRef Name="SeatId" />
           </Key>
           <Property Name="SeatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SeatNumber" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="SeatNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="RoomId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Room" Relationship="MultiplexTrackModel.FK_Seats_Room" FromRole="Seats" ToRole="Room" />
-          <NavigationProperty Name="Ticket" Relationship="MultiplexTrackModel.FK_Seats_Ticket" FromRole="Seats" ToRole="Ticket" />
         </EntityType>
         <EntityType Name="Theatre">
           <Key>
@@ -490,15 +463,10 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
             <PropertyRef Name="TicketId" />
           </Key>
           <Property Name="TicketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MovieName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ScreenNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SeatNumber" Type="Int32" Nullable="false" />
-          <Property Name="StartHour" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Price" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="MovieShowtimeId" Type="Int32" Nullable="false" />
+          <Property Name="SeatId" Type="Int32" />
           <NavigationProperty Name="MovieShowtime" Relationship="MultiplexTrackModel.FK_Ticket_MovieShowtime" FromRole="Ticket" ToRole="MovieShowtime" />
-          <NavigationProperty Name="Seats" Relationship="MultiplexTrackModel.FK_Seats_Ticket" FromRole="Ticket" ToRole="Seats" />
           <NavigationProperty Name="User" Relationship="MultiplexTrackModel.FK_Ticket_User" FromRole="Ticket" ToRole="User" />
         </EntityType>
         <EntityType Name="TimeSlot">
@@ -637,18 +605,6 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Seats_Ticket">
-          <End Type="MultiplexTrackModel.Ticket" Role="Ticket" Multiplicity="1" />
-          <End Type="MultiplexTrackModel.Seats" Role="Seats" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Ticket">
-              <PropertyRef Name="TicketId" />
-            </Principal>
-            <Dependent Role="Seats">
-              <PropertyRef Name="SeatId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Ticket_User">
           <End Type="MultiplexTrackModel.User" Role="User" Multiplicity="1" />
           <End Type="MultiplexTrackModel.Ticket" Role="Ticket" Multiplicity="*" />
@@ -694,7 +650,6 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           <EntitySetMapping Name="Movie">
             <EntityTypeMapping TypeName="MultiplexTrackModel.Movie">
               <MappingFragment StoreEntitySet="Movie">
-                <ScalarProperty Name="TimeSlotId" ColumnName="TimeSlotId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Poster" ColumnName="Poster" />
@@ -708,11 +663,11 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           <EntitySetMapping Name="MovieShowtime">
             <EntityTypeMapping TypeName="MultiplexTrackModel.MovieShowtime">
               <MappingFragment StoreEntitySet="MovieShowtime">
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="TimeSlotId" ColumnName="TimeSlotId" />
                 <ScalarProperty Name="TheatreId" ColumnName="TheatreId" />
                 <ScalarProperty Name="RoomId" ColumnName="RoomId" />
                 <ScalarProperty Name="MovieId" ColumnName="MovieId" />
-                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
                 <ScalarProperty Name="MovieShowtimeId" ColumnName="MovieShowtimeId" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -747,13 +702,9 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           <EntitySetMapping Name="Ticket">
             <EntityTypeMapping TypeName="MultiplexTrackModel.Ticket">
               <MappingFragment StoreEntitySet="Ticket">
+                <ScalarProperty Name="SeatId" ColumnName="SeatId" />
                 <ScalarProperty Name="MovieShowtimeId" ColumnName="MovieShowtimeId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="StartHour" ColumnName="StartHour" />
-                <ScalarProperty Name="SeatNumber" ColumnName="SeatNumber" />
-                <ScalarProperty Name="ScreenNumber" ColumnName="ScreenNumber" />
-                <ScalarProperty Name="MovieName" ColumnName="MovieName" />
                 <ScalarProperty Name="TicketId" ColumnName="TicketId" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -88,7 +88,6 @@ namespace MultiplexTrack.ViewModel
             return _categories;
         }
 
-        //TODO: change from Observable to IList
         public ObservableCollection<Category> SelectedCategories
         {
             get { return _selectedCategories; }
@@ -131,8 +130,7 @@ namespace MultiplexTrack.ViewModel
             {
                 FileName = null;
                 Title = null;
-                _databaseContext.Category.RemoveRange(_categories);
-                //Categories = null;
+                //_databaseContext.Category.RemoveRange(_categories);
                 Year = null;
                 TimeDuration = null;
                 Description = null;
@@ -144,22 +142,15 @@ namespace MultiplexTrack.ViewModel
             if (FileName != null && Title != null && SelectedCategories != null && Year != null && TimeDuration != null && Description != null)
             {
                 Movie movie = new Movie();
-                //movie.MovieId = 2;
                 movie.Poster = FileName;
                 movie.Title = Title;
+                movie.Category = SelectedCategories;
                 movie.Year = Year;
                 movie.Duration = TimeDuration;
                 movie.Description = Description;
-                //movie.Category = null;
-                //movie.MovieShowtime = null;
-                //movie.UserId = 1;
-                //movie.TimeSlotId = 1;
+                movie.User = LoggedInUser.CurrentUser;
 
-                //TODO: Uncomment after Categories issue is solved
-                //foreach (var category in SelectedCategories)
-                //{
-                //    movie.Category.Add(category);
-                //}
+                movie.MovieShowtime = null;
 
                 _databaseContext.Movie.Add(movie);
                 try

@@ -19,6 +19,5 @@ namespace DatabaseAccess
         public int RoomId { get; set; }
     
         public virtual Room Room { get; set; }
-        public virtual Ticket Ticket { get; set; }
     }
 }

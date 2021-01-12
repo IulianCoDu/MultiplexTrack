@@ -6,10 +6,11 @@
     [Poster]      VARCHAR (100) NOT NULL,
     [Description] VARCHAR (100) NOT NULL,
     [UserId]      INT           NOT NULL,
-    [TimeSlotId]  INT           NOT NULL,
     CONSTRAINT [PK_Movie] PRIMARY KEY CLUSTERED ([MovieId] ASC),
     CONSTRAINT [FK_Movie_User] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([UserId])
 );
+
+
 
 
 

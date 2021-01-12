@@ -55,9 +55,9 @@ namespace MultiplexTrack
                                     {
                                         if (UserNameText == user.UserName && PasswordText == user.Password)
                                         {
+                                            LoggedInUser.CurrentUser = user;
                                             loginSuccesfull = true;
                                             MessageBox.Show("Login Successfull!");
-                                            //databaseContext.Dispose();
                                             Clear();
                                             _navigationService.NavigateTo("HomeView");
                                             return;
@@ -71,7 +71,7 @@ namespace MultiplexTrack
                                     }
 
                                 });
-            set { Set(ref _loginCommand, value); } // TODO: Read about this custom Set
+            set { Set(ref _loginCommand, value); }
         }
 
         public ICommand RegisterCommand
@@ -81,7 +81,7 @@ namespace MultiplexTrack
                                      _navigationService.NavigateTo("UserRegisterView");
                                      Clear();
                                  });
-            set { Set(ref _registerCommand, value); } // TODO: Read about this custom Set 
+            set { Set(ref _registerCommand, value); }
         }
 
         public ICommand ClearCommand

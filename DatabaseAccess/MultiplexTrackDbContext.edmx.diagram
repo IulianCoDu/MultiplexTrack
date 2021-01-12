@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="efe9fc0970c34d209e12eb1946a9857d" Name="Diagram1" ZoomLevel="95">
-        <EntityTypeShape EntityType="MultiplexTrackModel.Category" Width="1.5" PointX="3.75" PointY="0.75" />
-        <EntityTypeShape EntityType="MultiplexTrackModel.Movie" Width="1.5" PointX="6" PointY="3" />
+        <EntityTypeShape EntityType="MultiplexTrackModel.Category" Width="1.5" PointX="6" PointY="0.875" />
+        <EntityTypeShape EntityType="MultiplexTrackModel.Movie" Width="1.5" PointX="6" PointY="3.125" />
         <EntityTypeShape EntityType="MultiplexTrackModel.MovieShowtime" Width="1.5" PointX="8.25" PointY="3" />
         <EntityTypeShape EntityType="MultiplexTrackModel.Room" Width="1.5" PointX="6" PointY="7.375" />
-        <EntityTypeShape EntityType="MultiplexTrackModel.Seats" Width="1.5" PointX="12.75" PointY="3.5" />
+        <EntityTypeShape EntityType="MultiplexTrackModel.Seats" Width="1.5" PointX="8.25" PointY="7.625" />
         <EntityTypeShape EntityType="MultiplexTrackModel.Theatre" Width="1.5" PointX="3.75" PointY="7.5" />
-        <EntityTypeShape EntityType="MultiplexTrackModel.Ticket" Width="1.5" PointX="10.5" PointY="3" />
+        <EntityTypeShape EntityType="MultiplexTrackModel.Ticket" Width="1.5" PointX="10.5" PointY="3.5" />
         <EntityTypeShape EntityType="MultiplexTrackModel.TimeSlot" Width="1.5" PointX="3" PointY="3.25" />
         <EntityTypeShape EntityType="MultiplexTrackModel.User" Width="1.5" PointX="0.75" PointY="3.125" />
         <AssociationConnector Association="MultiplexTrackModel.FK_Movie_User" />
@@ -23,7 +23,6 @@
         <AssociationConnector Association="MultiplexTrackModel.FK_Room_Theatre" />
         <AssociationConnector Association="MultiplexTrackModel.FK_Seats_Room" />
         <AssociationConnector Association="MultiplexTrackModel.FK_TimeSlot_Room" />
-        <AssociationConnector Association="MultiplexTrackModel.FK_Seats_Ticket" />
         <AssociationConnector Association="MultiplexTrackModel.FK_Ticket_User" />
         <AssociationConnector Association="MultiplexTrackModel.FK_TimeSlot_User" />
         <AssociationConnector Association="MultiplexTrackModel.Movie_Category" />
