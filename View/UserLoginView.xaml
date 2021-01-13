@@ -63,29 +63,13 @@
             Watermark="Enter User Name" />
 
         <!--  PasswordBoxWatermark  -->
-        <!--<xctk:WatermarkTextBox
+        <xctk:WatermarkTextBox
             x:Name="PasswordBox"
             Grid.Row="2"
             Grid.Column="2"
             VerticalAlignment="Center"
             Text="{Binding PasswordText}"
-            Watermark="Enter Password" />-->
-        <PasswordBox
-            x:Name="PasswordBox"
-            Grid.Row="2"
-            Grid.Column="2"
-            Height="24"
-            VerticalAlignment="Center" />
-        <!--  Text="{Binding PasswordText}"  -->
-
-        <!--<Button
-            x:Name="loginButton"
-            Grid.Row="3"
-            Grid.Column="1"
-            Width="76"
-            HorizontalAlignment="Left"
-            Command="{Binding LoginCommand}"
-            Content="Login" />-->
+            Watermark="Enter Password" />
 
         <Button
             x:Name="loginButton"
@@ -93,8 +77,7 @@
             Grid.Column="1"
             Width="76"
             HorizontalAlignment="Left"
-            Command="{Binding LoginCommand2}"
-            CommandParameter="{Binding RelativeSource={RelativeSource}}"
+            Command="{Binding LoginCommand}"
             Content="Login" />
 
         <!--  Clear button row  -->
