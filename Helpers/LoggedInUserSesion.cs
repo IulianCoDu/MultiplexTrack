@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MultiplexTrack.Helpers
 {
-    public static class LoggedInUser
+    public static class LoggedInUserSesion
     {
         public static DatabaseAccess.User CurrentUser { get; set; }
     }

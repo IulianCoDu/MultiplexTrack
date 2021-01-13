@@ -130,7 +130,7 @@ namespace MultiplexTrack.ViewModel
             {
                 FileName = null;
                 Title = null;
-                //_databaseContext.Category.RemoveRange(_categories);
+                SelectedCategories.Clear();
                 Year = null;
                 TimeDuration = null;
                 Description = null;
@@ -144,24 +144,25 @@ namespace MultiplexTrack.ViewModel
                 Movie movie = new Movie();
                 movie.Poster = FileName;
                 movie.Title = Title;
-                movie.Category = SelectedCategories;
+                foreach (var category in SelectedCategories)
+                {
+                    movie.Category.Add(category);
+                }
                 movie.Year = Year;
                 movie.Duration = TimeDuration;
                 movie.Description = Description;
-                movie.User = LoggedInUser.CurrentUser;
+                movie.UserId = LoggedInUserSesion.CurrentUser.UserId;
 
                 movie.MovieShowtime = null;
 
                 _databaseContext.Movie.Add(movie);
-                try
-                {
-                    _databaseContext.SaveChanges();
-                }
-                catch (System.Exception)
-                {
+                _databaseContext.SaveChanges();
+                //foreach (var category in SelectedCategories)
+                //{
+                //    _databaseContext.Movie_Category.Add(new Movie_Category { CategoryId = category.CategoryId, MovieId = movie.MovieId });
+                //}
+                //_databaseContext.SaveChanges();
 
-                    throw;
-                }
 
                 Clear();
                 return;

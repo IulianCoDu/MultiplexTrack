@@ -55,7 +55,7 @@ namespace MultiplexTrack
                                     {
                                         if (UserNameText == user.UserName && PasswordText == user.Password)
                                         {
-                                            LoggedInUser.CurrentUser = user;
+                                            LoggedInUserSesion.CurrentUser = user;
                                             loginSuccesfull = true;
                                             MessageBox.Show("Login Successfull!");
                                             Clear();

@@ -24,8 +24,6 @@
           <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Movie_Category">
           <Key>
             <PropertyRef Name="MovieId" />
@@ -259,6 +257,7 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
         <EntityContainer Name="MultiplexTrackModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movie_Category" EntityType="Self.Movie_Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MovieShowtime" EntityType="Self.MovieShowtime" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Seats" EntityType="Self.Seats" Schema="dbo" store:Type="Tables" />
@@ -266,12 +265,6 @@ warning 6002: The table/view 'MultiplexTrack.dbo.Movie_Category' does not have a
           <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TimeSlot" EntityType="Self.TimeSlot" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Movie_Category" EntityType="Self.Movie_Category" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Movie_Category].[MovieId] AS [MovieId], 
-    [Movie_Category].[CategoryId] AS [CategoryId]
-    FROM [dbo].[Movie_Category] AS [Movie_Category]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Movie_Category_Category" Association="Self.FK_Movie_Category_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="Movie_Category" EntitySet="Movie_Category" />

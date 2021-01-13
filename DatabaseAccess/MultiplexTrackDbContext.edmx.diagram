@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="efe9fc0970c34d209e12eb1946a9857d" Name="Diagram1" ZoomLevel="95">
-        <EntityTypeShape EntityType="MultiplexTrackModel.Category" Width="1.5" PointX="6" PointY="0.875" />
+      <Diagram DiagramId="efe9fc0970c34d209e12eb1946a9857d" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="MultiplexTrackModel.Category" Width="1.5" PointX="6" PointY="0.75" />
         <EntityTypeShape EntityType="MultiplexTrackModel.Movie" Width="1.5" PointX="6" PointY="3.125" />
         <EntityTypeShape EntityType="MultiplexTrackModel.MovieShowtime" Width="1.5" PointX="8.25" PointY="3" />
         <EntityTypeShape EntityType="MultiplexTrackModel.Room" Width="1.5" PointX="6" PointY="7.375" />

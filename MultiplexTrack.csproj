@@ -91,7 +91,7 @@
     </ApplicationDefinition>
     <Compile Include="Helpers\FrameNavigationService.cs" />
     <Compile Include="Helpers\IFrameNavigationService.cs" />
-    <Compile Include="Helpers\LoggedInUser.cs" />
+    <Compile Include="Helpers\LoggedInUserSesion.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MovieShowTimeModel.cs" />
     <Compile Include="ViewModel\MoviesViewModel.cs" />
