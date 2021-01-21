@@ -71,6 +71,15 @@
             Text="{Binding PasswordText}"
             Watermark="Enter Password" />
 
+        <!--<xctk:WatermarkPasswordBox
+            x:Name="PasswordBox"
+            Grid.Row="2"
+            Grid.Column="2"
+            VerticalAlignment="Center"
+            MaxLength="10"
+            Text="{Binding PasswordText}"
+            Watermark="Enter Password" />-->
+
         <Button
             x:Name="loginButton"
             Grid.Row="3"

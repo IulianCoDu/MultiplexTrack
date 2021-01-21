@@ -86,13 +86,22 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             Text="Category" />
-        <xctk:CheckComboBox
+
+        <ComboBox
             Grid.Row="3"
             Grid.Column="2"
             VerticalAlignment="Center"
             DisplayMemberPath="CategoryName"
             ItemsSource="{Binding CategoriesSource}"
-            SelectedItemsOverride="{Binding SelectedCategories}" />
+            SelectedItem="{Binding SelectedCategories}" />
+
+        <!--<xctk:CheckComboBox
+            Grid.Row="3"
+            Grid.Column="2"
+            VerticalAlignment="Center"
+            DisplayMemberPath="CategoryName"
+            ItemsSource="{Binding CategoriesSource}"
+            SelectedItemsOverride="{Binding SelectedCategories}" />-->
 
         <!--  Year Text  -->
         <TextBlock

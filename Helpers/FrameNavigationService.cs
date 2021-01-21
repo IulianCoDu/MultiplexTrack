@@ -6,7 +6,6 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace MultiplexTrack.Helpers
 {

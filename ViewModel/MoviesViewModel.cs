@@ -19,7 +19,9 @@ namespace MultiplexTrack.ViewModel
         private IFrameNavigationService _navigationService;
 
         private ObservableCollection<Category> _categories;
-        private ObservableCollection<Category> _selectedCategories;
+        //private ObservableCollection<Category> _selectedCategories;
+
+        private object _selectedCategories;
 
         private ICommand _loadPoster;
         private string _fileName;
@@ -88,7 +90,7 @@ namespace MultiplexTrack.ViewModel
             return _categories;
         }
 
-        public ObservableCollection<Category> SelectedCategories
+        public object SelectedCategories
         {
             get { return _selectedCategories; }
             set { Set(ref _selectedCategories, value); }
@@ -130,7 +132,7 @@ namespace MultiplexTrack.ViewModel
             {
                 FileName = null;
                 Title = null;
-                SelectedCategories.Clear();
+                //SelectedCategories.Clear();
                 Year = null;
                 TimeDuration = null;
                 Description = null;
@@ -144,10 +146,10 @@ namespace MultiplexTrack.ViewModel
                 Movie movie = new Movie();
                 movie.Poster = FileName;
                 movie.Title = Title;
-                foreach (var category in SelectedCategories)
-                {
-                    movie.Category.Add(category);
-                }
+                //foreach (var category in SelectedCategories)
+                //{
+                //    movie.Category.Add(category);
+                //}
                 movie.Year = Year;
                 movie.Duration = TimeDuration;
                 movie.Description = Description;
