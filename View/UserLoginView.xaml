@@ -2,6 +2,7 @@
     x:Class="MultiplexTrack.View.UserLoginView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:components="clr-namespace:MultiplexTrack.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
@@ -63,13 +64,18 @@
             Watermark="Enter User Name" />
 
         <!--  PasswordBoxWatermark  -->
-        <xctk:WatermarkTextBox
+        <components:BindablePasswordBox
+            Grid.Row="2"
+            Grid.Column="2"
+            VerticalAlignment="Center"
+            Password="{Binding PasswordText}" />
+        <!--<xctk:WatermarkTextBox
             x:Name="PasswordBox"
             Grid.Row="2"
             Grid.Column="2"
             VerticalAlignment="Center"
             Text="{Binding PasswordText}"
-            Watermark="Enter Password" />
+            Watermark="Enter Password" />-->
 
         <!--<xctk:WatermarkPasswordBox
             x:Name="PasswordBox"
